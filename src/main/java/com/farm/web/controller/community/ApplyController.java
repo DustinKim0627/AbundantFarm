@@ -1,17 +1,34 @@
 package com.farm.web.controller.community;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.farm.web.entity.SellerApply;
+import com.farm.web.service.ApplyService;
 
 @Controller("CommunityApplyController")
 @RequestMapping("/community/apply/")
 public class ApplyController {
 
+	@Autowired
+	ApplyService applyService;
+	
 	@GetMapping("list")
-	public String list() {
+	public String list(@RequestParam(name = "p", defaultValue = "1") Integer page,
+			@RequestParam(name = "f", defaultValue = "title") String field,
+			@RequestParam(name = "q", defaultValue = "") String query,
+			Model model) {
 		
-		return "commnunity/apply/list";
+		List<SellerApply> list = applyService.getList(page, field, query);
+		model.addAttribute("list", list);
+		
+		return "community/apply/list";
 	}
 	
 }

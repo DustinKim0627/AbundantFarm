@@ -1,6 +1,6 @@
 package com.farm.web.service;
 
-import com.farm.web.dao.SellerApplyDao;
+import com.farm.web.dao.ApplyDao;
 import com.farm.web.dao.NoticeDao;
 import com.farm.web.entity.Notice;
 import com.farm.web.entity.SellerApply;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class ApplyService {
 
 	@Autowired
-	private SellerApplyDao applyDao;
+	private ApplyDao applyDao;
 	
 	public List<SellerApply> getList(Integer page, String field, String query) {
 		int size = 10;
@@ -46,5 +46,13 @@ public int updateAccept(int id) {
 	public int updateReject(int id) {
 		
 		return applyDao.updateReject(id);
+	}
+	
+	
+	public List<SellerApply> getApplyList(Integer page, String field, String query) {
+		int size = 10;
+		int offset = (page-1)*size;
+		
+		return applyDao.getList(offset, size, field, query);
 	}
 }

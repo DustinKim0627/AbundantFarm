@@ -13,7 +13,7 @@ import com.farm.web.entity.Notice;
 import com.farm.web.entity.SellerApply;
 
 @Mapper
-public interface SellerApplyDao {
+public interface ApplyDao {
 	
 	@Select("select * from SellerApply where ${field} like '%${query}%' order by id desc limit #{offset}, #{size}")
 	List<SellerApply> getList(int offset, int size, String field, String query);
@@ -29,5 +29,8 @@ public interface SellerApplyDao {
 
 	@Update("update SellerApply set appDate=null where id=${id}")
 	int updateReject(int id);
+	
+	@Select("select * from SellerApply where id=${id}")
+	SellerApply getApplyList(int id);
 
 }
