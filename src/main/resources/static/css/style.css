@@ -1,0 +1,90 @@
+@import url(layout.css);
+@import url(component.css);
+@import url(member.css);
+@import url(community.css);
+@import url(product.css);
+@import url(user.css);
+@import url(chart.css);
+@import url(admin.css);
+@import url(seller.css);
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.d-none {
+    display: none;
+}
+.font-color-blue {
+    color: blue;
+}
+.font-color-red {
+    color: red;
+}
+.font-color-green {
+    color: #0e5b55;
+}
+.section-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/*클릭됐을때 배경 초록 / 글씨색 흰색 변경*/
+.clicked {
+    color: #fff;
+    background-color: #0e5b55 !important;
+}
+
+/*서브페이지 제목*/
+.page-title {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.page-title::before {
+    content: "| ";
+    color: #0e5b55;
+}
+
+/*로그인, 회원가입*/
+.signup-title-font {
+    font-size: 18px;
+    font-weight: bold;
+}
+.menu-h {
+    font-weight: bold;
+    font-size: 20px;
+}
+.list-none-msg {
+    font-size: 15px;
+    font-weight: bold;
+    color: #888888;
+    width: 100%;
+    padding-top: 70px;
+    text-align: center;
+}
+.all-view-font {
+    font-size: 14px;
+}
+
+
+/*게시판 너비 클래스 모음*/
+.num-col {
+    width: 70px;
+}
+.date-col {
+    width: 100px;
+}
+.reg-col {
+    width: 150px;
+}
+.title-col {
+    width: 200px;
+}
+.text-col {
+    width: 300px;
+}
+.expand-col {
+    width: 500px;
+}

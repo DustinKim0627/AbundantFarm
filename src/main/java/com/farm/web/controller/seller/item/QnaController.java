@@ -1,0 +1,112 @@
+package com.farm.web.controller.seller.item;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.Principal;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.farm.web.entity.Item;
+import com.farm.web.entity.ItemQnA;
+import com.farm.web.entity.ItemQnAListView;
+import com.farm.web.service.seller.SellerQnaService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
+@Controller("sellerQnaController")
+@RequestMapping("/seller/item/qna/")
+public class QnaController {
+
+	@Autowired
+	private SellerQnaService qnaService;
+	
+	@GetMapping("list")
+	public String list(
+		@RequestParam(name = "p", defaultValue = "1") Integer page, 
+		@RequestParam(name = "q", defaultValue = "") String query,
+		@RequestParam(name = "f", defaultValue = "iName") String field,
+		Model model) {
+
+		List<ItemQnAListView> qList = qnaService.getQnAList(page, query, field);
+		List<Item> iList = qnaService.getItemList();
+		model.addAttribute("iList", iList);
+		model.addAttribute("qList", qList);
+		
+		
+		return "seller/item/qna";
+	}
+	
+	@PostMapping("list")
+	public String list2(
+			HttpServletRequest request,
+			Model model) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		String query = request.getParameter("fs");
+		int page = 1;
+		String field = "iName";
+		
+		List<ItemQnAListView> qList = qnaService.getQnAList(page, query, field);
+		List<Item> iList = qnaService.getItemList();
+		model.addAttribute("q",query);
+		model.addAttribute("qList",qList);
+		model.addAttribute("iList", iList);
+		
+		return "seller/item/qna";
+	}
+	
+	
+	@GetMapping("{dtlNum}")
+	public String detail(@PathVariable("dtlNum") int dtlNum, Model model) {
+		ItemQnA itemQna = qnaService.getItemQnA(dtlNum);
+		
+		model.addAttribute("i", itemQna);
+		
+		return "seller/item/detail";
+	}
+	
+	@GetMapping("answer")
+	public String answer() {
+		return "seller/item/answer";
+	}
+	
+	@PostMapping("answer2")
+	public String answer2(
+			HttpServletRequest request, MultipartFile file, 
+			Principal principal) throws IOException {
+	    InputStream is = request.getInputStream();
+	    Scanner scan = new Scanner(is, "UTF-8");
+	    String json = scan.nextLine();
+	    Gson gson = new GsonBuilder()
+				   .setDateFormat("yyyy-MM-dd-HH:mm:ss")
+				   .create();
+	    
+	    String data = gson.fromJson(json, String.class);
+	    int result = 0;
+//	    itemQnA의 id
+	    int id = 2044;
+	    result = qnaService.insertAnswer(id,data);
+		
+	    
+	    if(result == 1)
+	    	return "redirect:list";
+	    else
+	    	return "error";
+	}
+	
+
+}
+
