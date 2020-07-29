@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.SellerApply;
 import com.farm.web.service.ApplyService;
 
@@ -25,9 +26,9 @@ public class ApplyController {
 			@RequestParam(name = "q", defaultValue = "") String query,
 			Model model) {
 		
-		List<SellerApply> list = applyService.getList(page, field, query);
+		List<SellerApply> list = applyService.getApplyList(page, field, query);
 		model.addAttribute("list", list);
-		
+
 		return "community/apply/list";
 	}
 	

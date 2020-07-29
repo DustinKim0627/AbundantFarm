@@ -2,6 +2,7 @@ package com.farm.web.service;
 
 import com.farm.web.dao.ApplyDao;
 import com.farm.web.dao.NoticeDao;
+import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.Notice;
 import com.farm.web.entity.SellerApply;
 
@@ -55,4 +56,6 @@ public int updateAccept(int id) {
 		
 		return applyDao.getList(offset, size, field, query);
 	}
+	
+
 }

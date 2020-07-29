@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -139,6 +138,7 @@
         </section>
     </header>
     
+    
     <main class="main">
         <section class="content-container">
             <div class="path">
@@ -150,74 +150,53 @@
                         <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/apply/list">입점신청</a>
+                        <a href="/community/qna/list">Q &amp; A</a>
                     </li>
                 </ol>
             </div>
             
-            <h1 class="page-title">입점신청</h1>
+            <h1 class="page-title">Q &amp; A</h1>
 
-            <span class="board-search">
-                <form name="search" method="POST" action="">
-                    <fieldset>
-                        <select name="search-option">
-                            <option>제목</option>
-                            <option>내용</option>
-                            <option>제목+내용</option>
-                        </select>
-                        <input type="search" placeholder="검색어를 입력하세요.">
-                        <input type="submit" value="검색">
-                    </fieldset>
-                </form>
-            </span>
-
-            <table class="board-table">
-                <thead>
-                    <tr>
-                        <th class="num-col">번호</th>
-                        <th>제목</th>
-                        <th class="reg-col">작성자</th>
-                        <th class="reg-col">작성일</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                <c:forEach var="l" items="${list}" varStatus="st">
-                <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd hh:mm" value = "${l.regDate}"/>
-                    <tr>
-                        <td>${l.id }</td>
-                        <td>
-                            <a href="detail.html">${l.title }</a>
-                        </td>
-                        <td>${l.staffName }</td>
-                        <td>${dateTempParse}</td>
-                        <
-                    </tr>
-                 </c:forEach>   
-                </tbody>
-            </table>
-
-            <div class="write-button">
-                <button>글쓰기</button>
-            </div>
-
-            <div class="pager">	
-                <span class="btn btn-prev">이전</span>
-                <ul class="page-list">
-                    <li><a href="" class="checked">1</a></li>
-                    <li><a href="">2</a></li>
-                </ul>
-                <span class="btn btn-next">다음</span>
-            </div>
+            <section class="admin-main">
+		<section class="admin-sub-main">
+			<h1 class="page-title">공지사항</h1>
+			<section class="writer-container">
+				<h1 class="d-none">글쓰기 디테일</h1>
+				<div class="title">
+	         		<input type="text" name="title" placeholder="제목을 입력해주세요.">
+	         	</div>
+				<div class="editor"></div>          
+				<div>
+				    <input type="checkbox" name="pub"> 바로공개
+				</div>
+			</section>
+	
+			<div class="admin-button">
+	         	<input type="submit" value="등록">
+	         	<a href="list">목록</a>
+	         </div>
+		</section>
+	</section>
 
         </section>
     </main>
+
+   
+	
+    
+        
 
 <!-- ------------footer------------------------------- -->
     <footer class="footer">
         
         <button class="up-button"> </button>
     </footer>
+
+<script src="/js/admin/board/notice/reg.js"></script>
+<script src="/ckeditor5/build/ckeditor.js"></script>
+<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
+<script type="module" src="/ckeditor5/build/notice-edit-reg.js"></script>
+
 
 </body>
 </html>

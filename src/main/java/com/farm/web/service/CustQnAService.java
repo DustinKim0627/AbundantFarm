@@ -22,7 +22,7 @@ public class CustQnAService {
 		int offset = (page-1)*size;
 		
 		return custQnaDao.getList(offset, size, field, query);
-	}
+	}	
 
 	public int delete(int[] id) {
 		String ids = "";

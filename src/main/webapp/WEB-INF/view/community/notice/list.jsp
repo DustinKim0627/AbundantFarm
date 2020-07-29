@@ -184,13 +184,14 @@
 
                 <tbody>
                 <c:forEach var="l" items="${list}" varStatus="st">
+                <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd hh:mm" value = "${l.regDate}"/>
                     <tr>
                         <td>${l.id }</td>
                         <td>
                             <a href="detail.html">${l.title }</a>
                         </td>
                         <td>${l.writerId }</td>
-                        <td>${l.regDate }</td>
+                        <td>${dateTempParse }</td>
                         <td>${l.hit }</td>
                     </tr>
                  </c:forEach>   

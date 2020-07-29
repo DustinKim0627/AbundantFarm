@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.Notice;
 import com.farm.web.entity.SellerApply;
 
@@ -31,6 +32,6 @@ public interface ApplyDao {
 	int updateReject(int id);
 	
 	@Select("select * from SellerApply where id=${id}")
-	SellerApply getApplyList(int id);
+	List<AdminSellerView> getApplyList(int id);
 
 }

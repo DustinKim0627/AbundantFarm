@@ -1,7 +1,6 @@
 package com.farm.web.service;
 
 import com.farm.web.dao.ReviewDao;
-import com.farm.web.entity.Notice;
 import com.farm.web.entity.Review;
 import com.farm.web.entity.ReviewView;
 
@@ -33,7 +32,8 @@ public class ReviewService {
 	}
 
 	public Review get(int id) {
-		
-		return reviewDao.get(id);
-	}
+	      
+	      return reviewDao.get(id);
+	   }
+
 }

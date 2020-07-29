@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.farm.web.entity.Notice;
-import com.farm.web.entity.Review;
-import com.farm.web.entity.DTO.ReviewView;
-import com.farm.web.service.NoticeService;
+import com.farm.web.entity.ReviewView;
 import com.farm.web.service.ReviewService;
 
 @Controller("CommunityReviewController")
@@ -20,7 +17,7 @@ import com.farm.web.service.ReviewService;
 public class ReviewController {
 	
 	@Autowired
-	private ReviewService sellerReviewService;
+	private ReviewService reviewService;
 
 	@GetMapping("list")
 	public String list(@RequestParam(name = "p", defaultValue = "1") Integer page,
@@ -28,8 +25,8 @@ public class ReviewController {
 			@RequestParam(name = "q", defaultValue = "") String query,
 			Model model) {
 		
-//		List<ReviewView> review = sellerReviewService.getList();
-//		model.addAttribute("review", review);
+		List<ReviewView> review = reviewService.getList(page, field, query);
+		model.addAttribute("review", review);
 		
 		return "community/review/list";
 	}

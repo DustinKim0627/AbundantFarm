@@ -191,7 +191,7 @@
                         <td>
                             <a href="detail.html">${l.title }</a>
                         </td>
-                        <td>${l.writerId }</td>
+                        <td>${l.name }</td>
                         <td>${dateTempParse}</td>
                         <td>${l.contentA }</td>
                         <td>${l.regDateA }</td>
@@ -201,7 +201,7 @@
             </table>
 
             <div class="write-button">
-                <a href="/community/write.html">
+                <a href="reg">
                     <button>글쓰기</button>
                 </a>
             </div>
