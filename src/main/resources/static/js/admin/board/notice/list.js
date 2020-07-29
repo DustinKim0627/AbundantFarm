@@ -15,7 +15,7 @@ window.addEventListener("load",()=>{
     let searchInput = searchForm.querySelector("input[type='search']");
     let searchBtn = searchForm.querySelector("input[type='submit']");
 
-    let pager = document.querySelector(".board-pager");
+    let pager = document.querySelector(".pager");
     
     allShowBtn.onclick = (e)=>{
         e.preventDefault();
@@ -23,8 +23,8 @@ window.addEventListener("load",()=>{
         let selectIds = [];
         
         for(let i=0; i< checkInputs.length; i++) {
-        	if(checkInputs[i].checked)
-        		selectIds[i] = checkInputs[i].value;
+           if(checkInputs[i].checked)
+              selectIds[i] = checkInputs[i].value;
         }
 
         selectIds  = selectIds.filter(function(item) {
@@ -51,18 +51,23 @@ window.addEventListener("load",()=>{
     allDeleteBtn.onclick = (e)=>{
         e.preventDefault();
         
-        let selectIds = [];
+        let selectIds = [];        
         
         for(let i=0; i< checkInputs.length; i++) {
-        	if(checkInputs[i].checked)
-        		selectIds[i] = checkInputs[i].value;
+           if(checkInputs[i].checked)
+              selectIds[i] = checkInputs[i].value;
         }
+
+        if(selectIds.length < 1) {
+            alert("하나 이상을 선택하세요");
+            return;
+        };
 
         selectIds  = selectIds.filter(function(item) {
             return item !== null && item !== undefined && item !== '';
         }); //배열에서 빈 값 삭제하는 필터        
 
-       fetch(`del?id=${selectIds}`)
+        fetch(`del?id=${selectIds}`)
         .then(res => res.json())
         .then(json=>{
             changeTbody();
@@ -74,9 +79,9 @@ window.addEventListener("load",()=>{
             checkInputs = tbody.querySelectorAll("input[type='checkbox']");
 
         })
-      .catch((error)=>{
-      	  console.log('There has been a problem with your fetch operation:',error.message);
-      });
+        .catch((error)=>{
+            console.log('There has been a problem with your fetch operation:',error.message);
+        });
         
     }
 
@@ -88,7 +93,7 @@ window.addEventListener("load",()=>{
         let query = searchInput.value;
         let field = searchField.value;
 
-        fetch(`../../api/notice/list?p=${page}&q=${query}&f=${field}`)
+        fetch(`api/list?p=${page}&q=${query}&f=${field}`)
         .then(res => res.json())
         .then(json=>{
             changeTbody();
@@ -101,7 +106,7 @@ window.addEventListener("load",()=>{
 
         })
        .catch((error)=>{
-       	  console.log('There has been a problem with your fetch operation:',error.message);
+            console.log('There has been a problem with your fetch operation:',error.message);
        });
     }
     
@@ -111,7 +116,7 @@ window.addEventListener("load",()=>{
         let query = searchInput.value;
         let field = searchField.value;
 
-        fetch(`../../api/notice/list?p=1&q=${query}&f=${field}`)
+        fetch(`api/list?p=1&q=${query}&f=${field}`)
         .then(res => res.json())
         .then(json=>{
             changeTbody();
@@ -125,7 +130,7 @@ window.addEventListener("load",()=>{
             
         })
         .catch((error)=>{
-        	  console.log('There has been a problem with your fetch operation:',error.message);
+             console.log('There has been a problem with your fetch operation:',error.message);
         });
     }
 
@@ -134,11 +139,11 @@ window.addEventListener("load",()=>{
         if(allCheckInput.checked) {
             for(var i=0; i< checkInputs.length; i++)
                 checkInputs[i].checked = true;
-	    } else {
+       } else {
             for(var i=0; i< checkInputs.length; i++)
                 checkInputs[i].checked = false;
-	    }
-    	
+       }
+       
     }
 
     const changeTbody = ()=>{
@@ -149,31 +154,32 @@ window.addEventListener("load",()=>{
     }
 
     const bind = list => {
-    	let pubText ="";
-    	if(list.pub)
-    		pubText = "공개";
-    	else
-    		pubText = "비공개";    	
-    	
+       let pubText ="";
+       if(list.pub)
+          pubText = "공개";
+       else
+          pubText = "비공개";       
+       
         let tr = 
-	        `<tr>
+           `<tr>
+              <td>${list.id}</td>
+               <td>
+                   <a href="${list.id}">
+                       ${list.title}
+                   </a>
+               </td>
+               <td>관리자</td>
+               <td>
+                   ${list.regDate}
+               </td>
+               <td>${list.hit}</td>
+               <td>
+                  ${pubText}
+               </td>
                 <td>
                     <input type="checkbox" value="${list.id}">
                 </td>
-	            <td>
-	                <a href="${list.id}">
-	                    ${list.title}
-	                </a>
-	            </td>
-	            <td>관리자</td>
-	            <td>
-	                ${list.regDate}
-	            </td>
-	            <td>${list.hit}</td>
-	            <td>
-	            	${pubText}
-	            </td>
-	        </tr>`;
+           </tr>`;
         
         tbody.insertAdjacentHTML("beforeend",tr);
     }

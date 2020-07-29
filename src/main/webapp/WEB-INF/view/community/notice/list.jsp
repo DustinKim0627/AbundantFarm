@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +73,7 @@
                         <a href="/product/list.html">상품</a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
                         <a href="/community/intro.html">은풍한 팜</a>
@@ -115,19 +117,19 @@
                         <ul>
                             <li>은풍한 팜</li>
                             <li>
-                                <a href="/community/intro.html">은풍한 팜 소개</a>
+                                <a href="/community/intro">은풍한 팜 소개</a>
                             </li>
                             <li>
-                                <a href="/community/notice.html">공지사항</a>
+                                <a href="/community/notice/list">공지사항</a>
                             </li>
                             <li>
-                                <a href="/community/apply.html">입점신청</a>
+                                <a href="/community/apply/list">입점신청</a>
                             </li>
                             <li>
-                                <a href="/community/qna.html">Q &amp; A</a>
+                                <a href="/community/qna/list">Q &amp; A</a>
                             </li>
                             <li>
-                                <a href="/community/review.html">상품후기</a>
+                                <a href="/community/review/list">상품후기</a>
                             </li>
                         </ul>
                     </div>
@@ -135,10 +137,9 @@
             </section>
         </section>
     </header>
-
+    
     <main class="main">
         <section class="content-container">
-            <h1 class="d-none">커뮤니티 메인</h1>
             <div class="path">
                 <ol>
                     <li>
@@ -147,137 +148,77 @@
                     <li>
                         <a href="/community/community.html">커뮤니티</a>
                     </li>
+                    <li>
+                        <a href="/community/notice.html">공지사항</a>
+                    </li>
                 </ol>
             </div>
-            <section class="community-section">
-                <h1 class="d-none">게시판 모음</h1>
-                <div>
-                    <table>
-                        <col>
-                        <col class="date-col">
+            
+            <h1 class="page-title">공지사항</h1>
 
-                        <tr>
-                            <td colspan="2">
-                                <a href="/community/notice.html">공지사항</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                    </table>
-                </div>
+            <span class="board-search">
+                <form name="search" method="POST" action="">
+                    <fieldset>
+                        <select name="search-option">
+                            <option>제목</option>
+                            <option>내용</option>
+                            <option>제목+내용</option>
+                        </select>
+                        <input type="search" placeholder="검색어를 입력하세요.">
+                        <input type="submit" value="검색">
+                    </fieldset>
+                </form>
+            </span>
 
-                <div>
-                    <table>
-                        <col>
-                        <col class="date-col">
+            <table class="board-table">
+                <thead>
+                    <tr>
+                        <th class="num-col">번호</th>
+                        <th>제목</th>
+                        <th class="reg-col">작성자</th>
+                        <th class="reg-col">작성일</th>
+                        <th class="num-col">조회수</th>
+                    </tr>
+                </thead>
 
-                        <tr>
-                            <td colspan="2">
-                                <a href="/community/apply.html">입점신청</a>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>입점을 희망합니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                    </table>
-                </div>
+                <tbody>
+                <c:forEach var="l" items="${list}" varStatus="st">
+                    <tr>
+                        <td>${l.id }</td>
+                        <td>
+                            <a href="detail.html">${l.title }</a>
+                        </td>
+                        <td>${l.writerId }</td>
+                        <td>${l.regDate }</td>
+                        <td>${l.hit }</td>
+                    </tr>
+                 </c:forEach>   
+                </tbody>
+            </table>
 
-                <div>
-                    <table>
-                        <col>
-                        <col class="date-col">
+            <div class="write-button">
+                <a href="#">
+                    <button>글쓰기</button>
+                </a>
+            </div>
 
-                        <tr>
-                            <td colspan="2">
-                                <a href="/community/qna.html">Q &amp; A</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="pager">	
+                <span class="btn btn-prev">이전</span>
+                <ul class="page-list">
+                    <li><a href="" class="checked">1</a></li>
+                    <li><a href="">2</a></li>
+                </ul>
+                <span class="btn btn-next">다음</span>
+            </div>
 
-                <div>
-                    <table>
-                        <col>
-                        <col class="date-col">
-
-                        <tr>                            
-                            <td colspan="2">
-                                <a href="/community/review.html">상품후기</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                    </table>
-                </div>
-            </section>
         </section>
     </main>
+
+<!-- ------------footer------------------------------- -->
     <footer class="footer">
         
         <button class="up-button"> </button>
     </footer>
-    
+
 </body>
 </html>

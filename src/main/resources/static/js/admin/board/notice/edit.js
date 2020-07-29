@@ -17,7 +17,6 @@ window.addEventListener("load",()=>{
         else
             pubInput.value = false;
         
-        console.log(pubInput.value)
         fetch('edit', {
             method: "POST",
             headers: {

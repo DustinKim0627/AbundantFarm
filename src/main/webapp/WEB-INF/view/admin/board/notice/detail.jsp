@@ -10,15 +10,30 @@
 		<section class="detail-container">
 	     	<h1 class="d-none">공지사항 디테일</h1>
      	
-			<div class="title">
-				<span>${n.title}</span>
+			<div class="title">${n.title}</div>
+			<div class="reg-info">
 				<span>
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${list.regDate}" />
+					글쓴이: 관리자
 				</span>
+				<ul>
+					<li>작성일: <fmt:formatDate pattern="yyyy-MM-dd" value="${n.regDate}" /></li>
+					<li>조회수: ${n.hit}</li>
+					<li>
+						공개유무: 
+						<c:choose>
+							<c:when test="${n.pub eq 'true'}">
+								공개
+							</c:when>
+							<c:otherwise>
+								비공개
+							</c:otherwise>
+						</c:choose>	
+					</li>
+				</ul>
 			</div>
 			<div class="content">
 				${n.content}
-			</div>	
+			</div>
 		</section>
 
 		<div class="admin-button">
@@ -30,3 +45,4 @@
 		</div>
 	</section>
 </main>
+

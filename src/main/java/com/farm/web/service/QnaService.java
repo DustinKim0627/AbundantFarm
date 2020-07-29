@@ -1,4 +1,4 @@
-package com.farm.web.service.seller;
+package com.farm.web.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +15,7 @@ import com.farm.web.entity.ItemQnA;
 import com.farm.web.entity.ItemQnAListView;
 
 @Service
-public class SellerQnaService {
+public class QnaService {
 	
 	@Autowired
 	private ItemDao itemDao;

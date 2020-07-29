@@ -26,9 +26,7 @@
             <table class="board-table">
                 <thead>
                     <tr>
-                        <th class="num-col">
-                        	<input type="checkbox" class="all-check">
-                        </th>
+                    	<th class="num-col">번호</th>
                         <th>제목</th>
                         <th class="reg-col">작성자</th>
                         <th class="reg-col">작성일</th>
@@ -36,15 +34,16 @@
                         <th class="date-col checkbox-col">
                         	공개유무
                         </th>
+                        <th class="num-col">
+                        	<input type="checkbox" class="all-check">
+                        </th>
                     </tr>
                 </thead>
 
                 <tbody>
 	                <c:forEach var="list" items="${list}">
 	                    <tr>
-	                        <td>
-	                        	<input type="checkbox" value="${list.id}">
-	                        </td>
+	                        <td>${list.id}</td>
 	                        <td>
 	                            <a href="${list.id}">
 	                            	${list.title}
@@ -65,6 +64,9 @@
 									</c:otherwise>
 								</c:choose>
 	                        </td>
+	                        <td>
+	                        	<input type="checkbox" value="${list.id}">
+	                        </td>
 	                    </tr>
 	                </c:forEach>
                 </tbody>
@@ -78,7 +80,7 @@
                 </a>
             </div>
 
-            <div class="pager board-pager">	
+            <div class="pager">	
                 <span class="btn btn-prev">이전</span>
                 <ul class="page-list">
                     <c:forEach begin="1" end="5" var="p">
@@ -88,6 +90,6 @@
                 <span class="btn btn-next">다음</span>
             </div>
         </section>
-       </main>
-       
-       <script src="/js/admin/board/notice/list.js"></script>
+	</main>
+    
+    <script src="/js/admin/board/notice/list.js"></script>

@@ -2,6 +2,8 @@ package com.farm.web.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class SellerApply {
 	private int id; 
 	private String title; 
@@ -15,6 +17,7 @@ public class SellerApply {
 	private String files;  
 	private String sellingUrl; 
 	private String item; 
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date regDate;  
 	private Date appDate; 
 	

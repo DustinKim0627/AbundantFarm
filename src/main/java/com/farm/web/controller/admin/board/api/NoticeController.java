@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.farm.web.entity.Notice;
-import com.farm.web.service.admin.NoticeService;
+import com.farm.web.service.NoticeService;
 
 @RestController("apiNoticeController")
-@RequestMapping("/admin/api/notice/")
+@RequestMapping("/admin/board/notice/api")
 public class NoticeController {
 	
 	@Autowired

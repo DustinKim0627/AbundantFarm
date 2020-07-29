@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.farm.web.entity.Item;
 import com.farm.web.entity.ItemQnA;
 import com.farm.web.entity.ItemQnAListView;
-import com.farm.web.service.seller.SellerQnaService;
+import com.farm.web.service.QnaService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -32,7 +32,7 @@ import com.google.gson.GsonBuilder;
 public class QnaController {
 
 	@Autowired
-	private SellerQnaService qnaService;
+	private QnaService qnaService;
 	
 	@GetMapping("list")
 	public String list(

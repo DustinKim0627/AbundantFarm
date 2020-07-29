@@ -18,23 +18,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.farm.web.entity.CategoryView;
 import com.farm.web.entity.Item;
 import com.farm.web.entity.Member;
 import com.farm.web.entity.Origin;
 import com.farm.web.entity.SellerCategoryCountView;
 import com.farm.web.entity.SellerItemView;
-import com.farm.web.service.CategoryService;
-import com.farm.web.service.OriginService;
-import com.farm.web.service.seller.SellerItemService;
+import com.farm.web.service.ItemService;
 
-//지욱
+
 @Controller("sellerItemController")
-@RequestMapping("/seller/item/list/")
-public class ListController {
+@RequestMapping("/seller/item/")
+public class ItemController {
 	
 	@Autowired
-	private SellerItemService spservice;
+	private ItemService spservice;
 		
 	@GetMapping("list")
 	public String list(@RequestParam(name = "q", defaultValue = "") String query,
@@ -79,8 +76,47 @@ public class ListController {
 		return "redirect:list";
 	}
 	
+	@GetMapping("reg")
+	public String reg(Model model) {
+		
+		String uid = "seller";
+		Member member=null;
 
+		member = spservice.getMember(uid);
+		model.addAttribute("m",member);
+
+		List<Origin> olist = spservice.getList();
+		model.addAttribute("originlist",olist);
+		
+		return "seller/item/reg";
+	}
 	
-	
+	@PostMapping("reg")
+	public String reg(MultipartFile file,HttpServletRequest request,
+			@RequestParam(name = "store-qty", defaultValue = "") Integer qty,
+			Item item) throws IOException{
+		System.out.println(item);
+		
+//////////////////////////////////////////////이미지업로드를 안한다면 업로드 금지하는거 추가하기////
+		String path = request.getServletContext().getRealPath("/upload/"); 
+		File file1 = new File(path);
+		if(!file1.exists()) 
+          file1.mkdir();
+		path += file.getOriginalFilename();
+		item.setImage(file.getOriginalFilename());
+		FileOutputStream os = new FileOutputStream(path);
+       
+      InputStream is = file.getInputStream();
+      
+      byte[] buf = new byte[1024];
+      int len = 0;
+       while((len = is.read(buf)) != -1) // buf사이즈 만큼 read함 // is.read(buf) -> 다 못채웠으면 LEN만큼 반환함    
+          os.write(buf, 0, len);
+///////////////////////////////////////////////////////
+		int result = spservice.insertSellerProduct(item,qty);
+	       
+		return "redirect:/seller/index";
+	}
+
 
 }

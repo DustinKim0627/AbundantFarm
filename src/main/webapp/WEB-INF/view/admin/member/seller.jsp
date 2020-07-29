@@ -15,12 +15,12 @@
 				<form name="search">
 					<fieldset>
 						<legend class="d-none">공지사항 검색 필드</legend>
-						<label class="d-none">검색분류</label> <select name="field">
+						<label class="d-none">검색분류</label> <select name="f">
 							<option value="name">이름</option>
 							<option value="uid">아이디</option>
 						</select> 
 						<label class="d-none">검색어</label> 
-						<input type="search" name="query" value="" placeholder="검색어를 입력하세요.">
+						<input type="search" name="q" value="" placeholder="검색어를 입력하세요.">
 						<input type="submit" value="검색">
 					</fieldset>
 				</form>
@@ -38,19 +38,18 @@
 						<th class="reg-col">연락처1</th>
 						<th class="reg-col">연락처2</th>
 						<th class="reg-col">가입일</th>
-						<th class="reg-col">판매자 인증여부</th>
 						<th class="reg-col">관리</th>
 					</tr>
 				</thead>
 
-				<!-- 회원 삭제 버튼 기능 작동 스크립트(삭제x) -->
+				<!-- 회원 삭제 버튼 기능 작동 스크립트(삭제x)
 				<script>
 					function idDelete(delID) {
 
 						location.href = "delete?uid=" + delID; //get방식으로 삭제할아이디를 넘김
 
 					}
-				</script>
+				</script> -->
 
 				<tbody>
 					<c:forEach var="m" items="${list }">
@@ -66,11 +65,13 @@
 							<td>
 								<fmt:formatDate pattern="yyyy-MM-dd" value="${m.regDate }" />
 							</td>
-							<td>...</td>
-							<td>
-								<button class="member-auth">인증확인</button>
+							<!-- <td>
 								<button class="member-delete" type="button" value="삭제"
 									onclick="idDelete('${m.uid}');">회원탈퇴</button>
+							</td> -->
+							<td>
+								<button class="member-unable" data-rno="${m.id}" type="button" value="삭제">권한제거</button>
+								<button class="member-enable" data-rno="${m.id}" type="button" value="삭제">권한부여</button>
 							</td>
 						</tr>
 					</c:forEach>
@@ -85,10 +86,12 @@
 						<c:if test="${i==1}">
 							<c:set var="orange" value="-text- orange bold" />
 						</c:if>
-						<li><a class="checked" href="?p=${i}&t=&q=">${i }</a></li>
+						<li><a class="checked" href="?p=${i}&t=&q=">${i}</a></li>
 					</c:forEach>
 				</ul>
 				<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 			</div>
 		</section>
 	</main>
+	
+	<script src="/js/admin/member/list.js"></script>

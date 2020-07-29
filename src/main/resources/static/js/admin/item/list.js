@@ -127,7 +127,7 @@ $(()=>{
         tbody.remove();
         let newTbody = $("<tbody></tbody>");
         tbody = newTbody;
-        tbody.appendTo(table)
+        tbody.appendTo(table);
     }
 
     const bindList = i =>{

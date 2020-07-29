@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.farm.web.entity.CategoryCountView;
 import com.farm.web.entity.ItemView;
 import com.farm.web.service.CategoryService;
-import com.farm.web.service.ItemSercvice;
+import com.farm.web.service.ItemService;
 
 @Controller
 @RequestMapping("/admin/item/")
 public class ItemController {
 	@Autowired
-	ItemSercvice itemService;
+	ItemService itemService;
 	@Autowired
 	CategoryService categoryService;
 	

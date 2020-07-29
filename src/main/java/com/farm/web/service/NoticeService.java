@@ -1,4 +1,4 @@
-package com.farm.web.service.admin;
+package com.farm.web.service;
 
 import com.farm.web.dao.NoticeDao;
 import com.farm.web.entity.Notice;

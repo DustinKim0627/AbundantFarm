@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +74,7 @@
                         <a href="/product/list.html">상품</a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
                         <a href="/community/intro.html">은풍한 팜</a>
@@ -115,19 +118,19 @@
                         <ul>
                             <li>은풍한 팜</li>
                             <li>
-                                <a href="/community/intro.html">은풍한 팜 소개</a>
+                                <a href="/community/intro">은풍한 팜 소개</a>
                             </li>
                             <li>
-                                <a href="/community/notice.html">공지사항</a>
+                                <a href="/community/notice/list">공지사항</a>
                             </li>
                             <li>
-                                <a href="/community/apply.html">입점신청</a>
+                                <a href="/community/apply/list">입점신청</a>
                             </li>
                             <li>
-                                <a href="/community/qna.html">Q &amp; A</a>
+                                <a href="/community/qna/list">Q &amp; A</a>
                             </li>
                             <li>
-                                <a href="/community/review.html">상품후기</a>
+                                <a href="/community/review/list">상품후기</a>
                             </li>
                         </ul>
                     </div>
@@ -144,15 +147,15 @@
                         <a href="/index.html"></a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/notice.html">공지사항</a>
+                        <a href="/community/qna/list">Q &amp; A</a>
                     </li>
                 </ol>
             </div>
             
-            <h1 class="page-title">공지사항</h1>
+            <h1 class="page-title">Q &amp; A</h1>
 
             <span class="board-search">
                 <form name="search" method="POST" action="">
@@ -175,88 +178,30 @@
                         <th>제목</th>
                         <th class="reg-col">작성자</th>
                         <th class="reg-col">작성일</th>
-                        <th class="num-col">조회수</th>
+                        <th class="num-col">답변</th>
+                        <th class="num-col">답변일</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                <c:forEach var="l" items="${list}" varStatus="st">
+                <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd hh:mm" value = "${l.regDate}"/>
                     <tr>
-                        <td>8</td>
+                        <td>${l.id }</td>
                         <td>
-                            <a href="detail.html">공지입니다.</a>
+                            <a href="detail.html">${l.title }</a>
                         </td>
-                        <td>은</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
+                        <td>${l.writerId }</td>
+                        <td>${dateTempParse}</td>
+                        <td>${l.contentA }</td>
+                        <td>${l.regDateA }</td>
                     </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>풍</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>한</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>F</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>a</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>r</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>m</td>
-                        <td>2020-07-31</td>
-                        <td>150</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <a href="detail.html">공지입니다.</a>
-                        </td>
-                        <td>은풍한Farm</td>
-                        <td>2020-06-30</td>
-                        <td>150</td>
-                    </tr>
+                 </c:forEach>    
                 </tbody>
             </table>
 
             <div class="write-button">
-                <a href="#">
+                <a href="/community/write.html">
                     <button>글쓰기</button>
                 </a>
             </div>

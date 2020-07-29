@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.farm.web.entity.CategoryCountView;
 import com.farm.web.entity.ItemView;
 import com.farm.web.service.CategoryService;
-import com.farm.web.service.ItemSercvice;
+import com.farm.web.service.ItemService;
 
 @RestController("apiItemController")
 @RequestMapping("/admin/item/api")
 public class ItemController {
 	
 	@Autowired
-	ItemSercvice itemService;
+	ItemService itemService;
 	
 	@GetMapping("list")
 	public List<ItemView> list(@RequestParam(name = "p", defaultValue="1") int page,

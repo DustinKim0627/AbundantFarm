@@ -39,10 +39,10 @@
                         상품관리
                     </h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="/seller/product/reg">상품등록</a></li>
-                        <li><a href="/seller/product/list">상품목록</a></li>
-                        <li><a href="/seller/product/qna/list">상품문의</a></li>
-                        <li><a href="/seller/product/review/list">상품후기</a></li>
+                        <li><a href="/seller/item/reg">상품등록</a></li>
+                        <li><a href="/seller/item/list">상품목록</a></li>
+                        <li><a href="/seller/item/qna/list">상품문의</a></li>
+                        <li><a href="/seller/item/review/list">상품후기</a></li>
                     </ul>
                 </li>
                 <li>

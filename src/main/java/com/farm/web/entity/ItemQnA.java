@@ -13,13 +13,14 @@ public class ItemQnA {
 	private String image;
 	private String contentA;
 	private Date regDateA;
+	private int hit;
 	
 	public ItemQnA() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public ItemQnA(int id, int writerId, int itemId, String title, String content, Date regDate, String image,
-			String contentA, Date regDateA) {
+			String contentA, Date regDateA, int hit) {
 		super();
 		this.id = id;
 		this.writerId = writerId;
@@ -30,6 +31,7 @@ public class ItemQnA {
 		this.image = image;
 		this.contentA = contentA;
 		this.regDateA = regDateA;
+		this.hit = hit;
 	}
 
 	public int getId() {
@@ -104,12 +106,21 @@ public class ItemQnA {
 		this.regDateA = regDateA;
 	}
 
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
 	@Override
 	public String toString() {
 		return "ItemQnA [id=" + id + ", writerId=" + writerId + ", itemId=" + itemId + ", title=" + title + ", content="
 				+ content + ", regDate=" + regDate + ", image=" + image + ", contentA=" + contentA + ", regDateA="
-				+ regDateA + "]";
+				+ regDateA + ", hit=" + hit + "]";
 	}
 
+	
 	
 }

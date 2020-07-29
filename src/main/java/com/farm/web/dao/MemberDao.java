@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.Member;
@@ -16,18 +16,19 @@ import com.farm.web.entity.SellerApply;
 @Mapper
 public interface MemberDao {
 	
-	@Select("SELECT * FROM AdminSeller WHERE ${field} LIKE '%${query}%' ORDER BY id desc limit 10")
-	List<AdminSellerView> getAdminSellerList(int page, String query, String field) throws ClassNotFoundException, SQLException;
+	@Select("SELECT * FROM AdminSeller WHERE ${field} LIKE '%${query}%' ORDER BY id ASC limit #{offset}, #{size}")
+	List<AdminSellerView> getAdminSellerList(int page, String query, String field, int offset, int size) throws ClassNotFoundException, SQLException;
 	
-	@Select("SELECT a.id, s.id, a.comName, s.comName FROM AdminSeller AS a RIGHT JOIN SellerApply AS s ON a.id = s.id")
+	@Select("SELECT a.id, s.id, a.comName, s.comName, s.brn, s.repName, s.staffName, s.phone, s.email, s.sellingUrl FROM AdminSeller AS a right JOIN SellerApply AS s ON a.id = s.id")
 	SellerApply getAdminAuthList(int id) throws ClassNotFoundException, SQLException;
 
-	@Select("select * from Member where id=#{id}")
+	@Select("select * from Member where id = #{id}")
 	Member get(int id);
 	
-	@Select("SELECT * FROM Member WHERE role = 'ROLE_MEMBER' AND ${field} LIKE '%${query}%' ORDER BY id desc limit 10")
-	List<Member> getAdminBuyerList(int page, String query, String field) throws ClassNotFoundException, SQLException;
+	@Select("SELECT * FROM Member WHERE role = 'ROLE_MEMBER' AND ${field} LIKE '%${query}%' ORDER BY id ASC limit #{offset}, #{size}")
+	List<Member> getAdminBuyerList(int page, String query, String field, int offset, int size) throws ClassNotFoundException, SQLException;
 	
+	//  회원 수 조회
 	@Select("SELECT COUNT(*) FROM Member WHERE role = 'ROLE_MEMBER'")
 	int getCountBuyer() throws ClassNotFoundException, SQLException;
 
@@ -36,14 +37,20 @@ public interface MemberDao {
 	
 	@Select("SELECT COUNT(*) FROM Member")
 	int getCountTotalMember() throws ClassNotFoundException, SQLException;
-	
-	/*******************************************지욱********************************************************/
-	@Select("SELECT * FROM Member where uid=#{uid}")
-	Member getByUid(@Param("uid") String uid);
-	
-	/******************************************************************************************************/
-	
-//	@Delete("DELETE FROM Member WHERE uid = ${uid}")
+
+	// 회원 삭제
+//	@Delete("DELETE FROM Member WHERE uid = #{uid}")
 //	int delete(String uid);
 	
+	// 회원 권한 제거
+	@Update("UPDATE Member SET enabled = 0 WHERE id = #{sellerId}")
+	int unabledMember(String sellerId) throws ClassNotFoundException, SQLException;
+	
+	// 회원 권한 부여
+	@Update("UPDATE Member SET enabled = 1 WHERE id = #{sellerId}")
+	int enabledMember(String sellerId) throws ClassNotFoundException, SQLException;
+
+	@Select("select * from Member where uid=#{uid}")
+	Member getByUid(String uid);
+
 }

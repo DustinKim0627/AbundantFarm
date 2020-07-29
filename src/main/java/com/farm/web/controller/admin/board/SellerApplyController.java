@@ -1,5 +1,6 @@
 package com.farm.web.controller.admin.board;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -17,15 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.farm.web.entity.Notice;
 import com.farm.web.entity.SellerApply;
-import com.farm.web.service.admin.SellerApplyService;
-import com.farm.web.service.admin.NoticeService;
+import com.farm.web.service.ApplyService;
+import com.farm.web.service.NoticeService;
 
 @Controller("adminApplyController")
 @RequestMapping("/admin/board/apply/")
 public class SellerApplyController {
 	
 	@Autowired
-	private SellerApplyService applyService;
+	private ApplyService applyService;
 
 	@GetMapping("list")
 	public String list(@RequestParam(name = "p", defaultValue = "1") Integer page,
@@ -38,6 +39,28 @@ public class SellerApplyController {
 		return "admin.board.apply.list";
 	}
 	
+	@GetMapping("{id}")
+	public String detail(@PathVariable("id") int id, Model model) {
+		
+		SellerApply sellerApply = applyService.get(id);
+		model.addAttribute("a", sellerApply);
+		
+		return "admin.board.apply.detail";
+	}
+	
+	@GetMapping("update")
+	@ResponseBody
+	public int edit(int id, int value) {
+		int res = 0;
+		
+		if(value == 1)
+			res = applyService.updateAccept(id);
+		else if(value == 2)
+			res = applyService.updateReject(id);
+		
+		return res;
+	}
+	
 	@GetMapping("del")
 	@ResponseBody
 	public List<SellerApply> del(@RequestParam(name = "p", defaultValue = "1") Integer page,
@@ -47,8 +70,7 @@ public class SellerApplyController {
 		
 		int res = applyService.delete(id);
 		List<SellerApply> list = applyService.getList(page, field, query);
-		
-//		return null;
+
 		return list;
 	}
 }

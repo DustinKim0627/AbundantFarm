@@ -27,7 +27,7 @@
                 <a href="/index.html">메인 홈</a>
             </li>
             <li>
-                <a href="/admin/admin.html">관리자홈</a>
+                <a href="/seller/index">관리자홈</a>
             </li>
             <li>로그아웃</li>
         </ul>
@@ -59,10 +59,10 @@
                 <li>
                     <h2 class="admin-menu-title">게시판관리</h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="/admin/notice.html">공지사항</a></li>
-                        <li><a href="/admin/apply.html">입점신청</a></li>
-                        <li><a href="/admin/qna.html">Q &amp; A</a></li>
-                        <li><a href="/admin/review.html">사용후기</a></li>
+                        <li><a href="/seller/item/reg">상품등록</a></li>
+                        <li><a href="/seller/item/list">상품목록</a></li>
+                        <li><a href="/seller/item/qna/list">상품문의</a></li>
+                        <li><a href="/seller/item/review/list">상품후기</a></li>
                     </ul>
                 </li>
             </ul>

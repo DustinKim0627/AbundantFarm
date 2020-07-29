@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.farm.web.entity.Notice;
-import com.farm.web.service.admin.NoticeService;
+import com.farm.web.service.NoticeService;
 
 @Controller("adminNoticeController")
 @RequestMapping("/admin/board/notice/")
@@ -68,6 +68,7 @@ public class NoticeController {
 		
 		return "admin.board.notice.edit";
 	}
+	
 	@GetMapping("update")
 	@ResponseBody
 	public List<Notice> edit(@RequestParam(name = "p", defaultValue = "1") Integer page,

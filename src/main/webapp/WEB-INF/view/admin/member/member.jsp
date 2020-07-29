@@ -15,7 +15,7 @@
 					<fieldset>
 						<legend class="d-none">공지사항 검색 필드</legend>
 						<label class="d-none">검색분류</label> 
-						<select name="field">
+						<select name="f">
 							<option value="name">이름</option>
 							<option value="uid">아이디</option>
 						</select> 

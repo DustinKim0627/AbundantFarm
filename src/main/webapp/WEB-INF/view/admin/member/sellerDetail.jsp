@@ -48,8 +48,10 @@
 	            
 	            <div class="admin-button">
 		            <!-- <a href="edit">수정</a> -->
-	            	<a class="admin-button-piv" href="../admin/seller">목록</a>
+	            	<a class="admin-button-piv" href="../member/seller">목록</a>
 	            	<!-- <input type="submit" value="삭제"> -->
 	            </div>
         	</section>
         </main>
+        
+        <script src="/js/admin/member/list.js"></script>

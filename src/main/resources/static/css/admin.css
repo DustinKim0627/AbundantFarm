@@ -58,7 +58,7 @@
 
 .admin-body {
     display: flex;
-    min-height: 700px;
+    min-height: 800px;
 }
 .admin-body .aside {
     min-width: 250px;
@@ -299,11 +299,12 @@
 	.admin-button a {
 		margin-right: 10px;
 		width: 90px;
+        height: 35px;
 	    color: #fff;
 	    text-align: center;
-	    font-size: 14px;
+	    font-size: 16px;
 	    border: 1px solid #ddd;
-	    border-radius: 10px;
+	    --border-radius: 10px;
 	    letter-spacing: 1px;
 	    background-color: #91bba2;
 	    cursor: pointer;
@@ -323,25 +324,105 @@
 	}
 
 /*디테일페이지 - 공통영역*/
-.detail-container {
-	margin-bottom: 50px;
-	border: 1px solid #ddd;
-}
-    .detail-container .title {
-        padding: 30px;
-        display: flex;
-        color: #666;
-        justify-content: space-between;
-        border-bottom: 1px solid #ddd;
+    .detail-container {
+        margin-bottom: 50px;
+        border-top: 1px solid #666;
+        border-bottom: 1px solid #666;
     }
-    .detail-container .title span:nth-child(1) {
-        font-size: 18px;
+    .detail-container .title {
+        padding: 25px;
+        font-size: 20px;
+        font-weight: 600;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #e8e6e6;
+    }
+    .detail-container .reg-info {
+    	display: flex;
+    	justify-content: space-between;
+    	padding: 20px 25px;
+        box-sizing: border-box;
+        
+        font-size: 17px;
+        border-bottom: 1px solid #e8e6e6;
+    }
+    .detail-container .reg-info ul {
+    	display: flex;
+    }
+    .detail-container .reg-info ul li {
+    	margin-right: 30px;
+    }
+    .detail-container .reg-info ul li:last-child {
+    	margin-right: 0;
+    }
+    .detail-container .content {    	
+        padding: 30px;
+        box-sizing: border-box;
+        min-height: 300px;
+        font-size: 17px;
+    }
+    .detail-container .content li {
+    	padding-bottom: 20px;
+    }
+	    
+	/*디테일-입점승인*/
+	.apply-check {
+		padding: 20px 25px;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+        border-top: 1px solid #e8e6e6;
+        
+        font-size: 17px;
+	}
+	.apply-check input[type="submit"] {
+		margin-left: 5px;
+		width: 60px;
+		height: 35px;
+		color: #fff;
+		font-size: 16px;
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		background-color: #1c90fa;
+		cursor: pointer;
+	}
+	.apply-check input[type="submit"]:last-child {
+		background-color: #cf0b0d;
+    }
+	.apply-check span {
         font-weight: 600;
     }
-    .detail-container .title span:nth-child(2) {
-        font-size: 14px;
+
+    /*디테일-Q&A댓글*/
+    .comment-section {
+        display: flex;
+        flex-direction: column;
+
+		padding: 20px 25px;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+        border-top: 1px solid #e8e6e6;
+        
+        font-size: 17px;
     }
-    .detail-container .content {
-        padding: 30px;
-        min-height: 200px;
+    .comment-section span {
+        margin-bottom: 20px;
+    }
+    .comment-section textarea {
+        padding: 5px;
+        margin-bottom: 20px;
+        height: 100px;
+        resize: none;
+        border: 1px solid #ddd;
+    }
+    .comment-section input[type="submit"] {
+        width: 130px;
+        height: 35px;
+        align-self: flex-end;
+        color: #fff;
+        border: 1px solid #ddd;
+        background-color: #aeaeae;
+        cursor: pointer;
+    }
+    .comment-section input[type="submit"]:hover {
+        background-color: #979797;
     }

@@ -1,13 +1,8 @@
 package com.farm.web.controller.seller.item;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.Principal;
-import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,23 +11,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.farm.web.entity.Review;
 import com.farm.web.entity.ReviewView;
-import com.farm.web.service.seller.SellerReviewService;
+import com.farm.web.service.ReviewService;
 
 @Controller("sellerReivewController")
 @RequestMapping("/seller/item/review/") // url 경로
 public class ReviewController {
 
 	@Autowired
-	SellerReviewService sellerReivewService;
+	ReviewService ReivewService;
 	
 	@GetMapping("list")
-	public String list(Model model) {
+	public String list(@RequestParam(name = "q", defaultValue = "") String query,
+			@RequestParam(name = "f", defaultValue = "name") String field,
+			@RequestParam(name = "catg", defaultValue = "") String category,
+			@RequestParam(name = "p", defaultValue = "1") Integer page,
+			Model model) {
 		List<ReviewView> review = null;
-		review = sellerReivewService.getList();
+		review = ReivewService.getList(page, field, query);
 		model.addAttribute("review", review);
 
 		return "seller/item/review";//리턴할 페이지 경로 -실제보여주는 맵핑 주소

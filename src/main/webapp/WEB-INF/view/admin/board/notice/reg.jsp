@@ -10,7 +10,7 @@
 			<div class="title">
          		<input type="text" name="title" placeholder="제목을 입력해주세요.">
          	</div>
-			<textarea class="form-control" id="p_content" name="content"></textarea>          
+			<div class="editor"></div>          
 			<div>
 			    <input type="checkbox" name="pub"> 바로공개
 			</div>
@@ -24,3 +24,6 @@
 </main>
 
 <script src="/js/admin/board/notice/reg.js"></script>
+<script src="/ckeditor5/build/ckeditor.js"></script>
+        <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
+        <script type="module" src="/ckeditor5/build/notice-edit-reg.js"></script>

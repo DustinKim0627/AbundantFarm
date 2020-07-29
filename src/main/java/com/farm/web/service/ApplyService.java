@@ -1,4 +1,4 @@
-package com.farm.web.service.admin;
+package com.farm.web.service;
 
 import com.farm.web.dao.SellerApplyDao;
 import com.farm.web.dao.NoticeDao;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SellerApplyService {
+public class ApplyService {
 
 	@Autowired
 	private SellerApplyDao applyDao;
@@ -23,6 +23,12 @@ public class SellerApplyService {
 		return applyDao.getList(offset, size, field, query);
 	}
 
+	public SellerApply get(int id) {
+			
+			return applyDao.get(id);
+		}
+	
+	
 	public int delete(int[] id) {
 		String ids = "";
 		for(int i : id)
@@ -30,5 +36,15 @@ public class SellerApplyService {
 		ids = ids.substring(0,ids.length()-1);
 		
 		return applyDao.delete(ids);
+	}
+	
+public int updateAccept(int id) {
+		
+		return applyDao.update(id);
+	}
+
+	public int updateReject(int id) {
+		
+		return applyDao.updateReject(id);
 	}
 }

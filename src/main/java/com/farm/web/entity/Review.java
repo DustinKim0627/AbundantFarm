@@ -12,13 +12,14 @@ public class Review {
 	private int rate; 
 	private Date regDate; 
 	private int like;
+	private String image;
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Review(int id, int writerId, int itemId, String title, String content, int hit, int rate, Date regDate,
-			int like) {
+			int like, String image) {
 		super();
 		this.id = id;
 		this.writerId = writerId;
@@ -29,6 +30,7 @@ public class Review {
 		this.rate = rate;
 		this.regDate = regDate;
 		this.like = like;
+		this.image = image;
 	}
 
 	public int getId() {
@@ -103,11 +105,21 @@ public class Review {
 		this.like = like;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
 		return "Review [id=" + id + ", writerId=" + writerId + ", itemId=" + itemId + ", title=" + title + ", content="
-				+ content + ", hit=" + hit + ", rate=" + rate + ", regDate=" + regDate + ", like=" + like + "]";
+				+ content + ", hit=" + hit + ", rate=" + rate + ", regDate=" + regDate + ", like=" + like + ", image="
+				+ image + "]";
 	}
+	
 	
 	
 }

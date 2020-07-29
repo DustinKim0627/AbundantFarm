@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
-    <script src="/js/seller.js"></script>
+    <script src="/js/seller/seller.js"></script>
+    <script src="/js/seller/list.js"></script>
 </head>
 <body>
     <header class="admin-header">
@@ -23,7 +24,7 @@
                 <a href="/index.html">메인 홈</a>
             </li>
             <li>
-                <a href="/admin/admin.html">관리자홈</a>
+                <a href="/seller/index">관리자홈</a>
             </li>
             <li>로그아웃</li>
         </ul>
@@ -37,10 +38,10 @@
                         상품관리
                     </h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="/seller/reg.html">상품등록</a></li>
-                        <li><a href="/seller/list.html">상품목록</a></li>
-                        <li><a href="/seller/product/qna/list">상품문의</a></li>
-                        <li><a href="/seller/product/review/list">상품후기</a></li>
+                        <li><a href="/seller/item/reg">상품등록</a></li>
+                        <li><a href="/seller/item/list">상품목록</a></li>
+                        <li><a href="/seller/item/qna/list">상품문의</a></li>
+                        <li><a href="/seller/item/review/list">상품후기</a></li>
                     </ul>
                 </li>
                 <li>
@@ -107,7 +108,7 @@
 	                            <td>${status.count }</td>
 	                            <td>${l.iName }</td>
 	                            <td>
-	                                <a href="detail.html">${l.title }</a>
+	                                <a href="${l.id }">${l.title }</a>
 	                            </td>
 	                            <td>${l.mUid }(${l.mName })</td>
 	                            <td>${l.regDate }</td>
