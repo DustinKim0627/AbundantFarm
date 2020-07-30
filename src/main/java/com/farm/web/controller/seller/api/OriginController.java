@@ -12,7 +12,7 @@ import com.farm.web.entity.Origin;
 import com.farm.web.service.OriginService;
 
 @RestController("apiOriginController")
-@RequestMapping("/seller/product/api/origin/")
+@RequestMapping("/seller/item/api/origin/")
 public class OriginController {
 	
 	@Autowired

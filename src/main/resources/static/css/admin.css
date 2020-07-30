@@ -112,6 +112,21 @@
     box-sizing: border-box;
 }
 
+/*----Community detail page-----*/
+.comm-main {
+    padding: 20px 350px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    background-color: #edf0f5;
+}
+	.comm-main .comm-sub-main{
+		padding: 25px;
+		height: 100%;
+    	background-color: #fff;
+    	box-sizing: border-box;
+	}
+
+/*----// Community detail-----*/
 
 /*占쎄맒占쎈�밭뵳�딅뮞占쎈뱜*/
 

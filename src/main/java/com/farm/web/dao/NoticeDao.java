@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.Notice;
+import com.farm.web.entity.NoticeView;
 
 @Mapper
 public interface NoticeDao {
@@ -30,5 +31,8 @@ public interface NoticeDao {
 	
 	@Update("update Notice set pub=1 where id in (${id})")
 	int updatePub(String id);
+
+	@Select("SELECT * FROM NoticeView where id=${id}")
+	NoticeView getComm(int id);
 
 }

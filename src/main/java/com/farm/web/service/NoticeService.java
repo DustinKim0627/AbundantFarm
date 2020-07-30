@@ -2,6 +2,7 @@ package com.farm.web.service;
 
 import com.farm.web.dao.NoticeDao;
 import com.farm.web.entity.Notice;
+import com.farm.web.entity.NoticeView;
 
 import java.util.List;
 
@@ -24,6 +25,11 @@ public class NoticeService {
 	public Notice get(int id) {
 		
 		return noticeDao.get(id);
+	}
+	
+	public NoticeView getComm(int id) { //Community Notice 
+		
+		return noticeDao.getComm(id);
 	}
 
 	public int insert(Notice notice) {
@@ -53,4 +59,6 @@ public class NoticeService {
 		
 		return noticeDao.updatePub(ids);
 	}
+	
+	
 }

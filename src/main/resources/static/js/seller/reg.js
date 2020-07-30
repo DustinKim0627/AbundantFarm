@@ -25,29 +25,3 @@ $(document).ready(function(){
         });
     });
 });
-
-//원산지 옵션 
-$(document).ready(function(){
-    let mainOri = $(".main-origin");
-    let subOri = $(".sub-origin");
-    mainOri.on("change", function(){
-       let pid = mainOri.val();
-       
-       if(pid=='선택하세요')
-          pid=0;
-
-       fetch(`api/origin/list?pid=${pid}`)
-        .then(res => res.json())
-        .then(json=>{
-           console.log(json);
-           let option = subOri.children("option");
-           option.remove();
-           subOri.append('<option> 선택하시오 </option>');
-           for(let i of json ){
-              console.log(i);
-              subOri.append(`
-              <option value=${i.id }>${i.name }</option>`);
-           }
-           
-            });
-    });

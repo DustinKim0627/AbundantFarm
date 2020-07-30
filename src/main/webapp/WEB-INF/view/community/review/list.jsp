@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -154,7 +155,7 @@
                 </ol>
             </div>
             
-            <h1 class="page-title">상품후기</h1>
+            <h1 class="page-title">상 품 후 기</h1>
 
             <span class="board-search">
                 <form name="search" method="POST" action="">
@@ -192,6 +193,7 @@
 
                 <tbody>
                 <c:forEach var="r" items="${review}" varStatus="st">
+                <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${r.regDate}"/>
                     <tr>
                         <td>${r.id }</td>
                         <td>
@@ -202,7 +204,7 @@
                         </td>
                         <td>${r.rate }</td>
                         <td>${r.writerId }</td>
-                        <td>${r.regDate }</td>
+                        <td>${dateTempParse }</td>
                         <td>${r.hit }</td>
                     </tr>
                     </c:forEach> 

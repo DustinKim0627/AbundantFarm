@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,19 +38,21 @@ public class QnaController {
 		return "community/qna/list";
 	}
 
+	@GetMapping("{id}")
+	public String detail(@PathVariable("id") int id, Model model) {
+		
+		CustQnAView custQnaView = custQnaService.get(id);
+		model.addAttribute("q", custQnaView);
+		
+		return "community/qna/detail";
+	}
+	
 	@GetMapping("reg")
 	public String reg() {
 		
 		return "community/qna/reg";
 	}
 	
-//	@PostMapping("reg")
-//	public String reg(@RequestBody Notice notice) {
-//
-//		noticeService.insert(notice);
-//		
-//		return "redirect:list";
-//	}
-//	
+
 	
 }

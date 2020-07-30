@@ -32,4 +32,17 @@ public class ApplyController {
 		return "community/apply/list";
 	}
 	
+	@GetMapping("detail")
+	public String detail() {
+		
+		return "community/apply/detail";
+	}
+	
+	@GetMapping("reg")
+	public String reg() {
+		
+		return "community/apply/reg";
+	}
+	
+	
 }
