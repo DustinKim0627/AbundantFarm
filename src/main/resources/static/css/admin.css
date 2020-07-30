@@ -370,11 +370,15 @@
     .detail-container .reg-info ul li:last-child {
     	margin-right: 0;
     }
-    .detail-container .content {    	
+    .detail-container .content {
+    	display:flex;    	
         padding: 30px;
         box-sizing: border-box;
         min-height: 300px;
         font-size: 17px;
+    }
+    .detail-container .content img {
+    	padding-right:30px;
     }
     .detail-container .content li {
     	padding-bottom: 20px;

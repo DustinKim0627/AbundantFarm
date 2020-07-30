@@ -140,8 +140,24 @@
     </header>
     
     
-    <main class="comm-main">
-	<section class="comm-sub-main">
+<main class="main">
+    <section class="content-container">
+        <div class="path">
+            <ol>
+                <li>
+                    <a href="/index.html"></a>
+                </li>
+                <li>
+                    <a href="/community/index">커뮤니티</a>
+                </li>
+                <li>
+                    <a href="/community/qna.html">Q &amp; A</a>
+                </li>
+            </ol>
+        </div>
+
+        
+            <section class="comm-sub-main">
 		<h1 class="page-title">Q & A</h1>
 
 		<section class="detail-container">
@@ -161,8 +177,10 @@
 		<div class="admin-button">
 			<a href="list">목록</a>
 		</div>
-	</section>
-	</main>
+            </section>
+       
+    </section>
+</main>
 
    
 	

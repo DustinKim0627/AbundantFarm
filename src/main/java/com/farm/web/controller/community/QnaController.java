@@ -48,7 +48,9 @@ public class QnaController {
 	}
 	
 	@GetMapping("reg")
-	public String reg() {
+	public String reg(@RequestBody CustQnAView custQnAview) {
+		
+		custQnaService.insert(custQnAview);
 		
 		return "community/qna/reg";
 	}

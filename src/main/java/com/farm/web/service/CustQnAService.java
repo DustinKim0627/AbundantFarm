@@ -42,6 +42,12 @@ public class CustQnAService {
 
 		return custQnaDao.update(custQna);
 	}
+
+	public int insert(CustQnAView custQnAview) {
+		
+		return custQnaDao.insert(custQnAview);
+		
+	}
 	
 
 }

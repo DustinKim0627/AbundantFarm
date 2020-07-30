@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/community/review/list.js"></script>
     <title>은풍한 팜</title>
 </head>
 <body>
@@ -200,10 +201,21 @@
                             <img src="/images/items/${r.image}" alt="리뷰 제품 사진">
                         </td>
                         <td>
-                            <a href="detail.html">${r.title }</a>
+                            <a href="${r.id }">${r.title }</a>
                         </td>
-                        <td>${r.rate }</td>
-                        <td>${r.writerId }</td>
+                        <td class="rate">
+	                        <c:forEach begin="0" end="4" var="i">
+		                        <c:choose>
+								    <c:when test="${i < r.rate}">
+								        <img src ="/images/color-star-icon.png">
+								    </c:when>    
+								    <c:otherwise>
+								        <img src ="/images/star-icon.png">
+								    </c:otherwise>
+								</c:choose>
+							</c:forEach>
+                        </td>
+                        <td>${r.name }</td>
                         <td>${dateTempParse }</td>
                         <td>${r.hit }</td>
                     </tr>

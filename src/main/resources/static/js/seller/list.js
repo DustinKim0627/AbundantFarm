@@ -11,15 +11,7 @@ $(()=>{
     let categoryMenu = $(".product-category-menu");
     let pub = $(".seller-pub");
 
-//    categoryMenu.click(e=>{
-//        let select = null;
-//        if(e.target.tagName == "LI")
-//            select = e.target;
-//        else if(e.target.tagName == "SPAN")
-//            select = e.target.parentElement
-//
-//            console.log(select);
-//    })
+
     
     allCheckButton.click(e=>{
         if(allCheckButton.prop("checked"))

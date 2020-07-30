@@ -168,30 +168,13 @@
                                 <a href="/community/notice/list">공지사항</a>
                             </td>
                         </tr>
+                    <c:forEach var="notice" items="${notice}" varStatus="st">
+            		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${notice.regDate}"/>
                         <tr>
-                            <td>공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.공지사항입니다.</td>
-                            <td>2020-05-09</td>
+                            <td><a href="${notice.id } ">${notice.title }</a></td>
+                            <td>${dateTempParse }</td>
                         </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>공지사항입니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
+                    </c:forEach> 
                     </table>
                 </div>
 
@@ -205,11 +188,13 @@
                                 <a href="/community/apply/list">입점신청</a>
                             </td>
                         </tr>
-                        
+                    <c:forEach var="apply" items="${apply}" varStatus="st">
+            		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${apply.regDate}"/>
                         <tr>
-                            <td>입점을 희망합니다.</td>
-                            <td>2020-05-09</td>
+                            <td><a href="${apply.id } ">${apply.title }</a></td>
+                            <td>${dateTempParse }</td>
                         </tr>
+                    </c:forEach> 
                     </table>
                 </div>
 
@@ -223,30 +208,13 @@
                                 <a href="/community/qna/list">Q &amp; A</a>
                             </td>
                         </tr>
+                        <c:forEach var="qna" items="${qna}" varStatus="st">
+            		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${qna.regDate}"/>
                         <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
+                            <td><a href="${qna.id } ">${qna.title }</a></td>
+                            <td>${dateTempParse }</td>
                         </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>문의드립니다.</td>
-                            <td>2020-05-09</td>
-                        </tr>
+                    </c:forEach> 
                     </table>
                 </div>
 
@@ -260,22 +228,13 @@
                                 <a href="/community/review/list">상품후기</a>
                             </td>
                         </tr>
+                    <c:forEach var="review" items="${review}" varStatus="st">
+            		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${review.regDate}"/>
                         <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
+                            <td><a href="${review.id } ">${review.title }</a></td>
+                            <td>${dateTempParse }</td>
                         </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
-                        <tr>
-                            <td>좋아요</td>
-                            <td>2020-05-09</td>
-                        </tr>
+                    </c:forEach> 
                     </table>
                 </div>
             </section>

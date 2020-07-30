@@ -31,7 +31,7 @@ public class ReviewService {
 		return reviewDao.delete(ids);
 	}
 
-	public Review get(int id) {
+	public ReviewView get(int id) {
 	      
 	      return reviewDao.get(id);
 	   }
