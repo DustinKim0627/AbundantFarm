@@ -36,4 +36,7 @@ public interface ApplyDao {
 	@Insert("insert into SellerApply values(#{sellerApply.id},#{sellerApply.title},#{sellerApply.content},#{sellerApply.comName},#{sellerApply.brn},#{sellerApply.repName},"
 			+ "#{sellerApply.staffName},#{sellerApply.phone},#{sellerApply.telephone},#{sellerApply.email},#{sellerApply.files},#{sellerApply.sellingUrl},#{sellerApply.item},#{sellerApply.regDate},#{sellerApply.appDate},#{sellerApply.titleImage})")
 	int insertRegSeller(SellerApply sellerApply);
+
+	@Select("SELECT * FROM SellerApply where id=${id}")
+	SellerApply getApplyListDetail(int id);
 }

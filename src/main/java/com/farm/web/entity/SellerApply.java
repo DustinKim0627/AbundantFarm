@@ -16,8 +16,7 @@ public class SellerApply {
 	private String telephone;
 	private String email; 
 	private String files;  
-	private String sellingUrl; 
-	private int item; 
+	private String sellingUrl;  
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date regDate;  
 	private Date appDate;
@@ -28,8 +27,8 @@ public class SellerApply {
 	}
 
 	public SellerApply(int id, String title, String content, String comName, int brn, String repName, String staffName,
-			String phone, String telephone, String email, String files, String sellingUrl, int item, Date regDate,
-			Date appDate, String titleImage) {
+			String phone, String telephone, String email, String files, String sellingUrl, Date regDate, Date appDate,
+			String titleImage) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -43,7 +42,6 @@ public class SellerApply {
 		this.email = email;
 		this.files = files;
 		this.sellingUrl = sellingUrl;
-		this.item = item;
 		this.regDate = regDate;
 		this.appDate = appDate;
 		this.titleImage = titleImage;
@@ -145,14 +143,6 @@ public class SellerApply {
 		this.sellingUrl = sellingUrl;
 	}
 
-	public int getItem() {
-		return item;
-	}
-
-	public void setItem(int item) {
-		this.item = item;
-	}
-
 	public Date getRegDate() {
 		return regDate;
 	}
@@ -181,10 +171,9 @@ public class SellerApply {
 	public String toString() {
 		return "SellerApply [id=" + id + ", title=" + title + ", content=" + content + ", comName=" + comName + ", brn="
 				+ brn + ", repName=" + repName + ", staffName=" + staffName + ", phone=" + phone + ", telephone="
-				+ telephone + ", email=" + email + ", files=" + files + ", sellingUrl=" + sellingUrl + ", item=" + item
-				+ ", regDate=" + regDate + ", appDate=" + appDate + ", titleImage=" + titleImage + "]";
+				+ telephone + ", email=" + email + ", files=" + files + ", sellingUrl=" + sellingUrl + ", regDate="
+				+ regDate + ", appDate=" + appDate + ", titleImage=" + titleImage + "]";
 	}
 
-
-	
+		
 }

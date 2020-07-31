@@ -61,6 +61,11 @@ public int updateAccept(int id) {
 		
 		return applyDao.insertRegSeller(sellerApply);
 	}
+
+	public SellerApply getApplyListDeatil(int id) {
+		
+		return applyDao.getApplyListDetail(id);
+	}
 	
 
 }

@@ -38,7 +38,6 @@ public class IndexController {
 		List<SellerApply> applyList = communityService.getApplyList(page, field, query);
 		model.addAttribute("apply", applyList);
 		
-		
 		//QnA
 		List<CustQnAView> custQnaList = communityService.getCustQnAList(page, field, query);
 		model.addAttribute("qna", custQnaList);

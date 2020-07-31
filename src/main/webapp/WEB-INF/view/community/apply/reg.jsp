@@ -185,36 +185,6 @@
                             <td ><input type="text"></td>
                         </tr>
                         <tr>
-                            <td>판매상품<span class="font-color-red">*</span></td>
-                            <td >
-                               <select name="item">
-                                    <optgroup label="곡물">
-                                    	<option value="7">쌀</option>
-                                    	<option value="8">잡곡</option>
-                                    </optgroup>
-                                    <optgroup label="채소">
-                                    	<option value="10">배추</option>
-                                    	<option value="11">무</option>
-                                    	<option value="12">감자</option>
-                                    </optgroup>
-                                    <optgroup label="과일">
-                                    	<option value="9">사과</option>
-                                    	<option value="13">딸기</option>
-                                    	<option value="18">배</option>
-                                    </optgroup>
-                                    <optgroup label="음료">
-                                    	<option value="15">케일주스</option>
-                                    	<option value="16">당근주스</option>
-                                    	<option value="17">포도즙</option>
-                                    </optgroup>
-                                    <optgroup label="기타">
-                                    	<option value="14">꿀</option>
-                                    	<option value="19">아이스크림</option>
-                                    </optgroup>
-                                </select>
-                             </td>
-                        </tr>
-                        <tr>
                             <td >법인명(단체명)<span class="font-color-red">*</span></td>
                             <td ><input name="comName" type="text"></td>
                         </tr>
