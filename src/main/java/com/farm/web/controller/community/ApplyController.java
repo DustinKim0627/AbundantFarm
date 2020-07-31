@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.SellerApply;
 import com.farm.web.service.ApplyService;
 

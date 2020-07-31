@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.ItemQnA;
 import com.farm.web.entity.ItemQnAListView;
+import com.farm.web.vo.ItemNoticeVo;
 
 @Mapper
 public interface ItemQnADao {
@@ -29,5 +30,23 @@ public interface ItemQnADao {
 	
 	@Update("update ItemQnA set contentA = #{data}, regDateA = #{date} where id = ${id}")
 	int update(int id, String data, Date date);
+	
+	/* 성일 detail*/
+	@Select("SELECT * FROM detailQnAListView where itemId = ${itemId} limit 10")
+	List<ItemNoticeVo> selectByProductId(int itemId);
+	
+	@Select("SELECT * FROM ItemQnA where id = ${noticeId}")
+	ItemQnA selectById(int noticeId);
+	
+	@Select("SELECT id,writerId,itemId,title,content,regDate,image,contentA,regDateA,hit FROM ItemQnA limit 10")
+	List<ItemQnA> selectAll();
+	
+	@Select("call plusQnA(${itemId},${offset})")
+	List<ItemNoticeVo> plusTenItemQnA(int itemId, int offset);
+	
+	/* 성일 detail*/
+	@Insert("INSERT INTO ItemQnA (writerId,itemId,title,content,image,contentA) "
+			+ "VALUE(${ItemQnA.writerId},${ItemQnA.itemId},#{ItemQnA.title},#{ItemQnA.content},#{ItemQnA.image},#{ItemQnA.contentA})")
+	int InsertItemQnA(ItemQnA itemQnA);
 	
 } 

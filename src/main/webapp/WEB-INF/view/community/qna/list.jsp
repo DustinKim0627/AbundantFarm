@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -191,7 +191,7 @@
                         <td>
                             <a href="detail.html">${l.title }</a>
                         </td>
-                        <td>${l.name }</td>
+                        <td>${l.writerId }</td>
                         <td>${dateTempParse}</td>
                         <td>${l.contentA }</td>
                         <td>${l.regDateA }</td>
@@ -201,7 +201,7 @@
             </table>
 
             <div class="write-button">
-                <a href="reg">
+                <a href="/community/write.html">
                     <button>글쓰기</button>
                 </a>
             </div>

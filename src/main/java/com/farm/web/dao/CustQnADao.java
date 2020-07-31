@@ -9,7 +9,6 @@ import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.CustQnA;
 import com.farm.web.entity.CustQnAView;
-import com.farm.web.entity.Review;
 
 @Mapper
 public interface CustQnADao {

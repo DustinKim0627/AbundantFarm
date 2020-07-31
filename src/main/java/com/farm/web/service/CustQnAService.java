@@ -1,15 +1,13 @@
 package com.farm.web.service;
 
-import com.farm.web.dao.CustQnADao;
-import com.farm.web.entity.CustQnA;
-import com.farm.web.entity.CustQnAView;
-import com.farm.web.entity.Notice;
-import com.farm.web.entity.Review;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.farm.web.dao.CustQnADao;
+import com.farm.web.entity.CustQnA;
+import com.farm.web.entity.CustQnAView;
 
 @Service
 public class CustQnAService {

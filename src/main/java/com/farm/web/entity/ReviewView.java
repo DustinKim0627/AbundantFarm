@@ -1,7 +1,5 @@
 package com.farm.web.entity;
 
-import java.util.Date;
-
 public class ReviewView extends Review{
 	private String uid;
 	private String name;

@@ -34,7 +34,8 @@ public class ItemController {
 	private ItemService spservice;
 		
 	@GetMapping("list")
-	public String list(@RequestParam(name = "q", defaultValue = "") String query,
+	public String list(
+			@RequestParam(name = "q", defaultValue = "") String query,
 			@RequestParam(name = "f", defaultValue = "name") String field,
 			@RequestParam(name = "catg", defaultValue = "") String category,
 			@RequestParam(name = "p", defaultValue = "1") Integer page,

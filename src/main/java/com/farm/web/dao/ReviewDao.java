@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.Review;
 import com.farm.web.entity.ReviewView;
+import com.farm.web.vo.ReviewNoticeVo;
 
 @Mapper
 public interface ReviewDao {
@@ -33,5 +34,21 @@ public interface ReviewDao {
 	
 	@Delete("")
 	int delet(Review review);
+	
+	@Select("SELECT * FROM ReviewView where itemId = ${prId} limit 10")
+	List<ReviewNoticeVo> selectByItemId(int prId);
+	
+	@Select("SELECT * FROM Review where id = ${noticeId} and itemId=${prId}")
+	Review selectByReviewIdAndPrId(int noticeId, int prId);
+	
+	@Select("SELECT R.* FROM Review R join Item I on R.itemId = I.id  where I.id = ${prId} limit 10")
+	List<Review> selectAll(int prId);
+	
+	@Select("SELECT * FROM ReviewView where itemId = ${prId} limit 10 offset ${offset}")
+	List<ReviewNoticeVo> plusTenReviewRow(int offset ,int prId);
+	
+	@Insert("INSERT INTO Review (id,writerId,itemId,title,content,hit,rate,regDate,like) "
+			+ "VALUE(NULL,${review.writerId},${review.itemId},#{review.title},#{review.content},#{review.hit},#{review.rate},NOW(),#{review.like})")
+	int InsertReview(Review review);
 
 }

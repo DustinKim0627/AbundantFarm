@@ -12,7 +12,7 @@ public class OrderItem {
 	private String payMethod; 
 	private String status; 
 	private String deliveryMemo; 
-	private int waybillNum;
+	private String waybillNum;
 	private Date payDDate; 
 	private Date payCDate;
 	
@@ -21,7 +21,7 @@ public class OrderItem {
 	}
 
 	public OrderItem(int id, int orderId, int itemId, int deliveryId, int qty, String payMethod, String status,
-			String deliveryMemo, int waybillNum, Date payDDate, Date payCDate) {
+			String deliveryMemo, String waybillNum, Date payDDate, Date payCDate) {
 		super();
 		this.id = id;
 		this.orderId = orderId;
@@ -100,11 +100,11 @@ public class OrderItem {
 		this.deliveryMemo = deliveryMemo;
 	}
 
-	public int getWaybillNum() {
+	public String getWaybillNum() {
 		return waybillNum;
 	}
 
-	public void setWaybillNum(int waybillNum) {
+	public void setWaybillNum(String waybillNum) {
 		this.waybillNum = waybillNum;
 	}
 

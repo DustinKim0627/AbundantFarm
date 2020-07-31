@@ -1,7 +1,5 @@
 package com.farm.web.entity.DTO;
 
-import java.util.Date;
-
 import com.farm.web.entity.Review;
 
 public class ReviewView extends Review{

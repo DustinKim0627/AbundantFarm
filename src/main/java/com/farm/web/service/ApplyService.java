@@ -1,15 +1,12 @@
 package com.farm.web.service;
 
-import com.farm.web.dao.ApplyDao;
-import com.farm.web.dao.NoticeDao;
-import com.farm.web.entity.AdminSellerView;
-import com.farm.web.entity.Notice;
-import com.farm.web.entity.SellerApply;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.farm.web.dao.ApplyDao;
+import com.farm.web.entity.SellerApply;
 
 @Service
 public class ApplyService {

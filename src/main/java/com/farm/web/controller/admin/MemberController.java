@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.farm.web.dao.MemberDao;
 import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.Member;
 import com.farm.web.entity.SellerApply;

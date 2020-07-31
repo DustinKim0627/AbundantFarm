@@ -1,5 +1,6 @@
 package com.farm.web.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import com.farm.web.entity.Member;
 import com.farm.web.entity.Origin;
 import com.farm.web.entity.SellerCategoryCountView;
 import com.farm.web.entity.SellerItemView;
-import com.farm.web.entity.Store;
 
 @Service
 public class ItemService {
@@ -116,5 +116,27 @@ public class ItemService {
 		return itemDao.deleteSelectRows(selectRows);
 	}
 	
+	public List<ItemView> getItmeList(int page, String query, String field) throws ClassNotFoundException, SQLException {
+		
+		int size = 8;
+		int offset = (page-1) * size;
+		
+		return itemDao.getList3(page, query, field, offset, size);
+	}
+	
+	public int getTotalCount() throws ClassNotFoundException, SQLException {
+		
+		return itemDao.select();
+	}
+	
+	public List<Item> seletAll() throws ClassNotFoundException, SQLException {
+		
+		return itemDao.selectAll();
+	}
 
+	public List<ItemView> getList4(String catgPName) throws ClassNotFoundException, SQLException {
+	
+		return itemDao.getList4(catgPName);
+	}
+	
 }

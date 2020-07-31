@@ -1,9 +1,5 @@
 package com.farm.web.entity;
 
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class CustQnAView extends CustQnA {
 
 	private String name;

@@ -1,5 +1,6 @@
 package com.farm.web.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -11,11 +12,34 @@ import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.Item;
 import com.farm.web.entity.ItemView;
-import com.farm.web.entity.SellerCategoryCountView;
 import com.farm.web.entity.SellerItemView;
+import com.farm.web.vo.HitItemListVo;
 
 @Mapper
 public interface ItemDao {
+	
+	// 성일 - 주현 //
+	@Select("select * from Item where pub =1 and isdel =0 order by startDate desc")
+	List<Item> publicNewItemAll();
+	
+	@Select("select * from hitItemView")
+	List<HitItemListVo> hitItemList();
+	
+	@Select("SELECT id,sellerId,categoryId,originId,name,regName,detail,price,regDate,startDate,endDate,leadTime,image,tag,pub FROM Item WHERE id = ${itemId}")
+	Item selectById(int itemId);
+	
+	@Select("SELECT * FROM Item where pub =1 and isdel =0")
+	List<Item> selectAll();	 
+	
+	@Select("SELECT * FROM ItemView WHERE ${field} LIKE '%${query}%' AND pub =1 and isdel = 0 ORDER BY startDate asc limit #{offset}, #{size}")
+	List<ItemView> getList3(int page, String query, String field, int offset, int size) throws ClassNotFoundException, SQLException;
+	
+	@Select("SELECT COUNT(*) FROM Item WHERE pub = 1 AND isdel = 0 ORDER BY startDate DESC")
+	int select() throws ClassNotFoundException, SQLException;
+	
+	// 전체 메뉴 
+	@Select("select * from ItemView where catgPName = #{catgPName}")
+	List<ItemView> getList4(String catgPName);
 	
 	/******************************************윤호************************************************************/
 	@Select("select * from ItemView where ${field} like '%${query}%' and catgPName like '%${catg}%' LIMIT #{offset},#{size}")

@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,22 +175,83 @@
                         <th>제목</th>
                         <th class="reg-col">작성자</th>
                         <th class="reg-col">작성일</th>
+                        <th class="num-col">조회수</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                <c:forEach var="l" items="${list}" varStatus="st">
-                <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd hh:mm" value = "${l.regDate}"/>
                     <tr>
-                        <td>${l.id }</td>
+                        <td>8</td>
                         <td>
-                            <a href="detail.html">${l.title }</a>
+                            <a href="detail.html">공지입니다.</a>
                         </td>
-                        <td>${l.staffName }</td>
-                        <td>${dateTempParse}</td>
-                        <
+                        <td>은</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
                     </tr>
-                 </c:forEach>   
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>풍</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>한</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>F</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>a</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>r</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>m</td>
+                        <td>2020-07-31</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <a href="detail.html">공지입니다.</a>
+                        </td>
+                        <td>은풍한Farm</td>
+                        <td>2020-06-30</td>
+                        <td>150</td>
+                    </tr>
                 </tbody>
             </table>
 

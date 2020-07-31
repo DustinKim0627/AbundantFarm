@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/list.js"></script>
     <script src="/js/index.js"></script>
     <title>은풍한 팜</title>
 </head>
@@ -49,15 +52,15 @@
             <section class="bottom-header">
                 <div class="inner-header">
                     <h1 class="logo">
-                        <a href="/index.html">
+                        <a href="/">
                             <img src="/images/logo.png" alt="로고">
                         </a>
                     </h1>
                     <span class="search-form">
-                        <form>
-                            <fieldset>
-                                <input type="search">
-                                <input type="submit" value="검색">
+                        <form name="search" >
+                            <fieldset name="f">
+                                <input type="search" name="q" value="" placeholder="상품 이름을 입력하세요.">
+								<input type="submit" value="검색">
                             </fieldset>
                         </form>
                     </span>
@@ -68,13 +71,13 @@
                 <ul>
                     <li class="whole-menu">전체메뉴</li>
                     <li>
-                        <a href="/product/list.html">상품</a>
+                        <a href="/product/list">상품</a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/intro.html">은풍한 팜</a>
+                        <a href="/community/intro">은풍한 팜</a>
                     </li>
                 </ul>
             </nav>
@@ -84,7 +87,7 @@
                     <div class="draw-list draw-main-menu">
                         <div>
                             <ul>
-                                <li>곡물</li>
+                                <li class="catg" data-rno="${link}">곡물</li>
                                 <li>쌀</li>
                                 <li>잡곡</li>
                             </ul>
@@ -153,9 +156,10 @@
                 은풍한 팜 전체상품
             </h1>
 
+			<c:set var="count" value="${count}" />
             <div class="product-list-menu">
                 <span>
-                    전체상품 <b>5</b>개
+                    전체상품 <b class="product-allCount">${count}</b>개
                 </span>
                 <ul>
                     <li class="checked">신상품</li>
@@ -165,33 +169,48 @@
                 </ul>
             </div>
             
+            
             <section class="product-container">
                 <h1 class="d-none">상품영역</h1>
 
                 <ul>
+                    <c:forEach var="item" items="${si}">
                     <li>
-                        <a href="/product/details.html">
+                        <a href="/product/details/${item.id}">
                             <p class="product-image">
                                 <img src="/images/product1.jpg">
                             </p>
                             <p class="product-detail">
-                                <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-                                <span class="product-price">19,800원</span>
-                                <span>자연산 / 전남 해남 / 300g, 1200g</span>
+                                <span class="product-title">${item.name}</span>
+                                <span class="product-price">${item.price }</span>
+                                <span>${item.detail}</span>
                             </p>
                         </a>
                     </li>
-                    
+                    </c:forEach>
                 </ul>
-
+                
             </section>
-
+            
+            <div class="pager">
+				<span class="btn btn-prev" onclick="alert('다음 페이지가 없습니다.');">이전</span>
+				<ul class="page-list">
+					<c:forEach var="i" begin="1" end="5">
+						<c:set var="orange" value="" />
+						<c:if test="${i==1}">
+							<c:set var="orange" value="-text- orange bold" />
+						</c:if>
+						<li><a class="checked" href="?p=${i}&t=&q=">${i}</a></li>
+					</c:forEach>
+				</ul>
+				<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
+			</div>
+			
         </section>
         
     </main>
 
     <footer class="footer">
-        
         <button class="up-button"> </button>
     </footer>
     

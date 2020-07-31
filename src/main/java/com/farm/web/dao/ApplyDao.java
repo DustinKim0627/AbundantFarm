@@ -1,16 +1,13 @@
 package com.farm.web.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.AdminSellerView;
-import com.farm.web.entity.Notice;
 import com.farm.web.entity.SellerApply;
 
 @Mapper

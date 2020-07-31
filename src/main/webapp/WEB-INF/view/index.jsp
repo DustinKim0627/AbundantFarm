@@ -75,7 +75,7 @@
                 <ul>
                     <li class="whole-menu">전체메뉴</li>
                     <li>
-                        <a href="/product/list.html">상품</a>
+                        <a href="/product/list">상품</a>
                     </li>
                     <li>
                         <a href="/community/community.html">커뮤니티</a>
