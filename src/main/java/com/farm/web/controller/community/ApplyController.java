@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -39,9 +40,18 @@ public class ApplyController {
 	}
 	
 	@GetMapping("reg")
-	public String reg() {
-		
+	public String regList(SellerApply sellerApply) {
+	
 		return "community/apply/reg";
+	}
+	
+	@PostMapping("reg")
+	public String reg(SellerApply sellerApply) {
+		
+		System.out.println(sellerApply);
+		applyService.regSeller(sellerApply);
+		
+		return "redirect:community/apply/reg";
 	}
 	
 	

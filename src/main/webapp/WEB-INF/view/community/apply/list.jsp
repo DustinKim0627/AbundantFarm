@@ -178,6 +178,7 @@
                         <th>제목</th>
                         <th class="reg-col">작성자</th>
                         <th class="reg-col">작성일</th>
+                        <th class="reg-col">승인</th>
                     </tr>
                 </thead>
 
@@ -191,6 +192,7 @@
                         </td>
                         <td>${l.staffName }</td>
                         <td>${dateTempParse}</td>
+                        <td>${l.appDate== 0 ? "승인 대기 중" : "승인"}</td>
                         
                     </tr>
                  </c:forEach>   
@@ -198,7 +200,9 @@
             </table>
 
             <div class="write-button">
-                <button>글쓰기</button>
+            	<a href="reg">
+                	<button>글쓰기</button>
+                </a>
             </div>
 
             <div class="pager">	

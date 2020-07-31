@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" href="/ckeditor5/sample/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
     <title>은풍한 팜</title>
@@ -152,32 +151,32 @@
                     <a href="/community/index">커뮤니티</a>
                 </li>
                 <li>
-                    <a href="/community/qna.html">Q &amp; A</a>
+                    <a href="/community/qna.html">공지사항</a>
                 </li>
             </ol>
         </div>
 
         
             <section class="comm-sub-main">
-		<h1 class="page-title">Q & A</h1>
+                <h1 class="page-title">공 지 사 항</h1>
 
-		<section class="detail-container">
-	     	<h1 class="d-none">Q & A 디테일</h1>
-     	
-			<div class="title">${q.title}</div>
-			<div class="reg-info">
-				<span>작성자: ${q.name }</span>
-				<ul>
-					<li>작성일: <fmt:formatDate pattern="yyyy-MM-dd" value="${q.regDate}" /></li>
-					<%-- <li>조회수: ${q.hit}</li> --%>
-				</ul>
-			</div>
-			<div class="content">${q.content}</div>
-		</section>
+                <section class="detail-container">
+                    <h1 class="d-none">공 지 사 항 디테일</h1>
+                
+                    <div class="title">${n.title }</div>
+                    <div class="reg-info">
+                        <span>작성자: ${n.name }</span>
+                        <ul>
+                            <li>작성일: <fmt:formatDate pattern="yyyy-MM-dd" value="${n.regDate}" /></li>
+                            <%-- <li>조회수: ${q.hit}</li> --%>
+                        </ul>
+                    </div>
+                    <div class="content">${n.content}</div>
+                </section>
 
-		<div class="admin-button">
-			<a href="list">목록</a>
-		</div>
+                <div class="admin-button">
+                    <a href="list">목록</a>
+                </div>
             </section>
        
     </section>
@@ -194,11 +193,11 @@
         <button class="up-button"> </button>
     </footer>
 
-<script src="/js/admin/board/notice/reg.js"></script>
+<!-- <script src="/js/admin/board/notice/reg.js"></script>
 <script src="/ckeditor5/build/ckeditor.js"></script>
 <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
 <script type="module" src="/ckeditor5/build/notice-edit-reg.js"></script>
-
+ -->
 
 </body>
 </html>

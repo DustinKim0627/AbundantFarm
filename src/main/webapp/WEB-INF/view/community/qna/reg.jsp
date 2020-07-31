@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="/ckeditor5/sample/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
     <title>은풍한 팜</title>
@@ -163,16 +164,13 @@
 			<section class="writer-container">
 				<h1 class="d-none">글쓰기 디테일</h1>
 				<div class="title">
-	         		<input type="text" name="title" placeholder="제목을 입력해주세요.">
+	         		<input class="editor-title" type="text" name="title" placeholder="제목을 입력해주세요.">
 	         	</div>
-				<div class="editor"></div>          
-				<div>
-				    <input type="checkbox" name="pub"> 바로공개
-				</div>
+				<div class="editor"></div>  
 			</section>
 	
 			<div class="admin-button">
-	         	<input type="submit" value="등록">
+	         	<input class="qna-reg" type="button" value="등록">
 	         	<a href="list">목록</a>
 	         </div>
 		</section>
@@ -195,8 +193,7 @@
 <script src="/js/admin/board/notice/reg.js"></script>
 <script src="/ckeditor5/build/ckeditor.js"></script>
 <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
-<script type="module" src="/ckeditor5/build/notice-edit-reg.js"></script>
-
+<script type="module" src="/ckeditor5/build/qna-edit-reg.js"></script>
 
 </body>
 </html>

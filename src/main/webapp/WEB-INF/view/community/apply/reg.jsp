@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
+    <!-- <script src="/js/community/apply/reg.js"></script> -->
     <title>은풍한 팜</title>
 </head>
 <body>
@@ -139,8 +140,8 @@
     </header>
     
     
-    <main class="main">
-        <section class="content-container">
+        <main class="main">
+        <section class="content-container apply-signup-section">
             <div class="path">
                 <ol>
                     <li>
@@ -150,33 +151,123 @@
                         <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/qna/list">Q &amp; A</a>
+                        <a href="/community/reg/apply">입점신청</a>
                     </li>
                 </ol>
             </div>
-            
-            <h1 class="page-title">Q &amp; A</h1>
 
-            <section class="admin-main">
-                <section class="admin-sub-main">
-                    <h1 class="page-title">공지사항</h1>
-                    <section class="writer-container">
-                        <h1 class="d-none">글쓰기 디테일</h1>
-                        <div class="title">
-                            <input type="text" name="title" placeholder="제목을 입력해주세요.">
+            <header>
+                <div class="apply-signup-title">
+                    <div class="signup-title-wrap">
+                        <h1 class="page-title">입 점 신 청</h1>
+                        <div> 
+                            <span class="font-color-red">*</span>필수입력사항
                         </div>
-                        <div class="editor"></div>          
-                        <div>
-                            <input type="checkbox" name="pub"> 바로공개
-                        </div>
-                    </section>
-            
-                    <div class="admin-button">
-                        <input type="submit" value="등록">
-                        <a href="list">목록</a>
                     </div>
-                </section>
+                </div>
+            </header>
+
+            <table class="apply-signup-table">
+                <tr class="business-row d-none">
+                    <td>사업자 번호<span class="font-color-red">*</span></td>
+                    <td> 
+                        <input type="text">
+                    </td>
+                </tr>
+            </table>
+
+            <section class="member-default-info">
+                <h1 class="signup-title-font">기본정보</h1>
+                <form action="/community/apply/reg" method="POST">
+                    <table class="apply-signup-table">
+                        <tr>
+                            <td>제목<span class="font-color-red">*</span></td>
+                            <td ><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>판매상품<span class="font-color-red">*</span></td>
+                            <td >
+                               <select name="item">
+                                    <optgroup label="곡물">
+                                    	<option value="7">쌀</option>
+                                    	<option value="8">잡곡</option>
+                                    </optgroup>
+                                    <optgroup label="채소">
+                                    	<option value="10">배추</option>
+                                    	<option value="11">무</option>
+                                    	<option value="12">감자</option>
+                                    </optgroup>
+                                    <optgroup label="과일">
+                                    	<option value="9">사과</option>
+                                    	<option value="13">딸기</option>
+                                    	<option value="18">배</option>
+                                    </optgroup>
+                                    <optgroup label="음료">
+                                    	<option value="15">케일주스</option>
+                                    	<option value="16">당근주스</option>
+                                    	<option value="17">포도즙</option>
+                                    </optgroup>
+                                    <optgroup label="기타">
+                                    	<option value="14">꿀</option>
+                                    	<option value="19">아이스크림</option>
+                                    </optgroup>
+                                </select>
+                             </td>
+                        </tr>
+                        <tr>
+                            <td >법인명(단체명)<span class="font-color-red">*</span></td>
+                            <td ><input name="comName" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td >법인/사업자 번호<span class="font-color-red">*</span></td>
+                            <td ><input name="brn" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td >대표자 <span class="font-color-red">*</span></td>
+                            <td ><input name="repName" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td >담당자 <span class="font-color-red">*</span></td>
+                            <td ><input name="staffName" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td >이메일 <span class="font-color-red">*</span></td>
+                            <td >
+                                <input name="email" type="email"> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >휴대전화 <span class="font-color-red">*</span></td>
+                            <td class="phone-row">
+                                <input type="tel" name="telephone" placeholder=" 예) 010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >일반전화 </td>
+                            <td class="phone-row">
+                                <input type="tel" name="phone" placeholder=" 예) 02-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >사진 업로드 <span class="font-color-red"></span></td>
+                            <td ><input name="files" type="text"> <button value="사진 업로드">사진 업로드</button></td>
+                        </tr>
+                        <tr>
+                            <td >상품 URL <span class="font-color-red"></span></td>
+                            <td ><input name="sellingUrl" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td >내용 <span ></span></td>
+                            <td ><input name="content" class="font-content-area" type="text" style="width: 700px; height: 200px;"></td>
+                        </tr>
+                    </table>
+		            <div class="admin-button">
+		                <input type="submit" value="등록">
+		                <a href="list">목록</a>
+		            </div>
+                </form>
             </section>
+
 
         </section>
     </main>
@@ -192,10 +283,6 @@
         <button class="up-button"> </button>
     </footer>
 
-<script src="/js/admin/board/notice/reg.js"></script>
-<script src="/ckeditor5/build/ckeditor.js"></script>
-<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
-<script type="module" src="/ckeditor5/build/notice-edit-reg.js"></script>
 
 
 </body>

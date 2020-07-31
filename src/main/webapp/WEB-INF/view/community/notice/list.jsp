@@ -190,7 +190,7 @@
                         <td>
                             <a href="${l.id }">${l.title }</a>
                         </td>
-                        <td>${l.writerId }</td>
+                        <td>관리자</td>
                         <td>${dateTempParse }</td>
                         <td>${l.hit }</td>
                     </tr>

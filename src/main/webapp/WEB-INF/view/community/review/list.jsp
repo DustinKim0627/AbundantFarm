@@ -223,10 +223,6 @@
                 </tbody>
             </table>
 
-            <div class="write-button">
-                <button>글쓰기</button>
-            </div>
-
             <div class="pager">	
                 <span class="btn btn-prev">이전</span>
                 <ul class="page-list">

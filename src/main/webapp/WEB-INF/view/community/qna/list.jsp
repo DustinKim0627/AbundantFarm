@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
     <title>은풍한 팜</title>
@@ -224,6 +225,8 @@
         
         <button class="up-button"> </button>
     </footer>
+
+
 
 </body>
 </html>

@@ -12,21 +12,24 @@ public class SellerApply {
 	private int brn;  
 	private String repName;   
 	private String staffName; 
-	private int phone; 
+	private String phone; 
+	private String telephone;
 	private String email; 
 	private String files;  
 	private String sellingUrl; 
-	private String item; 
+	private int item; 
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date regDate;  
-	private Date appDate; 
+	private Date appDate;
+	private String titleImage;
 	
 	public SellerApply() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public SellerApply(int id, String title, String content, String comName, int brn, String repName, String staffName,
-			int phone, String email, String files, String sellingUrl, String item, Date regDate, Date appDate) {
+			String phone, String telephone, String email, String files, String sellingUrl, int item, Date regDate,
+			Date appDate, String titleImage) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -36,12 +39,14 @@ public class SellerApply {
 		this.repName = repName;
 		this.staffName = staffName;
 		this.phone = phone;
+		this.telephone = telephone;
 		this.email = email;
 		this.files = files;
 		this.sellingUrl = sellingUrl;
 		this.item = item;
 		this.regDate = regDate;
 		this.appDate = appDate;
+		this.titleImage = titleImage;
 	}
 
 	public int getId() {
@@ -100,12 +105,20 @@ public class SellerApply {
 		this.staffName = staffName;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 
 	public String getEmail() {
@@ -132,11 +145,11 @@ public class SellerApply {
 		this.sellingUrl = sellingUrl;
 	}
 
-	public String getItem() {
+	public int getItem() {
 		return item;
 	}
 
-	public void setItem(String item) {
+	public void setItem(int item) {
 		this.item = item;
 	}
 
@@ -156,13 +169,22 @@ public class SellerApply {
 		this.appDate = appDate;
 	}
 
+	public String getTitleImage() {
+		return titleImage;
+	}
+
+	public void setTitleImage(String titleImage) {
+		this.titleImage = titleImage;
+	}
+
 	@Override
 	public String toString() {
 		return "SellerApply [id=" + id + ", title=" + title + ", content=" + content + ", comName=" + comName + ", brn="
-				+ brn + ", repName=" + repName + ", staffName=" + staffName + ", phone=" + phone + ", email=" + email
-				+ ", files=" + files + ", sellingUrl=" + sellingUrl + ", item=" + item + ", regDate=" + regDate
-				+ ", appDate=" + appDate + "]";
+				+ brn + ", repName=" + repName + ", staffName=" + staffName + ", phone=" + phone + ", telephone="
+				+ telephone + ", email=" + email + ", files=" + files + ", sellingUrl=" + sellingUrl + ", item=" + item
+				+ ", regDate=" + regDate + ", appDate=" + appDate + ", titleImage=" + titleImage + "]";
 	}
-	
+
+
 	
 }
