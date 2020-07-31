@@ -29,5 +29,8 @@ public interface CustQnADao {
 
 	@Insert("")
 	int insert(CustQnAView custQnAview);
+	
+	@Insert("insert into CustQnA(writerId,title,content) values(#{writerId},#{title},#{content})")
+	int insertss(CustQnA cqa);
 
 }

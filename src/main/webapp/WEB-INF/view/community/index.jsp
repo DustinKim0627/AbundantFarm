@@ -171,7 +171,7 @@
                     <c:forEach var="notice" items="${notice}" varStatus="st">
             		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${notice.regDate}"/>
                         <tr>
-                            <td><a href="${notice.id } ">${notice.title }</a></td>
+                            <td><a href="notice/${notice.id } ">${notice.title }</a></td>
                             <td>${dateTempParse }</td>
                         </tr>
                     </c:forEach> 
@@ -191,7 +191,7 @@
                     <c:forEach var="apply" items="${apply}" varStatus="st">
             		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${apply.regDate}"/>
                         <tr>
-                            <td><a href="${apply.id } ">${apply.title }</a></td>
+                            <td><a href="apply/${apply.id } ">${apply.title }</a></td>
                             <td>${dateTempParse }</td>
                         </tr>
                     </c:forEach> 
@@ -211,7 +211,7 @@
                         <c:forEach var="qna" items="${qna}" varStatus="st">
             		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${qna.regDate}"/>
                         <tr>
-                            <td><a href="${qna.id } ">${qna.title }</a></td>
+                            <td><a href="qna/${qna.id } ">${qna.title }</a></td>
                             <td>${dateTempParse }</td>
                         </tr>
                     </c:forEach> 
@@ -231,7 +231,7 @@
                     <c:forEach var="review" items="${review}" varStatus="st">
             		<fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${review.regDate}"/>
                         <tr>
-                            <td><a href="${review.id } ">${review.title }</a></td>
+                            <td><a href="review/${review.id } ">${review.title }</a></td>
                             <td>${dateTempParse }</td>
                         </tr>
                     </c:forEach> 

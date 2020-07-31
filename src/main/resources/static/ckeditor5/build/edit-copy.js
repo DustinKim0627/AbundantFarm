@@ -72,6 +72,7 @@ ClassicEditor
 			    const ansBtn = document.querySelector(".ans-button");
 			    console.log(editor);
 			    // 완료버튼 눌렀을 시 콜백함수
+			    
 			    ansBtn.addEventListener("click", () => {
 						let editorData = editor.getData();
 						console.log(editorData);
