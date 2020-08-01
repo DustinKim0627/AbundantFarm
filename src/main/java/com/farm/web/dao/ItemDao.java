@@ -38,8 +38,8 @@ public interface ItemDao {
 	int select() throws ClassNotFoundException, SQLException;
 	
 	// 전체 메뉴 
-	@Select("select * from ItemView where catgPName = #{catgPName}")
-	List<ItemView> getList4(String catgPName);
+	@Select("SELECT * FROM ItemView WHERE ${field} LIKE '%${query}%' ORDER BY startDate asc limit #{offset}, #{size}")
+	List<ItemView> getList4(int page, String query, String field, int offset, int size);
 	
 	/******************************************윤호************************************************************/
 	@Select("select * from ItemView where ${field} like '%${query}%' and catgPName like '%${catg}%' LIMIT #{offset},#{size}")

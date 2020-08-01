@@ -134,9 +134,12 @@ public class ItemService {
 		return itemDao.selectAll();
 	}
 
-	public List<ItemView> getList4(String catgPName) throws ClassNotFoundException, SQLException {
+	public List<ItemView> getList4(int page, String query, String field) throws ClassNotFoundException, SQLException {
 	
-		return itemDao.getList4(catgPName);
+		int size = 8;
+		int offset = (page-1) * size;
+		
+		return itemDao.getList4(page, query, field, offset, size);
 	}
 	
 }

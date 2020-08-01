@@ -15,29 +15,9 @@ $(function () {
 	const highPrice = 3;
 	
 	const drawMenu = $(".draw-menu");
-	const drawMenuList = $(".draw-list draw-main-menu");
-	const catg = $(".catg");
-	
-	
-	// 권환 비활성화 ajax처리
-    $(".catg").click(function(){
-       console.log($(this).attr("data-rno"));
-       let sellerId = $(this).attr("data-rno");   // id 값을 받아오는 'data-rno'를 넘겨 받아와서 스크립트
-       
-        $.ajax({
-            type : "get",
-            url : "/product/list/changeEnabled?sellerId="+sellerId,
-            success : function(data) {
-                console.log("권한이 해제되었습니다.");
-               
-               },
-               error: function(){
-                  console.log("실패");
-               }
-               
-        });
-        
-    });
+	const drawMenuList = drawMenu.find(".inner-draw");
+	const ul = $("ul");
+	const catg = ul.find(".catg");
 	
 	
 	menuLi.click( function(){

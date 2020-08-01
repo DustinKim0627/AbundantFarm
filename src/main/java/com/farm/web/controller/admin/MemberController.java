@@ -108,12 +108,12 @@ public class MemberController {
 	}
 	
 	@GetMapping("changeEnabled")
-	   @ResponseBody
-	   public int deletComment(@RequestParam("sellerId") String sellerId) throws ClassNotFoundException, SQLException {
+	@ResponseBody
+	public int deletComment(@RequestParam("sellerId") String sellerId) throws ClassNotFoundException, SQLException {
 
-	      System.out.println(sellerId);
+		System.out.println(sellerId);
 	      
-	      return memberService.unabledMember(sellerId);
-	   }
+		return memberService.unabledMember(sellerId);
+	}
 	
 }
