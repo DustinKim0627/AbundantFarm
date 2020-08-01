@@ -50,8 +50,8 @@
                 <li>
                     <h2 class="admin-menu-title">매매관리</h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="">판매량</a></li>
-                        <li><a href="">주문현황</a></li>
+                        <li><a href="/seller/selling/qty">판매량</a></li>
+                        <li><a href="/seller/selling/list">주문현황</a></li>
                     </ul>
                 </li>
             </ul>

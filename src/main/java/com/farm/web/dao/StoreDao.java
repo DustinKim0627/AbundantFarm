@@ -8,6 +8,6 @@ public interface StoreDao {
 	/*******************************************지욱********************************************************/
 	@Insert("INSERT INTO Store(itemId,qty)"
 			+ "values(#{itemId},#{qty})")
-	int insertSellerProduct(int itemId,int qty);
+	int insert(int itemId,int qty);
 	/******************************************************************************************************/
 }

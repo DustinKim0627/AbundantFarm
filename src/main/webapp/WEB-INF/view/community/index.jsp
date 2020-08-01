@@ -78,10 +78,10 @@
                         <a href="/product/list.html">상품</a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/intro.html">은풍한 팜</a>
+                        <a href="/farmIntro/index">은풍한 팜</a>
                     </li>
                 </ul>
             </nav>
@@ -122,7 +122,7 @@
                         <ul>
                             <li>은풍한 팜</li>
                             <li>
-                                <a href="/community/intro">은풍한 팜 소개</a>
+								<a href="/farmIntro/index">은풍한 팜 소개</a>
                             </li>
                             <li>
                                 <a href="/community/notice/list">공지사항</a>
@@ -152,7 +152,7 @@
                         <a href="/index.html"></a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                 </ol>
             </div>

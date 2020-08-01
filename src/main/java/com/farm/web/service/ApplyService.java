@@ -59,6 +59,7 @@ public int updateAccept(int id) {
 
 	public int regSeller(SellerApply sellerApply) {
 		
+		
 		return applyDao.insertRegSeller(sellerApply);
 	}
 

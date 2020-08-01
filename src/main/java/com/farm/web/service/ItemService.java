@@ -1,5 +1,6 @@
 package com.farm.web.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,13 +78,32 @@ public class ItemService {
 		return memberDao.getByUid(uid);
 	}
 
-	public int insertSellerProduct(Item item,Integer qty) {
+//	상품등록
+	public int insertSellerProduct(Item item,Integer qty) throws ParseException {
+		int result = 0;
+		int result1 = 0;
+		final int result2 = 2;
+//		로그인된 판매자의 아이디 얻기
+//		나중에 principal로 해서 getName으로 바꾼다.
+		int sellerId = 1;
+
+		result1 = itemDao.insertSellerProduct(item);
+		Item registeredItem = new Item();
+//		아이템등록 성공
+		if(result1 == 1) {
+			registeredItem = itemDao.getItemId(sellerId, item.getName(),item.getRegName());
+			
+		}
+//		아이템 등록실패
+		if(result1 == 0) {
+			return result2;
+		}
 		
-		itemDao.insertSellerProduct(item);
-		item = itemDao.getItemId(item.getName(),item.getRegName());
-		int itemId = item.getId();
+		int itemId = registeredItem.getId();
 	
-		return storeDao.insertSellerProduct(itemId, qty);
+		result = storeDao.insert(itemId, qty);
+		
+		return result;
 	}
 	
 	public List<Origin> getList(){

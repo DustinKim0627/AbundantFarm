@@ -166,6 +166,8 @@ public class SellerApply {
 	public void setTitleImage(String titleImage) {
 		this.titleImage = titleImage;
 	}
+	
+	
 
 	@Override
 	public String toString() {
@@ -174,6 +176,8 @@ public class SellerApply {
 				+ telephone + ", email=" + email + ", files=" + files + ", sellingUrl=" + sellingUrl + ", regDate="
 				+ regDate + ", appDate=" + appDate + ", titleImage=" + titleImage + "]";
 	}
+
+	
 
 		
 }

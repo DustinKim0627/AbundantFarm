@@ -61,12 +61,12 @@ public interface ItemDao {
 	int SellerProductUpdatePub(int id,boolean pub);
 	
 	@Insert("INSERT INTO Item(sellerId,categoryId,originId,name,regName,detail,price,startDate,endDate,image,tag,deliveryFee)"
-			+ "values(#{sellerId},7,#{originId},#{name},#{regName},#{detail},#{price},#{startDate},#{endDate},#{image},#{tag},#{deliveryFee})")
+			+ "values(#{sellerId},#{categoryId},#{originId},#{name},#{regName},#{detail},#{price},#{startDate},#{endDate},#{image},#{tag},#{deliveryFee})")
 	int insertSellerProduct(Item item);
 	
-	//이부분은 고민좀해봐야함
-	@Select("SELECT * FROM Item WHERE name=#{name} and regName=#{regName} ") 
-	Item getItemId(String name, String regName);
+	// 아이템 등록한 후, 등록된 아이템의 id를 얻어오는 쿼리
+	@Select("SELECT * FROM Item WHERE sellerId=#{sellerId} and name=#{name} and regName=#{regName} ") 
+	Item getItemId(int sellerId, String name, String regName);
 	
 	/******************************************************************************************************/
 	

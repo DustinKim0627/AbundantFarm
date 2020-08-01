@@ -13,7 +13,7 @@ import com.farm.web.dao.CategoryDao;
 import com.farm.web.entity.Category;
 
 @RestController
-@RequestMapping("/api/category/")
+@RequestMapping("/api/seller/category/")
 public class CategoryController {
 	
 	@Autowired
@@ -26,7 +26,6 @@ public class CategoryController {
 		int subCAT = Integer.parseInt(subCAT_);
 		
 		List<Category> subCategoies = categoryDao.getSubList(subCAT);
-				System.out.println(subCategoies);
 				
 		return subCategoies;
 	}

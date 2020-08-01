@@ -96,6 +96,7 @@ public class QnaController {
 	    
 	    String data = gson.fromJson(json, String.class);
 	    int result = 0;
+	    
 //	    itemQnA의 id
 	    int id = 2044;
 	    result = qnaService.insertAnswer(id,data);

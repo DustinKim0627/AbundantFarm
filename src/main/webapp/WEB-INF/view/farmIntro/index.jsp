@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,10 +71,10 @@
                         <a href="/product/list.html">상품</a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
+                        <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/intro.html">은풍한 팜</a>
+                        <a href="/farmIntro/farm">은풍한 팜</a>
                     </li>
                 </ul>
             </nav>
@@ -150,10 +152,7 @@
                         <a href="/index.html"> </a>
                     </li>
                     <li>
-                        <a href="/community/community.html">커뮤니티</a>
-                    </li>
-                    <li>
-                        <a href="/community/intro.html">은풍한 팜 소개</a>
+                        <a href="/farmIntro/index">은풍한 팜 소개</a>
                     </li>
                 </ol>
             </div>
@@ -161,8 +160,7 @@
             <section class="main-section">
                 <h1 class="d-none">은풍한 팜 소개</h1>
     
-                <img src="../images/intro-img.png">
-    ;       
+                <img src="../images/intro-img.png">     
             </section>
         </div>
         

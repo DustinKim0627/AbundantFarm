@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.farm.web.dao.CategoryDao;
+import com.farm.web.entity.Category;
+import com.farm.web.entity.CategoryView;
 import com.farm.web.entity.Item;
 import com.farm.web.entity.Member;
 import com.farm.web.entity.Origin;
@@ -32,6 +38,8 @@ public class ItemController {
 	
 	@Autowired
 	private ItemService spservice;
+	@Autowired
+	private CategoryDao categoryDao;
 		
 	@GetMapping("list")
 	public String list(@RequestParam(name = "q", defaultValue = "") String query,
@@ -78,6 +86,14 @@ public class ItemController {
 	
 	@GetMapping("reg")
 	public String reg(Model model) {
+		List<CategoryView> catList = null;
+		catList = categoryDao.getList();
+		
+		List<Category> subList = null;
+		subList = categoryDao.getSubList(1);
+		
+		model.addAttribute("catList", catList);
+		model.addAttribute("subList", subList);
 		
 		String uid = "seller";
 		Member member=null;
@@ -93,11 +109,42 @@ public class ItemController {
 	
 	@PostMapping("reg")
 	public String reg(MultipartFile file,HttpServletRequest request,
-			@RequestParam(name = "store-qty", defaultValue = "") Integer qty,
-			Item item) throws IOException{
-		System.out.println(item);
+			@RequestParam(name = "store-qty", defaultValue = "") Integer qty
+			) throws IOException, ParseException{
 		
-//////////////////////////////////////////////이미지업로드를 안한다면 업로드 금지하는거 추가하기////
+		Item item = new Item();
+		
+			// sellerId넣기
+			// 나중에 로그인된 정보로 바꿔주기
+			// 의문점 security는 getName 즉, uid를 받아올건데 그럼 다시 쿼리로 판매자의 id를 얻어야 하는가? 매번?
+			int sellerId = 1;
+			item.setSellerId(sellerId);
+			
+			item.setName(request.getParameter("name"));
+			item.setRegName(request.getParameter("regName"));
+			item.setTag(request.getParameter("tag"));
+			item.setDetail(request.getParameter("detail"));
+			item.setCategoryId(Integer.parseInt(request.getParameter("categoryId")));
+			item.setOriginId(Integer.parseInt(request.getParameter("originId")));
+			item.setPrice(Integer.parseInt(request.getParameter("price")));
+			item.setLeadTime(Integer.parseInt(request.getParameter("leadTime")));
+			item.setDeliveryFee(Integer.parseInt(request.getParameter("deliveryFee")));
+			
+			
+//			날짜변환
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String sd_ = request.getParameter("startDate");
+			String ed_ = request.getParameter("endDate");
+			Date sd = sdf.parse(sd_);
+			Date ed = sdf.parse(sd_);
+			System.out.println(sd);
+			item.setStartDate(sd);
+			item.setEndDate(ed);
+		
+			
+			
+		
+        ////이미지업로드를 안한다면 업로드 금지하는거 추가하기////
 		String path = request.getServletContext().getRealPath("/upload/"); 
 		File file1 = new File(path);
 		if(!file1.exists()) 
@@ -112,10 +159,26 @@ public class ItemController {
       int len = 0;
        while((len = is.read(buf)) != -1) // buf사이즈 만큼 read함 // is.read(buf) -> 다 못채웠으면 LEN만큼 반환함    
           os.write(buf, 0, len);
-///////////////////////////////////////////////////////
+       
+       System.out.println(item);
+       
+//      등록
 		int result = spservice.insertSellerProduct(item,qty);
-	       
+		
+//		아이템 등록 및 입고 성공
+		if(result==1)
+			System.out.println("아이템 등록 및 입고 성공");
+//		입고 실패
+		if(result==0) {
+			System.out.println("입고 실패");
+		}
+//		아이템 등록 실패
+		if(result==0) {
+			System.out.println("아이템 등록 실패");
+		}
+		
 		return "redirect:/seller/index";
+		
 	}
 
 

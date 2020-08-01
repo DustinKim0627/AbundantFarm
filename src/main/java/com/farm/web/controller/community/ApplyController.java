@@ -52,10 +52,9 @@ public class ApplyController {
 	@PostMapping("reg")
 	public String reg(SellerApply sellerApply) {
 		
-		System.out.println(sellerApply);
-		applyService.regSeller(sellerApply);
+		applyService.regSeller(sellerApply);	
 		
-		return "redirect:community/apply/reg";
+		return "redirect:list";
 	}
 	
 	

@@ -77,7 +77,7 @@
                         <a href="/community/index">커뮤니티</a>
                     </li>
                     <li>
-                        <a href="/community/intro.html">은풍한 팜</a>
+                        <a href="/farmIntro/index">은풍한 팜</a>
                     </li>
                 </ul>
             </nav>
@@ -118,7 +118,7 @@
                         <ul>
                             <li>은풍한 팜</li>
                             <li>
-                                <a href="/community/intro">은풍한 팜 소개</a>
+                                <a href="/farmIntro/index">은풍한 팜 소개</a>
                             </li>
                             <li>
                                 <a href="/community/notice/list">공지사항</a>
@@ -167,22 +167,13 @@
                 </div>
             </header>
 
-            <table class="apply-signup-table">
-                <tr class="business-row d-none">
-                    <td>사업자 번호<span class="font-color-red">*</span></td>
-                    <td> 
-                        <input type="text">
-                    </td>
-                </tr>
-            </table>
-
             <section class="member-default-info">
                 <h1 class="signup-title-font">기본정보</h1>
                 <form action="/community/apply/reg" method="POST">
                     <table class="apply-signup-table">
                         <tr>
                             <td>제목<span class="font-color-red">*</span></td>
-                            <td ><input type="text"></td>
+                            <td ><input name="title" type="text"></td>
                         </tr>
                         <tr>
                             <td >법인명(단체명)<span class="font-color-red">*</span></td>
@@ -209,13 +200,13 @@
                         <tr>
                             <td >휴대전화 <span class="font-color-red">*</span></td>
                             <td class="phone-row">
-                                <input type="tel" name="telephone" placeholder=" 예) 010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+                                <input name="telephone" type="tel" placeholder=" 예) 010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
                             </td>
                         </tr>
                         <tr>
                             <td >일반전화 </td>
                             <td class="phone-row">
-                                <input type="tel" name="phone" placeholder=" 예) 02-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+                                <input name="phone" type="tel" placeholder=" 예) 02-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
                             </td>
                         </tr>
                         <tr>

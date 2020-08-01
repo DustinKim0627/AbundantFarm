@@ -33,8 +33,8 @@ public interface ApplyDao {
 	@Select("select * from SellerApply where id=${id}")
 	List<AdminSellerView> getApplyList(int id);
 
-	@Insert("insert into SellerApply values(#{sellerApply.id},#{sellerApply.title},#{sellerApply.content},#{sellerApply.comName},#{sellerApply.brn},#{sellerApply.repName},"
-			+ "#{sellerApply.staffName},#{sellerApply.phone},#{sellerApply.telephone},#{sellerApply.email},#{sellerApply.files},#{sellerApply.sellingUrl},#{sellerApply.item},#{sellerApply.regDate},#{sellerApply.appDate},#{sellerApply.titleImage})")
+	@Insert("insert into SellerApply (title, content, comName, brn, repName, staffName, phone, telephone, email, files, sellingUrl, titleImage) "
+			+ "values(#{title},#{content},#{comName},#{brn},#{repName}, #{staffName},#{phone},#{telephone},#{email},#{files},#{sellingUrl},#{titleImage})")
 	int insertRegSeller(SellerApply sellerApply);
 
 	@Select("SELECT * FROM SellerApply where id=${id}")

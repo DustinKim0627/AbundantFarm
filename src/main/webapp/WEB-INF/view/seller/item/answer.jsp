@@ -61,7 +61,7 @@ pageEncoding="UTF-8"%>
 
         <script src="/ckeditor5/build/ckeditor.js"></script>
         <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
-        <script type="module" src="/ckeditor5/build/edit-copy.js"></script>
+        <script type="module" src="/ckeditor5/build/itemqna-answer.js"></script>
       </main>
     </div>
     <footer class="footer">
