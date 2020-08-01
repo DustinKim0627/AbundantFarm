@@ -83,33 +83,61 @@
             <section class="draw-menu">
                 <h1 class="d-none">전체메뉴</h1>
                 <div class="inner-draw">
-                    <div class="draw-list draw-main-menu">
+                	<div class="draw-list draw-main-menu">
                         <div>
                             <ul>
-                                <li>곡물</li>
-                                <li>쌀</li>
-                                <li>잡곡</li>
+                                <li class="catg" data-rno="1">
+                                	<a href="/product/category?q=곡물">곡물</a>
+                                </li>
+                                <li class="catg" data-rno="7">
+                                	<a href="/product/category?q=쌀">쌀</a>
+                                </li>
+                                <li class="catg" data-rno="8">
+                                	<a href="/product/category?q=곡물">잡곡</a>
+                                </li>
                             </ul>
                             <ul>
-                                <li>채소</li>
-                                <li>배추</li>
-                                <li>무</li>
+                                <li class="catg" data-rno="3">
+                                	<a href="/product/category?q=채소">채소</a>
+                                </li>
+                                <li class="catg" data-rno="10">
+                                	<a href="/product/category?q=배추">배추</a>
+                                </li>
+                                <li class="catg" data-rno="11">
+                                	<a href="/product/list?q=당근">당근</a>
+                                </li>
                             </ul>
                             <ul>
-                                <li>음료</li>
-                                <li>차</li>
-                                <li>즙</li>
+                                <li class="catg" data-rno="4">
+                                	<a href="/product/category?q=음료">음료</a>
+                                </li>
+                                <li class="catg" data-rno="4">
+                                	<a href="/product/category?q=쥬스">쥬스</a>
+                                </li>
+                                <li class="catg" data-rno="4">
+                                	<a href="/product/category?q=즙">즙</a>
+                                </li>
                             </ul>
                         </div>
                         <div>
                             <ul>
-                                <li>과일</li>
-                                <li>포도</li>
-                                <li>딸기</li>
+                                <li class="catg" data-rno="2">
+                                	<a href="/product/category?q=과일">과일</a>
+                                </li>
+                                <li class="catg" data-rno="2">
+                                	<a href="/product/category?q=포도">포도</a>
+                                </li>
+                                <li class="catg" data-rno="13">
+                                	<a href="/product/category?q=딸기">딸기</a>
+                                </li>
                             </ul>
                             <ul>
-                                <li>기타</li>
-                                <li>아이스크림</li>
+                                <li class="catg" data-rno="5">
+                                	<a href="/product/category?q=기타">기타</a>
+                                </li>
+                                <li class="catg" data-rno="19">
+                                	<a href="/product/category?q=아이스크림">아이스크림</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
