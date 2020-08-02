@@ -88,10 +88,10 @@
                                 	<a href="/product/category?q=곡물">곡물</a>
                                 </li>
                                 <li class="catg" data-rno="7">
-                                	<a href="/product/category?q=쌀">쌀</a>
+                                	<a href="/product/list?q=쌀">쌀</a>
                                 </li>
                                 <li class="catg" data-rno="8">
-                                	<a href="/product/category?q=곡물">잡곡</a>
+                                	<a href="/product/list?q=잡곡">잡곡</a>
                                 </li>
                             </ul>
                             <ul>
@@ -99,7 +99,7 @@
                                 	<a href="/product/category?q=채소">채소</a>
                                 </li>
                                 <li class="catg" data-rno="10">
-                                	<a href="/product/category?q=배추">배추</a>
+                                	<a href="/product/list?q=배추">배추</a>
                                 </li>
                                 <li class="catg" data-rno="11">
                                 	<a href="/product/list?q=당근">당근</a>
@@ -110,10 +110,10 @@
                                 	<a href="/product/category?q=음료">음료</a>
                                 </li>
                                 <li class="catg" data-rno="4">
-                                	<a href="/product/category?q=쥬스">쥬스</a>
+                                	<a href="/product/list?q=쥬스">쥬스</a>
                                 </li>
                                 <li class="catg" data-rno="4">
-                                	<a href="/product/category?q=즙">즙</a>
+                                	<a href="/product/list?q=즙">즙</a>
                                 </li>
                             </ul>
                         </div>
@@ -123,10 +123,10 @@
                                 	<a href="/product/category?q=과일">과일</a>
                                 </li>
                                 <li class="catg" data-rno="2">
-                                	<a href="/product/category?q=포도">포도</a>
+                                	<a href="/product/list?q=포도">포도</a>
                                 </li>
                                 <li class="catg" data-rno="13">
-                                	<a href="/product/category?q=딸기">딸기</a>
+                                	<a href="/product/list?q=딸기">딸기</a>
                                 </li>
                             </ul>
                             <ul>
@@ -134,7 +134,7 @@
                                 	<a href="/product/category?q=기타">기타</a>
                                 </li>
                                 <li class="catg" data-rno="19">
-                                	<a href="/product/category?q=아이스크림">아이스크림</a>
+                                	<a href="/product/list?q=아이스크림">아이스크림</a>
                                 </li>
                             </ul>
                         </div>

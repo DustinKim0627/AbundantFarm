@@ -94,7 +94,7 @@
                                 	<a href="/product/list?q=쌀">쌀</a>
                                 </li>
                                 <li class="catg" data-rno="8">
-                                	<a href="/product/list?q=곡물">잡곡</a>
+                                	<a href="/product/list?q=잡곡">잡곡</a>
                                 </li>
                             </ul>
                             <ul>

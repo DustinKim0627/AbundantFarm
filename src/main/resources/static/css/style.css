@@ -68,6 +68,11 @@ body {
     font-size: 14px;
 }
 
+/*메인 리스트*/
+.category-list li:hover {
+    color: #fff;
+    background-color: #0e5b55 !important;
+}
 
 /*게시판 너비 클래스 모음*/
 .num-col {

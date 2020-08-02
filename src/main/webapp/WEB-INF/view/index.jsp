@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,15 +58,15 @@
             <section class="bottom-header">
                 <div class="inner-header">
                     <h1 class="logo">
-                        <a href="/index.html">
+                        <a href="/">
                             <img src="/images/logo.png" alt="로고">
                         </a>
                     </h1>
                     <span class="search-form">
-                        <form>
-                            <fieldset>
-                                <input type="search">
-                                <input type="submit" value="검색">
+                        <form name="search" action="/product/list">
+                            <fieldset name="f">
+                                <input type="search" name="q" value="" placeholder="상품 이름을 입력하세요.">
+								<input type="submit" value="검색">
                             </fieldset>
                         </form>
                     </span>
@@ -85,7 +87,7 @@
                     </li>
                 </ul>
             </nav>
-                        <section class="draw-menu">
+            <section class="draw-menu">
                 <h1 class="d-none">전체메뉴</h1>
                 <div class="inner-draw">
                     <div class="draw-list draw-main-menu">
@@ -95,10 +97,10 @@
                                 	<a href="/product/category?q=곡물">곡물</a>
                                 </li>
                                 <li class="catg" data-rno="7">
-                                	<a href="/product/category?q=쌀">쌀</a>
+                                	<a href="/product/list?q=쌀">쌀</a>
                                 </li>
                                 <li class="catg" data-rno="8">
-                                	<a href="/product/category?q=곡물">잡곡</a>
+                                	<a href="/product/list?q=잡곡">잡곡</a>
                                 </li>
                             </ul>
                             <ul>
@@ -106,7 +108,7 @@
                                 	<a href="/product/category?q=채소">채소</a>
                                 </li>
                                 <li class="catg" data-rno="10">
-                                	<a href="/product/category?q=배추">배추</a>
+                                	<a href="/product/list?q=배추">배추</a>
                                 </li>
                                 <li class="catg" data-rno="11">
                                 	<a href="/product/list?q=당근">당근</a>
@@ -117,10 +119,10 @@
                                 	<a href="/product/category?q=음료">음료</a>
                                 </li>
                                 <li class="catg" data-rno="4">
-                                	<a href="/product/category?q=쥬스">쥬스</a>
+                                	<a href="/product/list?q=쥬스">쥬스</a>
                                 </li>
                                 <li class="catg" data-rno="4">
-                                	<a href="/product/category?q=즙">즙</a>
+                                	<a href="/product/list?q=즙">즙</a>
                                 </li>
                             </ul>
                         </div>
@@ -130,10 +132,10 @@
                                 	<a href="/product/category?q=과일">과일</a>
                                 </li>
                                 <li class="catg" data-rno="2">
-                                	<a href="/product/category?q=포도">포도</a>
+                                	<a href="/product/list?q=포도">포도</a>
                                 </li>
                                 <li class="catg" data-rno="13">
-                                	<a href="/product/category?q=딸기">딸기</a>
+                                	<a href="/product/list?q=딸기">딸기</a>
                                 </li>
                             </ul>
                             <ul>
@@ -141,7 +143,7 @@
                                 	<a href="/product/category?q=기타">기타</a>
                                 </li>
                                 <li class="catg" data-rno="19">
-                                	<a href="/product/category?q=아이스크림">아이스크림</a>
+                                	<a href="/product/list?q=아이스크림">아이스크림</a>
                                 </li>
                             </ul>
                         </div>
@@ -188,36 +190,38 @@
                 </ul>
 
                 <ul class="product-list">
-                        <li>
-                            <p>
-                                <img src="images/product1.jpg">
-                            </p>
-                            <p class="product-detail">
-                                <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-                                <span class="product-price">19,800원</span>
-                                <span>자연산 / 전남 해남 / 300g, 1200g</span>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <img src="images/product1.jpg">
-                            </p>
-                            <p class="product-detail">
-                                <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-                                <span class="product-price">19,800원</span>
-                                <span>자연산 / 전남 해남 / 300g, 1200g</span>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <img src="images/product1.jpg">
-                            </p>
-                            <p class="product-detail">
-                                <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-                                <span class="product-price">19,800원</span>
-                                <span>자연산 / 전남 해남 / 300g, 1200g</span>
-                            </p>
-                        </li>
+	                <li>
+	                 <a href="/product/details/${item.id}">
+	                     <p>
+	                         <img src="images/product1.jpg">
+	                     </p>
+	                     <p class="product-detail">
+	                         <span class="product-title">${item.name }</span>
+	                         <span class="product-price">19,800원</span>
+	                         <span>자연산 / 전남 해남 / 300g, 1200g</span>
+	                     </p>
+	                 </a>
+	                </li>
+	                <li>
+	                    <p>
+	                        <img src="images/product1.jpg">
+	                    </p>
+	                    <p class="product-detail">
+	                        <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
+	                        <span class="product-price">19,800원</span>
+	                        <span>자연산 / 전남 해남 / 300g, 1200g</span>
+	                    </p>
+	                </li>
+	                <li>
+	                    <p>
+	                        <img src="images/product1.jpg">
+	                    </p>
+	                    <p class="product-detail">
+	                        <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
+	                        <span class="product-price">19,800원</span>
+	                        <span>자연산 / 전남 해남 / 300g, 1200g</span>
+	                    </p>
+	                </li>
                 </ul>
             </section>
 

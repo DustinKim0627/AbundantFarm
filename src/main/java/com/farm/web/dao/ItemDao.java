@@ -91,7 +91,7 @@ public interface ItemDao {
 	//이부분은 고민좀해봐야함
 	@Select("SELECT * FROM Item WHERE name=#{name} and regName=#{regName} ") 
 	Item getItemId(String name, String regName);
-	
+
 	/******************************************************************************************************/
 	
 
