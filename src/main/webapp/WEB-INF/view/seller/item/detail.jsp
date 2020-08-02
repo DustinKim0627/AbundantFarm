@@ -81,12 +81,13 @@
 	            		</span>
 	            	</div>
 	            	<div class="content">
+	            		${i.image }
 	            		${i.content}
 	            	</div>
-	            	<div>
-	            		${i.image }
+	            	<div class="title">
+	            		<span>답변</span>
 	            	</div>
-	            	<div>
+	            	<div class="content">
 	            		${i.contentA }
 	            	</div>
 	            	
@@ -94,7 +95,6 @@
 	            
 	            <div class="admin-button">
 		            <a href="answer">답변하기</a>
-	            	<input type="submit" value="삭제">
 	            	<a href="list">목록</a>
 	            </div>
         	</section>

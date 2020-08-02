@@ -1,5 +1,6 @@
 package com.farm.web.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -15,6 +16,7 @@ import com.farm.web.entity.OrderItemView;
 @Mapper
 public interface OrderItemDao {
 
+
 	@Select("select * from OrderItemView"
 			+ " where iSellerId = ${id} and status like '%${status}%' and ${field} like '%${query}%' LIMIT ${size} OFFSET ${offset}")
 	List<OrderItemView> getList(int offset, int size, 
@@ -29,10 +31,12 @@ public interface OrderItemDao {
 	@Insert("")
 	int insert();
 	
-	@Update("")
-	int update();
+//	배송보내고 확인
+	@Update("update OrderItem set deliveryId=${deliveryId}, status='배송중', waybillNum=${waybillNum} where id=${dtlNum}")
+	int updateWaybillNum(int dtlNum, int deliveryId, int waybillNum);
 	
-	@Delete("")
-	int delete();
+//	입금확인
+	@Update("update OrderItem set status='입금확인', payCDate=#{payCDate} where id=${id}")
+	int updatePayCDate(int id, Date payCDate);
 
 }

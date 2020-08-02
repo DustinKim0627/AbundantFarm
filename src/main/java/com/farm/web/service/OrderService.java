@@ -3,6 +3,8 @@ package com.farm.web.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ public class OrderService {
 	@Autowired
 	private OrderItemDao orderItemDao;
 	
+	// 판매자의 주문현황 list의 뷰를 위한 페이지
 	public List<OrderItemView> getOrderItemList(Integer page, String status, String field, String query){
 
 		int offset = (page-1)*10; // 1-> 0, 2-> 10, 3-> 20 이 되게 만들어야한다.
@@ -35,22 +38,25 @@ public class OrderService {
 	  return orderItemDao.getList(offset, size, id, page, status, field, query);
 	}
 	
-
-	public int insertAnswer(int id, String data) {
-		int result = 0;
-		Date cTime = new Date();
-	        
-	    
-		result = orderItemDao.update();
-		
-		
-		return result;
-	}
-	
+	// 판매자의 주문 detail의 뷰를 위한 페이지
 	public OrderItemView getOrderItemView(int id) {
-		OrderItemView orderItem = orderItemDao.getView(id);
+	
+		return orderItemDao.getView(id);
+	}
+
+	// 판매자가 상품을 보내고 회사와 송장번호를 첨부하는 작업
+	public int sendItem(int dtlNum, int deliveryId, int waybillNum) {
 		
-		return orderItem;
+		return orderItemDao.updateWaybillNum(dtlNum, deliveryId, waybillNum);
+		
+	}
+
+	// 판매자가 무통장 거래일 때 입금을 확인했을때
+	public int confirmPay(int id) {
+		
+		Date payCDate = new Date();
+		
+		return orderItemDao.updatePayCDate(id,payCDate);
 	}
 
 }

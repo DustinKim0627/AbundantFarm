@@ -76,22 +76,17 @@ public class OrderController {
 	
 	@PostMapping("{dtlNum}")
 	public String detail2(@PathVariable("dtlNum") int dtlNum, 
-			HttpServletRequest request, 
-			Model model) {
+			HttpServletRequest request 
+			) {
 		
+		// 택배회사, 송장번호 첨부
+		int deliveryId = Integer.parseInt(request.getParameter("delivery")); 
+		int waybillNum = Integer.parseInt(request.getParameter("waybillNum"));
 		
-		
-		// 송장회사, 송장번호 첨부
-//		orderService
+		orderService.sendItem(dtlNum, deliveryId, waybillNum);
 		
 		return "redirect:list";
 	}
 	
-	@GetMapping("qty")
-	public String quantity() {
-		
-		
-		return "seller/selling/quantity";
-	}
 	
 }

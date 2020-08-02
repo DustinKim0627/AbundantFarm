@@ -113,7 +113,7 @@
                                     <td>${ol.qty}</td>
                                     <td>${ol.qty*ol.iPrice}</td>
                                     <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${ol.oRegDate}" /></td>
-                                    <td><a href="/seller/selling/${ol.id}">주문관리</a></td>
+                                    <td class="admin-button"><a href="/seller/selling/${ol.id}">주문관리</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -121,7 +121,7 @@
                 </c:otherwise>
                 </c:choose>
                 <div class="pager">	
-                    <span class="btn btn-prev">이전</span>
+                    <span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
                     <ul class="page-list">
                         <li><a href="?p=1&st=${st}&f=${f}&q=${q}">1</a></li>
                         <li><a href="?p=2&st=${st}&f=${f}&q=${q}">2</a></li>
@@ -129,7 +129,7 @@
                         <li><a href="?p=4&st=${st}&f=${f}&q=${q}">4</a></li>
                         <li><a href="?p=5&st=${st}&f=${f}&q=${q}">5</a></li>
                     </ul>
-                    <span class="btn btn-next">다음</span>
+                    <span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
                 </div>
             </section>
         </main>
