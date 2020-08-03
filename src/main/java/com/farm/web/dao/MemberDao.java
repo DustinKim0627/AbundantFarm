@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -53,4 +54,11 @@ public interface MemberDao {
 	@Select("select * from Member where uid=#{uid}")
 	Member getByUid(String uid);
 
+	//*******************************지욱******************************
+	@Select("select * from Member where uid=#{uid}")
+	Member getFromUid(String uid);
+	
+	@Update("update Member set email=#{m.email}, address=#{m.address} , mobile=#{m.mobile} , phone = #{m.phone} where uid = #{userId}")
+	int updateToMypage(@Param("m")Member member,String userId);
+	
 }

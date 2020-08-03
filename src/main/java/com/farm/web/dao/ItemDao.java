@@ -27,8 +27,8 @@ public interface ItemDao {
 	List<Item> getList2(int id);
 	/****수환 끝***/	
 	
-	@Select("")
-	Item get();
+	@Select("select * from Item where id=${id}")
+	Item get(int id);
 	
 	@Insert("")
 	int insert();

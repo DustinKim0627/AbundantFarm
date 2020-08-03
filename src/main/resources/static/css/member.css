@@ -196,16 +196,16 @@
         border: 1px solid #dbdbdb;
         height: 30px;
     }
-    .add-row>input[type=text]{
+    .add-row input[type=text]{
         margin-top: 5px;
         margin-right: 5px;
         width: 300px;
     }
-    .add-row>input:first-child{
+    .add-row input:first-child{
         margin: 0;
         width: 60px;
     }
-    .add-row>button{
+    .add-row button{
         cursor: pointer;
         width: 100px;
         height: 30px;
@@ -237,6 +237,7 @@
 /* =====myPage===== */
 
 .mypage-aside{
+	min-width: 250px;
     border-right: 1px solid #dddddd;
 }
 .profile-container{
@@ -341,9 +342,10 @@
         padding-bottom: 20px;
     }
     .att-container .att-list{
-        height: 280px;
+        min-height: 280px;
         margin-bottom: 30px;
         display: flex;
+        flex-wrap:wrap;
         padding: 20px 10px 0;
     }
     .att-list .att-item{
