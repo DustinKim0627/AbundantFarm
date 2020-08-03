@@ -22,7 +22,7 @@ public class SellerApply {
 	private Date appDate;
 	private String titleImage;
 	
-	public SellerApply() {
+	public SellerApply() { 
 		// TODO Auto-generated constructor stub
 	}
 
@@ -166,8 +166,6 @@ public class SellerApply {
 	public void setTitleImage(String titleImage) {
 		this.titleImage = titleImage;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -178,6 +176,4 @@ public class SellerApply {
 	}
 
 	
-
-		
 }

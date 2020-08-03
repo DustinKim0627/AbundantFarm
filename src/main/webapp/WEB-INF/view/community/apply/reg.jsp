@@ -181,7 +181,7 @@
                         </tr>
                         <tr>
                             <td >법인/사업자 번호<span class="font-color-red">*</span></td>
-                            <td ><input name="brn" type="text"></td>
+                            <td ><input name="brn_" type="text"></td>
                         </tr>
                         <tr>
                             <td >대표자 <span class="font-color-red">*</span></td>
@@ -228,7 +228,6 @@
 		            </div>
                 </form>
             </section>
-
 
         </section>
     </main>

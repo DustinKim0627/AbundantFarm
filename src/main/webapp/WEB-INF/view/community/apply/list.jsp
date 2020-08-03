@@ -183,10 +183,10 @@
                 </thead>
 
                 <tbody>
-                <c:forEach var="l" items="${list}" varStatus="st">
+                <c:forEach var="l" items="${list}" varStatus="st" >
                 <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${l.regDate}"/>
                 	<tr>
-                        <td>${l.id }</td>
+                        <td>${st.count}</td>
                         <td>
                             <a href="${l.id }">${l.title }</a>
                         </td>

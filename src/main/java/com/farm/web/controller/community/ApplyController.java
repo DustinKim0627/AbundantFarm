@@ -1,6 +1,9 @@
 package com.farm.web.controller.community;
 
+import java.security.Principal;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,14 +47,17 @@ public class ApplyController {
 	}
 	
 	@GetMapping("reg")
-	public String regList(SellerApply sellerApply) {
+	public String regList(SellerApply sellerApply) { 
 	
 		return "community/apply/reg";
 	}
 	
 	@PostMapping("reg")
-	public String reg(SellerApply sellerApply) {
+	public String reg(SellerApply sellerApply, HttpServletRequest request) {
 		
+		sellerApply.setBrn(Integer.parseInt(request.getParameter("brn_")));
+		int id = 3;
+		sellerApply.setId(id);
 		applyService.regSeller(sellerApply);	
 		
 		return "redirect:list";
