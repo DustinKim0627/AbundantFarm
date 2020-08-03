@@ -40,9 +40,16 @@
 	                    <c:forEach var="list" items="${list}">
 		                    <tr>
 		                        <td>${list.id}</td>
-		                        <td>
+		                        <td class="qna-table-title">
 		                            <a href="${list.id}">
-		                            	${list.title}
+		                            	<c:choose>
+											<c:when test="${list.regDateA eq null}">
+												${list.title}
+											</c:when>
+											<c:otherwise>
+												${list.title} <span>답변완료</span>
+											</c:otherwise>
+										</c:choose>
 		                            </a>
 		                        </td>
 		                        <td>${list.name}</td>

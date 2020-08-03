@@ -11,7 +11,7 @@ public class indexController {
 	@GetMapping("index")
 	public String index() {
 		
-		return "farmIntro/index";
+		return "farmIntro.index";
 
 	}
 	

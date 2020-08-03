@@ -40,7 +40,7 @@ public class QnaController {
 		List<CustQnAView> list = custQnaService.getList(page, field, query);
 		model.addAttribute("list", list);
 
-		return "community/qna/list";
+		return "community.qna.list";
 	}
 
 	@GetMapping("{id}")
@@ -49,13 +49,13 @@ public class QnaController {
 		CustQnAView custQnaView = custQnaService.get(id);
 		model.addAttribute("q", custQnaView);
 
-		return "community/qna/detail";
+		return "community.qna.detail";
 	}
 
 	@GetMapping("reg")
 	public String reg() {
 
-		return "community/qna/reg";
+		return "community.qna.reg";
 	}
 
 	@PostMapping("reg")

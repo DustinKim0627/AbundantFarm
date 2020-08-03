@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,20 +14,20 @@
 <body>
     <header class="admin-header">
         <h1>
-            판매자페이지
+            관리자페이지
             <span>판매자님 반갑습니다.</span>
         </h1>
         <ul>
             <li>
-                <a href="/index">메인 홈</a>
+                <a href="/index.html">메인 홈</a>
             </li>
             <li>
-                <a href="/seller/index">관리자홈</a>
+                <a href="/admin/admin.html">관리자홈</a>
             </li>
             <li>로그아웃</li>
         </ul>
     </header>
-   <div class="admin-body">
+    <div class="admin-body">
         <aside class="aside">
             <h1 class="d-none">관리자페이지 메뉴</h1>
             <ul class="admin-menu">
@@ -38,102 +36,245 @@
                         상품관리
                     </h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="/seller/item/reg">상품등록</a></li>
-                        <li><a href="/seller/item/list">상품목록</a></li>
-                        <li><a href="/seller/item/qna/list">상품문의</a></li>
-                        <li><a href="/seller/item/review/list">상품후기</a></li>
+                        <li><a href="/seller/product/reg">상품등록</a></li>
+                        <li><a href="/seller/product/list">상품목록</a></li>
+                        <li><a href="/seller/product/qna/list">상품문의</a></li>
+                        <li><a href="/seller/product/review/list">상품후기</a></li>
                     </ul>
                 </li>
                 <li>
                     <h2 class="admin-menu-title">매매관리</h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="/seller/selling/list">주문현황</a></li>
+                        <li><a href="">판매량</a></li>
+                        <li><a href="">주문현황</a></li>
                     </ul>
                 </li>
             </ul>
-         </aside>
+        </aside>
+
+        <!--list 관련 css -> admin.css 에 있음-->
 
         <main class="admin-main">
             <section>
-                <h1 class="page-title">주문현황</h1>
-                <form method="POST" action="list">
-                    <fieldset>
-	        	        <div>
-							<select name="st">
-				    			<option value=""		${st eq '전체' ? 'selected' : '' }	>전체</option>
-				    			<option value="입금대기"	${st eq '입금대기' ? 'selected' : '' }	>입금대기</option>
-				    			<option value="입금확인"	${st eq '입금확인' ? 'selected' : '' }	>입금확인</option>
-				    			<option value="배송중"	${st eq '배송중' ? 'selected' : '' }	>배송중</option>
-				    			<option value="배송완료"	${st eq '배송완료' ? 'selected' : '' }	>배송완료</option>
-				    			<option value="주문취소"	${st eq '주문취소' ? 'selected' : '' }	>주문취소</option>
-				    		</select>	        	        
-	        	        </div>
-                        <div class="board-search">
-                            <select name="f">
-                                <option value="iName">상품명</option>
-                                <option value="iRegName">등록상품명</option>
-                            </select>
-                            <input type="search" name="q" placeholder="검색어를 입력하세요.">
-                            <input type="hidden" name="p" value="${p}">
-                            <input type="submit" value="검색" />
-                        </div>
-                    </fieldset>
-                </form>
+                <h1 class="d-none">상품 리스트</h1>
+                <nav class="product-category-menu">
+                    <h1 class="d-none">상품 카테고리 리스트</h1>
+                    <ul>
+                        <li>
+                            전체상품 <span>100</span>
+                        </li>
+                        <li>
+                            곡물 <span>50</span>
+                        </li>
+                        <li>
+                            채소 <span>20</span>
+                        </li>
+                        <li>
+                            음료 <span>10</span>
+                        </li>
+                        <li>
+                            과일 <span>15</span>
+                        </li>
+                        <li>
+                            기타 <span>5</span>
+                        </li>
+                    </ul>
+                </nav>
+                <section class="product-list">
+                    <h1 class="page-title">전체상품</h1>
+                    <span class="search-form">
+                        <form>
+                            <fieldset>
+                                <legend class="d-none">상품관리 검색 필드</legend>
+                                <label class="d-none">검색분류</label>
+                                <select name="f">
+                                    <option value="title">상품명</option>
+                                    <option value="sellerName">판매자</option>
+                                    <option value="sellerId">아이디</option>
+                                </select>
+                                <label class="d-none">검색어</label>
+                                <input type="search" name="q" value="">
+                                <input type="submit" value="검색">
+                            </fieldset>
+                        </form>
+                    </span>
 
-                <c:choose>
-                <c:when test="${empty oiList}">
-                    <h1>들어온 주문이 없습니다!!</h1>
-                </c:when>
-                <c:otherwise>
-                    <table class="board-table">
+                    <table class="product-table">
+                        <colgroup>
+                            <col class="num-col">
+                            <col class="text-col">
+                            <col>
+                            <col class="expand-col">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="num-col">
+                                    <span>
+                                        <input type="checkbox" id="check_all" checked="">
+                                        <label class="d-none">전체 상품 선택</label>
+                                    </span>
+                                </th>
+                                <th colspan="3">상품정보</th>
+                            </tr>
+                        </thead>
                         <tbody>
-                            <thead>
-                                <tr>
-                                    <th class="num-col">번호</th>
-                                    <th class="reg-col">상태</th>
-                                    <th class="reg-col">주문자(이름)</th>
-                                    <th class="reg-col">상품명</th>
-                                    <th class="reg-col">등록상품명</th>
-                                    <th class="reg-col">가격</th>
-                                    <th class="reg-col">개수</th>
-                                    <th class="reg-col">총가격</th>
-                                    <th class="reg-col">주문일</th>
-                                    <th class="reg-col">주문관리</th>
-                                </tr>
-                            </thead>
-                            <c:forEach var="ol" items="${oiList }" varStatus="status">
-                                <tr>
-                                    <td>${status.count}</td>
-                                    <td>${ol.status}</td>
-                                    <td>${ol.mUid}(${ol.mName})</td>
-                                    <td>${ol.iName}</td>
-                                    <td>${ol.iRegName}</td>
-                                    <td>${ol.iPrice}</td>
-                                    <td>${ol.qty}</td>
-                                    <td>${ol.qty*ol.iPrice}</td>
-                                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${ol.oRegDate}" /></td>
-                                    <td class="admin-button"><a href="/seller/selling/${ol.id}">주문관리</a></td>
-                                </tr>
-                            </c:forEach>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <img src="/images/product1.jpg">
+                                </td>
+                                <td>
+                                    <dl>
+                                        <dt>상품명</dt>
+                                        <dd>유기농 쌀</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>판매가격</dt>
+                                        <dl>350,000원</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>품목명</dt>
+                                        <dl>쌀</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dl>2020-07-02</dl>
+                                    </dl>
+                                </td>
+                                <td>
+                                    <dl>
+                                        <dt>판매자</dt>
+                                        <dd>은풍한 팜</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>아이디</dt>
+                                        <dl>admin</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>판매량</dt>
+                                        <dl>315</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dl>2020-07-02</dl>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <img src="/images/product1.jpg">
+                                </td>
+                                <td>
+                                    <dl>
+                                        <dt>상품명</dt>
+                                        <dd>유기농 쌀</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>판매가격</dt>
+                                        <dl>350,000원</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>품목명</dt>
+                                        <dl>쌀</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dl>2020-07-02</dl>
+                                    </dl>
+                                </td>
+                                <td>
+                                    <dl>
+                                        <dt>판매자</dt>
+                                        <dd>은풍한 팜</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>아이디</dt>
+                                        <dl>admin</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>판매량</dt>
+                                        <dl>315</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dl>2020-07-02</dl>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <img src="/images/product1.jpg">
+                                </td>
+                                <td>
+                                    <dl>
+                                        <dt>상품명</dt>
+                                        <dd>유기농 쌀</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>판매가격</dt>
+                                        <dl>350,000원</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>품목명</dt>
+                                        <dl>쌀</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dl>2020-07-02</dl>
+                                    </dl>
+                                </td>
+                                <td>
+                                    <dl>
+                                        <dt>판매자</dt>
+                                        <dd>은풍한 팜</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>아이디</dt>
+                                        <dl>admin</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>판매량</dt>
+                                        <dl>315</dl>
+                                    </dl>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dl>2020-07-02</dl>
+                                    </dl>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                </c:otherwise>
-                </c:choose>
-                <div class="pager">	
-                    <span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
-                    <ul class="page-list">
-                        <li><a href="?p=1&st=${st}&f=${f}&q=${q}">1</a></li>
-                        <li><a href="?p=2&st=${st}&f=${f}&q=${q}">2</a></li>
-                        <li><a href="?p=3&st=${st}&f=${f}&q=${q}">3</a></li>
-                        <li><a href="?p=4&st=${st}&f=${f}&q=${q}">4</a></li>
-                        <li><a href="?p=5&st=${st}&f=${f}&q=${q}">5</a></li>
-                    </ul>
-                    <span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
-                </div>
+
+                    <div class="product-list-button">
+                        <button>일괄배포</button>
+                        <button>일괄삭제</button>
+                    </div>
+
+                    <div class="pager">	
+                        <span class="btn btn-prev">이전</span>
+                        <ul class="page-list">
+                            <li><a href="" class="checked">1</a></li>
+                            <li><a href="">2</a></li>
+                        </ul>
+                        <span class="btn btn-next">다음</span>
+                    </div>
+
+                </section>
+
             </section>
+            
         </main>
     </div>
     <footer class="footer">
+        
         <button class="up-button"> </button>
     </footer>
 </body>

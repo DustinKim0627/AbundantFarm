@@ -19,12 +19,12 @@
 <body>
     <header class="admin-header">
         <h1>
-            판매자페이지
+            관리자페이지
             <span>판매자님 반갑습니다.</span>
         </h1>
         <ul>
             <li>
-                <a href="/index">메인 홈</a>
+                <a href="/index.html">메인 홈</a>
             </li>
             <li>
                 <a href="/seller/index">관리자홈</a>
@@ -50,11 +50,12 @@
                 <li>
                     <h2 class="admin-menu-title">매매관리</h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="/seller/selling/list">주문현황</a></li>
+                        <li><a href="">판매량</a></li>
+                        <li><a href="">주문현황</a></li>
                     </ul>
                 </li>
             </ul>
-         </aside>
+        </aside>
 
         <!--list 관련 css -> admin.css 에 있음-->
 

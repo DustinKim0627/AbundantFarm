@@ -1,10 +1,10 @@
-/*공통*/
+/*怨듯넻*/
 .content-container {
     margin: 50px auto 80px;
     width: 1200px;
 }
 
-/*메인*/
+/*硫붿씤*/
 .header {
     height: 270px;
 }
@@ -14,7 +14,7 @@
     height: inherit;
 }
 .main {
-    min-height: 500px;
+    min-height: 650px;
 }
 .main-section {
     margin: 50px auto 80px;
@@ -25,7 +25,7 @@
     background-color: #eee;
 }
 
-/*로그인, 회원가입 - member*/
+/*濡쒓렇�씤, �쉶�썝媛��엯 - member*/
 .login-main-section{
     margin: 80px auto;
     width: 480px;

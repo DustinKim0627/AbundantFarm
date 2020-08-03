@@ -59,7 +59,7 @@ public class ItemController {
 		model.addAttribute("list",list);
 		model.addAttribute("cl",count);
 
-		return "seller/item/list";
+		return "seller.item.list";
 	}
 	
 	@GetMapping("del")
@@ -104,7 +104,7 @@ public class ItemController {
 		List<Origin> olist = spservice.getList();
 		model.addAttribute("originlist",olist);
 		
-		return "seller/item/reg";
+		return "seller.item.reg";
 	}
 	
 	@PostMapping("reg")
@@ -177,7 +177,7 @@ public class ItemController {
 			System.out.println("아이템 등록 실패");
 		}
 		
-		return "redirect:/seller/index";
+		return "redirect:/seller.index";
 		
 	}
 

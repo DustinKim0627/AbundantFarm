@@ -32,7 +32,7 @@ public class ReviewController {
 		review = ReivewService.getList(page, field, query);
 		model.addAttribute("review", review);
 
-		return "seller/item/review";//리턴할 페이지 경로 -실제보여주는 맵핑 주소
+		return "seller.item.review";//리턴할 페이지 경로 -실제보여주는 맵핑 주소
 	}
 	
 	@PostMapping("reg") //답글 등록

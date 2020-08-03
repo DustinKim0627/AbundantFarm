@@ -30,7 +30,7 @@ public class ReviewController {
 		List<ReviewView> review = reviewService.getList(page, field, query);
 		model.addAttribute("review", review);
 		
-		return "community/review/list";
+		return "community.review.list";
 	}
 	
 	@GetMapping("{id}")
@@ -39,6 +39,6 @@ public class ReviewController {
 		ReviewView reviewView = reviewService.get(id);
 		model.addAttribute("r", reviewView);
 		
-		return "community/review/detail";
+		return "community.review.detail";
 	}
 }

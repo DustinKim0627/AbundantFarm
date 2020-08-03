@@ -65,7 +65,7 @@ public class QnaController {
 		model.addAttribute("qList",qList);
 		model.addAttribute("iList", iList);
 		
-		return "seller/item/qna";
+		return "seller.item.qna";
 	}
 	
 	
@@ -75,12 +75,12 @@ public class QnaController {
 		
 		model.addAttribute("i", itemQna);
 		
-		return "seller/item/detail";
+		return "seller.item.detail";
 	}
 	
 	@GetMapping("answer")
 	public String answer() {
-		return "seller/item/answer";
+		return "seller.item.answer";
 	}
 	
 	@PostMapping("answer2")

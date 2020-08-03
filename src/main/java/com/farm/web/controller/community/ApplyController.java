@@ -34,7 +34,7 @@ public class ApplyController {
 		List<SellerApply> list = applyService.getApplyList(page, field, query);
 		model.addAttribute("list", list);
 
-		return "community/apply/list";
+		return "community.apply.list";
 	}
 	
 	@GetMapping("{id}")
@@ -43,13 +43,13 @@ public class ApplyController {
 		SellerApply sellerApplyList = applyService.getApplyListDeatil(id);
 		model.addAttribute("detail", sellerApplyList);
 		
-		return "community/apply/detail";
+		return "community.apply.detail";
 	}
 	
 	@GetMapping("reg")
 	public String regList(SellerApply sellerApply) {
 	
-		return "community/apply/reg";
+		return "community.apply.reg";
 	}
 	
 	@PostMapping("reg")

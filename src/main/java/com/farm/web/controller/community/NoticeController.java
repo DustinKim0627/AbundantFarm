@@ -29,7 +29,7 @@ public class NoticeController {
 		List<Notice> list = noticeService.getList(page, field, query);
 		model.addAttribute("list", list);
 		
-		return "community/notice/list";
+		return "community.notice.list";
 	}
 
 	@GetMapping("{id}")
@@ -39,7 +39,7 @@ public class NoticeController {
 		model.addAttribute("n", noticeView);
 		
 		
-		return "community/notice/detail";
+		return "community.notice.detail";
 	}
 	
 }

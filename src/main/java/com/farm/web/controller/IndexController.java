@@ -23,9 +23,8 @@ public class IndexController {
 
 		// 현재 비지니스로직이없이 바로 데이터를 바인딩해주기때문에 Application Layer를 만들지않음
 		List<ReviewViewofIndex> reviews = reviewDao.indexOfReviews();
-		System.out.println(reviews);
 		model.addAttribute("reviews", reviews);
-		return "index";
+		return "root.index";
 	}
 
 }

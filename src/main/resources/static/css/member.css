@@ -129,21 +129,20 @@
 
 /* ===============signup================ */
 
-
-.main-section{
+.signup-section{
     color: #333333;
 }
-    .main-section>header{
+    .signup-section>header{
         display: flex;
         justify-content: space-between;
         padding: 15px 0;
         border-bottom: 1px solid #dddddd;
         margin-bottom: 20px;
     }
-    .main-section>header>h1{
+    .signup-section>header>h1{
         margin-left: 10px;
     }
-    .main-section>header>span{
+    .signup-section>header>span{
         font-size: 14px;
         color: #555555;
     }
@@ -170,7 +169,7 @@
     border-top: 2px solid #cccccc;
     border-bottom: 1px solid #cccccc;
     margin-bottom: 40px;
-    font-size: 14px;
+    font-size: 17px;
 }
     .signup-table td{
         box-sizing: border-box;
@@ -185,40 +184,45 @@
     .signup-table tr>td:last-child{
         padding: 10px 10px;
     }
-    .signup-table input[type=text],.signup-table input[type=password]{
+    .signup-table input[type=text],
+    .signup-table input[type=password]{
         box-sizing: border-box;
-        width: 250px;
-        height: 30px;
+        width: 470px;
+        height: 40px;
         border: 1px solid #dbdbdb;
         padding: 0 5px;
     }
     .signup-table select{
         border: 1px solid #dbdbdb;
-        height: 30px;
+        padding: 0 5px;
+        box-sizing: border-box;
+        width: 350px;
+        height: 40px;
     }
-    .add-row input[type=text]{
+    .add-row>input[type=text]{
         margin-top: 5px;
         margin-right: 5px;
-        width: 300px;
+        width: 470px;
     }
-    .add-row input:first-child{
+    .add-row>input:first-child{
         margin: 0;
-        width: 60px;
+        width: 370px;
     }
-    .add-row button{
+    .add-row>button{
         cursor: pointer;
-        width: 100px;
-        height: 30px;
+        width: 95px;
+        height: 40px;
         background: #ffffff;
         border: 1px solid #aaaaaa;
         border-radius: 3px;
+        font-size: 16px;
     }
     .phone-row select{
         border: 1px solid #dbdbdb;
-        width: 80px;
+        width: 145px;
     }
     .phone-row>input[type=text]{
-        width: 80px;
+        width: 145px;
     }
 
 .signup-button-container{
@@ -232,7 +236,13 @@
         border: 0;
         border-radius: 3px;
         color: white;
+        font-size: 17px;
     }
+    .option-td {
+    	text-indent: 15px;
+    }
+
+
 
 /* =====myPage===== */
 

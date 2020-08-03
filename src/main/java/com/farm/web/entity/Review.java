@@ -2,6 +2,8 @@ package com.farm.web.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Review {
 	private int id; 
 	private int writerId;
@@ -9,7 +11,8 @@ public class Review {
 	private String title; 
 	private String content; 
 	private int hit;
-	private int rate; 
+	private int rate;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date regDate; 
 	private int like;
 	private String image;

@@ -61,4 +61,19 @@ public interface MemberDao {
 	@Update("update Member set email=#{m.email}, address=#{m.address} , mobile=#{m.mobile} , phone = #{m.phone} where uid = #{userId}")
 	int updateToMypage(@Param("m")Member member,String userId);
 	
+	//회원가입 - 수경
+	@Insert("insert into Member (uid, pwd, name, email, address, mobile, phone, role) values (#{uid},#{pwd},#{name},#{email},#{address},#{mobile},#{phone},#{role});")
+	int insert(Member member);
+
+	@Select("select count(uid) from Member where uid=#{uid}")
+	int selectId(Member member);
+
+	@Select("select count(email) from Member where email=#{email}")
+	int selectEmail(Member member);
+
+	@Select("select * from Member where email=#{email}")
+	Member getId(Member member);
+
+	@Update("update Member set pwd=#{pwd} where uid=#{uid} and email=#{email}")
+	int updatePwd(Member member);
 }

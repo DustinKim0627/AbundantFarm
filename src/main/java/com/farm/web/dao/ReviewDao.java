@@ -16,7 +16,7 @@ import com.farm.web.entity.DTO.ReviewViewofIndex;
 @Mapper
 public interface ReviewDao {
 
-	@Select("SELECT R.* ,I.name as productName FROM ReviewView R join Item I on R.itemId = I.id order by regDate desc limit 4;")
+	@Select("SELECT R.* ,I.name as productName FROM ReviewView R join Item I on R.itemId = I.id where pub =1 and isdel =0 order by regDate desc limit 4")
 	List<ReviewViewofIndex> indexOfReviews();
 
 	@Select("SELECT * FROM ReviewView order by regDate desc limit 10")

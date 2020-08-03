@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.farm.web.dao.BasketDao;
@@ -140,4 +142,51 @@ public class MemberService {
 	}
 	
 	//**지욱끝
+	
+	
+	//수경
+public int insert(Member member) {
+		
+		String pwd = member.getPwd();
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+      	member.setPwd(encoder.encode(pwd));
+		
+		return memberDao.insert(member);
+	}
+	
+	public boolean validate(String uid, String pwd) {
+	      Member member = memberDao.getByUid(uid);
+	      if(member == null)
+	         return false;
+	      else if(!member.getPwd().equals(pwd))
+	         return false;
+	      
+	      return true;
+	   }
+
+
+	public int selectId(Member member) {
+		
+		return memberDao.selectId(member);
+	}
+
+	public int selectEmail(Member member) {
+		
+		return memberDao.selectEmail(member);
+	}
+
+	public Member getId(Member member) {
+		
+		return memberDao.getId(member);
+	}
+
+	public int updatePwd(Member member) {
+		
+		String pwd = member.getPwd();
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+      	member.setPwd(encoder.encode(pwd));
+		
+		return memberDao.updatePwd(member);
+	}
+
 }

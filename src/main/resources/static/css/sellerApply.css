@@ -64,12 +64,26 @@
     .apply-signup-table tr>td:last-child{
         padding: 10px 10px;
     }
-    .apply-signup-table input[type=text],.apply-signup-table input[type=password]{
+    .apply-signup-table input {
         box-sizing: border-box;
         width: 250px;
-        height: 30px;
+        height: 40px;
         border: 1px solid #dbdbdb;
         padding: 0 5px;
+    }
+    .apply-signup-table button{
+        cursor: pointer;
+        margin-left: 20px;
+        width: 120px;
+        height: 40px;
+        background: #ffffff;
+        border: 1px solid #aaaaaa;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+    .apply-signup-table button:hover {
+    	color: #fff;
+    	background-color: #aaa;
     }
     .apply-signup-table select{
         border: 1px solid #dbdbdb;
@@ -78,26 +92,27 @@
     .add-row>input[type=text]{
         margin-top: 5px;
         margin-right: 5px;
-        width: 300px;
+        width: 470px;
     }
     .add-row>input:first-child{
         margin: 0;
-        width: 60px;
+        width: 370px;
     }
     .add-row>button{
         cursor: pointer;
-        width: 100px;
-        height: 30px;
+        width: 95px;
+        height: 40px;
         background: #ffffff;
         border: 1px solid #aaaaaa;
         border-radius: 3px;
+        font-size: 16px;
     }
     .phone-row select{
         border: 1px solid #dbdbdb;
-        width: 80px;
+        width: 145px;
     }
     .phone-row>input[type=text]{
-        width: 80px;
+        width: 145px;
     }
 
 .signup-button-container{

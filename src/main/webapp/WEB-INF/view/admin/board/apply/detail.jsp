@@ -21,10 +21,56 @@
 				</ul>
 			</div>
 			<div class="content">
-				<ul>
-					<li>작성내용: ${a.content}</li>
-					<li>첨부파일: ${a.files}</li>
-				</ul>
+				<table class="apply-signup-table">
+					<tr>
+						<td>제목<span class="font-color-red">*</span></td>
+						<td>${a.title }</td>
+					</tr>
+					<tr>
+						<td>법인명(단체명)<span class="font-color-red">*</span></td>
+						<td>${a.comName }</td>
+					</tr>
+					<tr>
+						<td>법인/사업자 번호<span class="font-color-red">*</span></td>
+						<td>${a.brn }</td>
+					</tr>
+					<tr>
+						<td>대표자 <span class="font-color-red">*</span></td>
+						<td>${a.repName }</td>
+					</tr>
+					<tr>
+						<td>담당자 <span class="font-color-red">*</span></td>
+						<td>${a.staffName }</td>
+					</tr>
+					<tr>
+						<td>이메일 <span class="font-color-red">*</span></td>
+						<td>${a.email }</td>
+					</tr>
+					<tr>
+						<td>휴대전화 <span class="font-color-red">*</span></td>
+						<td class="phone-row">${a.telephone }</td>
+					</tr>
+					<tr>
+						<td>일반전화</td>
+						<td class="phone-row">${a.phone }</td>
+					</tr>
+					<tr>
+						<td>사진 업로드 <span class="font-color-red"></span></td>
+						<td>${a.files }</td>
+					</tr>
+					<tr>
+						<td>상품 URL <span class="font-color-red"></span></td>
+						<td>${a.sellingUrl }</td>
+					</tr>
+					<tr>
+						<td>내용 <span></span></td>
+						<td>${a.content }</td>
+					</tr>
+					<tr>
+						<td>승인여부 <span></span></td>
+						<td class="approve-status">${a.appDate!=null ? '승인' : '승인 대기 중'}</td>
+					</tr>
+				</table>
 			</div>
 			<div class="apply-check">
 				<c:choose>

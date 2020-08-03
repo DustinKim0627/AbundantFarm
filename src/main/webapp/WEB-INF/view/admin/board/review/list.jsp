@@ -43,7 +43,8 @@
 		                    <tr>
 		                        <td>${list.id}</td>
 		                        <td>
-		                            <img src="/images/product2.jpg" alt="리뷰 제품 사진">
+		                        	<img src="/images/items/${list.image}" alt="리뷰 제품 사진">
+		                            
 		                        </td>
 		                        <td>
 		                            <a href="${list.id}">

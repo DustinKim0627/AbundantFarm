@@ -46,7 +46,7 @@ public class IndexController {
 		List<ReviewView> reviewList = communityService.getReivewList(page, field, query);
 		model.addAttribute("review", reviewList);
 		
-		return "community/index";
+		return "community.index";
 	}
 
 	

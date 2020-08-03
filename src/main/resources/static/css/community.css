@@ -1,4 +1,4 @@
-/*커뮤니티 - 게시판 모아둔 영역 - community.html*/
+/*而ㅻ�ㅻ땲�떚 - 寃뚯떆�뙋 紐⑥븘�몦 �쁺�뿭 - community.html*/
 .community-section {
     display: flex;
     flex-wrap: wrap;
@@ -50,9 +50,9 @@
     }
 
 
-/*은풍한팜 소개 페이지 - intro.hmtl*/
+/*���뭾�븳�뙗 �냼媛� �럹�씠吏� - intro.hmtl*/
 
-/*커뮤니티 게시판 공통 - 공지사항, 입점신청 Q&A, 상품후기*/
+/*而ㅻ�ㅻ땲�떚 寃뚯떆�뙋 怨듯넻 - 怨듭��궗�빆, �엯�젏�떊泥� Q&A, �긽�뭹�썑湲�*/
 .board-search {
     display: flex;
     justify-content: flex-end;
@@ -134,7 +134,7 @@
         border-right: 0;
     }
 
-/*리뷰게시판 - 특정부분 (이미지, 세번째 td - 왼쪽정렬*/
+/*由щ럭寃뚯떆�뙋 - �듅�젙遺�遺� (�씠誘몄�, �꽭踰덉㎏ td - �쇊履쎌젙�젹*/
 
 .review-table td:nth-child(2) {
     padding: 10px 0;
@@ -169,7 +169,7 @@
         font-size: 14px;
         font-weight: 600;
         border: 1px solid #ddd;
-        border-radius: 10px;
+        border-radius: 3px;
         background-color: #fff;
         background-image: url('../images/pencil-icon.png');
         background-repeat: no-repeat;
@@ -234,7 +234,7 @@
     }
 
 
-/*---------湲��벐湲� �럹�씠吏�------------*/
+/*---------疫뀐옙占쎈쾺疫뀐옙 占쎈읂占쎌뵠筌욑옙------------*/
 .write-container{
     --background-color: aquamarine;
     min-height: 300px;
@@ -304,3 +304,15 @@
         font-weight: 600;
         background-color: #0e5b55;
     }
+    
+    
+.farm-intro {
+	text-align: center;
+}
+.qna-table td:nth-child(5) {
+	text-align: left;
+}
+.qna-table-title span {
+    margin-left: 5px;
+	color: #fd6f71;
+}

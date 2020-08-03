@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<link rel="stylesheet" href="/ckeditor5/sample/styles.css">
 <main class="admin-main">
 	<section class="admin-sub-main">
 		<h1 class="page-title">공지사항</h1>
@@ -45,4 +46,4 @@
 		</div>
 	</section>
 </main>
-
+<script src="/js/admin/board/notice/list.js"></script>
