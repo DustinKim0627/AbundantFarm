@@ -13,11 +13,11 @@ public interface OrderDao {
 	
 	
 	
-	@Select("select * from Order where id=${id}")
-	Order get(int id);
+	@Select("select * from `Order` where memberId = ${memberId} order by regDate desc Limit 1")
+	public Order get(int memberId);
 	
-	@Insert("")
-	int insert();
+	@Insert("insert into `Order`(memberId,destination) values(#{memberId},#{destination})")
+	public int insert(Order order);
 	
 	@Update("")
 	int update();

@@ -7,6 +7,7 @@
 @import url(chart.css);
 @import url(admin.css);
 @import url(seller.css);
+@import url(order.css);
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @import url(sellerApply.css);
 
@@ -31,13 +32,13 @@ body {
     font-weight: 600;
 }
 
-/*클릭됐을때 배경 초록 / 글씨색 흰색 변경*/
+/*�겢由��릱�쓣�븣 諛곌꼍 珥덈줉 / 湲��뵪�깋 �씛�깋 蹂�寃�*/
 .clicked {
     color: #fff;
     background-color: #0e5b55 !important;
 }
 
-/*서브페이지 제목*/
+/*�꽌釉뚰럹�씠吏� �젣紐�*/
 .page-title {
     margin-bottom: 30px;
     font-size: 18px;
@@ -48,7 +49,7 @@ body {
     color: #0e5b55;
 }
 
-/*로그인, 회원가입*/
+/*濡쒓렇�씤, �쉶�썝媛��엯*/
 .signup-title-font {
     font-size: 18px;
     font-weight: bold;
@@ -70,7 +71,7 @@ body {
 }
 
 
-/*게시판 너비 클래스 모음*/
+/*寃뚯떆�뙋 �꼫鍮� �겢�옒�뒪 紐⑥쓬*/
 .num-col {
     width: 70px;
 }

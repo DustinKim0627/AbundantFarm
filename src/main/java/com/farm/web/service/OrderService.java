@@ -13,6 +13,7 @@ import com.farm.web.dao.OrderItemDao;
 import com.farm.web.entity.Item;
 import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
+import com.farm.web.entity.SimpleCountView;
 
 @Service
 public class OrderService {
@@ -53,4 +54,24 @@ public class OrderService {
 		return orderItem;
 	}
 
+	//******************지욱*******************
+	public List<OrderItemView> getMemberOIList(String uid){
+		
+		
+		return orderItemDao.getListToUid(uid);
+	}
+	
+	public int cancleOrder(int id){
+		String field = "status";
+		String query = "주문취소";
+
+		return orderItemDao.updateStatus(id,field,query);
+	}
+	
+	public List<SimpleCountView> getCount(String uid){
+		
+		return orderItemDao.getCount(uid);
+	}
+	//***************************************
+	
 }

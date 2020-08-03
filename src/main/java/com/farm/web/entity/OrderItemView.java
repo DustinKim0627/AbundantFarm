@@ -8,23 +8,17 @@ public class OrderItemView extends OrderItem{
 	private String mName;
 	private String iName;
 	private String iRegName;
+	private String iImage;
 	private int iSellerId;
 	private int iPrice;
-	private String iImage;
 	private Date oRegDate;
 	private String oDes;
+	private String dComId;
+	private String dName;
 	
 	public OrderItemView() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public OrderItemView(int id, int orderId, int itemId, int deliveryId, int qty, String payMethod, String status,
-			String deliveryMemo, String waybillNum, Date payDDate, Date payCDate) {
-		super(id, orderId, itemId, deliveryId, qty, payMethod, status, deliveryMemo, waybillNum, payDDate, payCDate);
-		// TODO Auto-generated constructor stub
-	}
-
 
 	public String getmUid() {
 		return mUid;
@@ -58,6 +52,14 @@ public class OrderItemView extends OrderItem{
 		this.iRegName = iRegName;
 	}
 
+	public String getiImage() {
+		return iImage;
+	}
+
+	public void setiImage(String iImage) {
+		this.iImage = iImage;
+	}
+
 	public int getiSellerId() {
 		return iSellerId;
 	}
@@ -72,14 +74,6 @@ public class OrderItemView extends OrderItem{
 
 	public void setiPrice(int iPrice) {
 		this.iPrice = iPrice;
-	}
-
-	public String getiImage() {
-		return iImage;
-	}
-
-	public void setiImage(String iImage) {
-		this.iImage = iImage;
 	}
 
 	public Date getoRegDate() {
@@ -98,12 +92,28 @@ public class OrderItemView extends OrderItem{
 		this.oDes = oDes;
 	}
 
+	public String getdComId() {
+		return dComId;
+	}
+
+	public void setdComId(String dComId) {
+		this.dComId = dComId;
+	}
+
+	public String getdName() {
+		return dName;
+	}
+
+	public void setdName(String dName) {
+		this.dName = dName;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderItemView [mUid=" + mUid + ", mName=" + mName + ", iName=" + iName + ", iRegName=" + iRegName
-				+ ", iSellerId=" + iSellerId + ", iPrice=" + iPrice + ", iImage=" + iImage + ", oRegDate=" + oRegDate
-				+ ", oDes=" + oDes + ", toString()=" + super.toString() + "]";
+				+ ", iImage=" + iImage + ", iSellerId=" + iSellerId + ", iPrice=" + iPrice + ", oRegDate=" + oRegDate
+				+ ", oDes=" + oDes + ", dComId=" + dComId + ", dName=" + dName + ", toString()=" + super.toString()
+				+ "]";
 	}
-
 	
 }

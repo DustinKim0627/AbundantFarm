@@ -39,11 +39,19 @@ public class ItemService {
 
 	public List<SellerItemView> getList(String query, String field, String category,Integer page,String uid){
         
-		int offset = (page-1)*5; //1->0, 2->10, 3->20
-        int size = 5;
+		int size = 5;
+		int offset = (page-1)*size; //1->0, 2->10, 3->20
 
         return itemDao.getSellerProductList(query,field,category,offset,size,uid);
      }
+	
+	public List<ItemView> getItemList(int page, String query, String field,String catag) {
+		int size = 8;
+		int offset = (page-1) * size;
+		List<ItemView> list = itemDao.getList(size,offset,field,query,catag);
+		
+		return list;
+	}
 	
 	public List<SellerCategoryCountView> getCountList(){
 		int count = 0;
@@ -134,6 +142,10 @@ public class ItemService {
 		selectRows = selectRows.substring(0, selectRows.length()-1);
 		
 		return itemDao.deleteSelectRows(selectRows);
+	}
+	
+	public Item get(int id) {
+		return itemDao.get(id);
 	}
 	
 

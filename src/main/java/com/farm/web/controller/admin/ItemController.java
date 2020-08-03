@@ -15,7 +15,7 @@ import com.farm.web.entity.ItemView;
 import com.farm.web.service.CategoryService;
 import com.farm.web.service.ItemService;
 
-@Controller
+@Controller("adminItemController")
 @RequestMapping("/admin/item/")
 public class ItemController {
 	@Autowired
