@@ -17,7 +17,7 @@ $(()=>{
     let itemCount = itemCountInput.val();
 
     acceptButton.click(e=>{
-        fetch(`../basket/append?id=${itemId}&qty=${itemCount}`)
+        fetch(`/basket/append?id=${itemId}&qty=${itemCount}`)
         .then(()=>{
             msgBox.addClass("d-none");
             buttonWrapper.addClass("d-none");
@@ -28,7 +28,7 @@ $(()=>{
         e.preventDefault();
         itemCount = itemCountInput.val();
 
-        fetch(`../basket/contain?id=${itemId}&qty=${itemCount}`)
+        fetch(`/basket/contain?id=${itemId}&qty=${itemCount}`)
         .then(res=> res.json())
         .then(json=>{
             if(json == 1)
@@ -48,7 +48,7 @@ $(()=>{
     attButton.click(e=>{
         e.preventDefault(); 
 
-        fetch(`../favitem/contain?id=${itemId}`)
+        fetch(`/favitem/contain?id=${itemId}`)
         .then(res => res.json())
         .then(json=>{
             if(json == 1)

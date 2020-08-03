@@ -19,12 +19,12 @@
 <body>
     <header class="admin-header">
         <h1>
-            관리자페이지
-            <span>관리자님 반갑습니다.</span>
+            판매자페이지
+            <span>판매자님 반갑습니다.</span>
         </h1>
         <ul>
             <li>
-                <a href="/index.html">메인 홈</a>
+                <a href="/index">메인 홈</a>
             </li>
             <li>
                 <a href="/seller/index">관리자홈</a>
@@ -32,32 +32,14 @@
             <li>로그아웃</li>
         </ul>
     </header>
-    <div class="admin-body">
+   <div class="admin-body">
         <aside class="aside">
             <h1 class="d-none">관리자페이지 메뉴</h1>
             <ul class="admin-menu">
                 <li>
-                    <h2 class="admin-menu-title">상품관리</h2>
-                    <ul class="admin-draw-menu">
-                        <li><a href="/admin/list.html">상품목록</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 class="admin-menu-title">매매관리</h2>
-                    <ul class="admin-draw-menu">
-                        <li><a href="">판매량</a></li>
-                        <li><a href="">주문현황</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 class="admin-menu-title">회원관리</h2>
-                    <ul class="admin-draw-menu">
-                        <li><a href="/admin/member.html">판매자</a></li>
-                        <li><a href="/admin/seller.html">구매자</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 class="admin-menu-title">게시판관리</h2>
+                    <h2 class="admin-menu-title">
+                        상품관리
+                    </h2>
                     <ul class="admin-draw-menu">
                         <li><a href="/seller/item/reg">상품등록</a></li>
                         <li><a href="/seller/item/list">상품목록</a></li>
@@ -65,8 +47,14 @@
                         <li><a href="/seller/item/review/list">상품후기</a></li>
                     </ul>
                 </li>
+                <li>
+                    <h2 class="admin-menu-title">매매관리</h2>
+                    <ul class="admin-draw-menu">
+                        <li><a href="/seller/selling/list">주문현황</a></li>
+                    </ul>
+                </li>
             </ul>
-        </aside>
+         </aside>
         <main class="admin-main">
 	        <section class="admin-sub-main">
 	            <h1 class="page-title">qna 디테일</h1>
@@ -81,12 +69,13 @@
 	            		</span>
 	            	</div>
 	            	<div class="content">
+	            		${i.image }
 	            		${i.content}
 	            	</div>
-	            	<div>
-	            		${i.image }
+	            	<div class="title">
+	            		<span>답변</span>
 	            	</div>
-	            	<div>
+	            	<div class="content">
 	            		${i.contentA }
 	            	</div>
 	            	
@@ -94,7 +83,6 @@
 	            
 	            <div class="admin-button">
 		            <a href="answer">답변하기</a>
-	            	<input type="submit" value="삭제">
 	            	<a href="list">목록</a>
 	            </div>
         	</section>
