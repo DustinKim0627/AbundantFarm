@@ -27,7 +27,7 @@ public class OrderItemController {
 	@GetMapping("list")
 	public String list(Principal principal,Model model) {
 //		String uid = principal.getName();
-		String uid = "yuno";
+		String uid = "member";
 		List<OrderItemView> oilist= orderservice.getMemberOIList(uid);
 		model.addAttribute("oilist", oilist);
 		
