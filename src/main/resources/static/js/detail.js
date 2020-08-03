@@ -25,6 +25,7 @@ $(function() {
 	
 	
 	$window.scroll( () => {
+		
 		if($(this).scrollTop() >= detailTop){
 			detailTab.addClass('stick');
 		}else{

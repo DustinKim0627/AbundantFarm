@@ -1,19 +1,29 @@
 package com.farm.web.service;
 
-import com.farm.web.dao.ReviewDao;
-import com.farm.web.entity.Review;
-import com.farm.web.entity.ReviewView;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.farm.web.dao.ReviewDao;
+import com.farm.web.entity.Review;
+import com.farm.web.entity.ReviewView;
+import com.farm.web.vo.ReviewNoticeVo;
 
 @Service
 public class ReviewService {
 
 	@Autowired
 	private ReviewDao reviewDao;
+	
+	
+	public List<ReviewNoticeVo> plusReview(int offset, int prId) {
+
+
+		List<ReviewNoticeVo> list = reviewDao.plusTenReviewRow(offset, prId);
+		
+		return list;
+	}
 	
 	public List<ReviewView> getList(Integer page, String field, String query) {
 		int size = 10;

@@ -10,12 +10,17 @@ import org.apache.ibatis.annotations.Update;
 
 import com.farm.web.entity.Review;
 import com.farm.web.entity.ReviewView;
+import com.farm.web.entity.DTO.ReviewViewofIndex;
 import com.farm.web.vo.ReviewNoticeVo;
 
 @Mapper
 public interface ReviewDao {
+	
+	@Select("SELECT R.* ,I.name as productName FROM ReviewView R join Item I on R.itemId = I.id order by regDate desc limit 4;")
+	List<ReviewViewofIndex> indexOfReviews();
+	
 	@Select("SELECT * FROM ReviewView limit 10")
-	   List<ReviewView> getList2();
+	List<ReviewView> getList2();
 	
 	@Select("select r.*, m.name from Review r join Member m on r.writerId = m.id where ${field} like '%${query}%' order by id desc limit #{offset}, #{size}")
 	List<ReviewView> getList(int offset, int size, String field, String query);

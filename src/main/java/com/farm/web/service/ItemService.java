@@ -36,6 +36,16 @@ public class ItemService {
 	@Autowired
 	private OriginDao originDao;
 
+	
+	public Item selectById (int prId){
+		
+		
+		Item item = itemDao.selectById(prId);
+		
+		return item;
+	}
+	
+	
 	public List<SellerItemView> getList(String query, String field, String category,Integer page,String uid){
         
 		int offset = (page-1)*5; //1->0, 2->10, 3->20

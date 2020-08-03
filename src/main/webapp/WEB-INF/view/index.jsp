@@ -245,42 +245,22 @@
             <section class="content-container review">
                 <h1 class="section-title">상품후기</h1>
                 <ul>
-                    <li>
-                        <p><img src="images/product1.jpg"></p>
-                        <p class="review-text">
-                            <span class="review-product-title">상품명: 여주쌀/ 10kg</span>
-                            <span class="review-title">만족해요! (김수경)</span>
-                            <span class="review-grade">★ ★ ★ ★ ☆</span>
-                            <button></button>
-                        </p>
-                    </li>
-                    <li>
-                        <p><img src="images/product1.jpg"></p>
-                        <p class="review-text">
-                            <span class="review-product-title">상품명: 여주쌀/ 10kg</span>
-                            <span class="review-title">만족해요! (김수경)</span>
-                            <span class="review-grade">★ ★ ★ ★ ☆</span>
-                            <button></button>
-                        </p>
-                    </li>
-                    <li>
-                        <p><img src="images/product1.jpg"></p>
-                        <p class="review-text">
-                            <span class="review-product-title">상품명: 여주쌀/ 10kg</span>
-                            <span class="review-title">만족해요! (김수경)</span>
-                            <span class="review-grade">★ ★ ★ ★ ☆</span>
-                            <button></button>
-                        </p>
-                    </li>
-                    <li>
-                        <p><img src="images/product1.jpg"></p>
-                        <p class="review-text">
-                            <span class="review-product-title">상품명: 여주쌀/ 10kg</span>
-                            <span class="review-title">만족해요! (김수경)</span>
-                            <span class="review-grade">★ ★ ★ ★ ☆</span>
-                            <button></button>
-                        </p>
-                    </li>
+                	<c:forEach var="reviews" items="${reviews}">
+	                    <a href="/product/details/${reviews.itemId}"><li>
+	                        <p><img src="images/product1.jpg"></p>
+	                        <p class="review-text">
+	                            <span class="review-product-title">상품명: ${reviews.productName}</span>
+	                            <span class="review-title">${reviews.content } (${reviews.name })</span>
+	                            <c:choose>
+									<c:when test="${reviews.rate eq 5 }"><td>★★★★★</td></c:when>
+									<c:when test="${reviews.rate eq 4 }"><td>★★★★☆</td></c:when>
+									<c:when test="${reviews.rate eq 3 }"><td>★★★☆☆</td></c:when>
+									<c:when test="${reviews.rate eq 2 }"><td>★★☆☆☆</td></c:when>
+									<c:when test="${reviews.rate eq 1 }"><td>★☆☆☆☆</td></c:when>
+								</c:choose>
+	                        </p>
+	                    </li></a>
+	               </c:forEach>
                 </ul>
             </section>
         </section>

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/detail.css">
+<link rel="stylesheet" href="/ckeditor5/sample/styles.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
@@ -158,11 +159,11 @@
 			<div class="path">
 				<ol>
 					<li><a href="/index.html"> </a></li>
-					<li><a href="/product/list.html">음료</a></li>
-					<li><a href="/product/details.html">차 &#183; 즙</a></li>
+					<li><a href="/product/list.html">${itemOfDetail.subCategory}</a></li>
+					<li><a href="/product/details.html">${ itemOfDetail.category}</a></li>
 				</ol>
 			</div>
-
+ 
 			<section class="detail-info-container">
 				<h1 class="d-none">상품 이미지, 정보</h1>
 				<section class="product-image">
@@ -177,33 +178,17 @@
 					<h1 class="d-none">상품 설명</h1>
 
 					<dl>
-						<dt class="product-dt">${detailInit.name}</dt>
-						<dd class="product-dd">${detailInit.detail}</dd>
+						<dt class="product-dt">${itemOfDetail.name}</dt>
+						<dd class="product-dd">${itemOfDetail.detail}</dd>
 					</dl>
 
 					<ul>
-						<li>원산지<span>${detailInit.originName}</span></li>
-						<li>판매가<span class="price font-color-green">\ ${detailInit.price}</span></li>
-						<li>배송비<span>${detailInit.deliveryFee}</span></li>
+						<li>원산지<span>${itemOfDetail.subOrigin} &#183; ${itemOfDetail.origin}</span></li>
+						<li>판매가<span class="price font-color-green">\ ${itemOfDetail.price}</span></li>
+						<li>배송비<span>${itemOfDetail.deliveryFee}</span></li>
 					</ul>
 
-					<%-- <div class="select-product">
-						<span>옵션 선택</span> <select name="product" id="">
-							<option value="">- [필수] 옵션을 선택해주세요 -</option>
 
-							<c:set var="options" value="${detailInit.option}" />
-							<c:forEach var="option" items="options">
-							
-								<option value="">
-									<c:out value="${option}" />
-								</option>
-
-
-							</c:forEach>
-						</select>
-					</div> --%>
-
-					<!-- <span class="product-info"> 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.</span> -->
 
 					<form action="" method="post" class="detail-form">
 						<table class="current-product">
@@ -220,14 +205,14 @@
 							
 							<tbody>
 								<tr>
-									<td style="text-align: center;">${detailInit.name}</td>
+									<td style="text-align: center;">${itemOfDetail.name}</td>
 																		
 									<td>
 									<input class="product-count" type="number" name="count" value="1" min="1">
 										<button disabled>수량취소</button>
 									</td>
 									
-									<td class="font-color-green">${detailInit.price}</td>
+									<td class="font-color-green">${itemOfDetail.price}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -269,7 +254,7 @@
 				<section class="detail-reaview">
 					<h1 class="section-title">상품후기</h1>
 					<div class="write-button">
-						<button>글쓰기</button>
+					    	<button>글쓰기</button>
 					</div>
 					<table class="board-table">
 						<thead>

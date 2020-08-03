@@ -1,6 +1,9 @@
-package com.farm.web.controller.detail;
+package com.farm.web.controller.member.item.detail;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,14 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.farm.web.dao.ItemQnADao;
 import com.farm.web.dao.ReviewDao;
+import com.farm.web.entity.Item;
+import com.farm.web.service.ItemService;
 import com.farm.web.service.details.DetailService;
-import com.farm.web.vo.DetailInitVo;
 import com.farm.web.vo.ItemNoticeVo;
+import com.farm.web.vo.ItemOfDetail;
 import com.farm.web.vo.ReviewNoticeVo;
 
 
 
-@RequestMapping("/product")
+@RequestMapping("/product/details")
 @Controller
 public class DetailController {
 
@@ -26,22 +31,29 @@ public class DetailController {
 	private DetailService detailService;
 	
 	@Autowired
+	private ItemService itemService;
+	
+	@Autowired
 	private ReviewDao reviewDao;
 	
 	@Autowired
 	private ItemQnADao itemQnADao;
 	
-	@GetMapping("/details/{productId}")
-	public String detail(@PathVariable("productId") int prId, Model model) {
-			
+	@GetMapping("/{productId}")
+	public String detail(
+			@PathVariable("productId") int prId,
+			Model model ,
+			HttpSession session
+			) {
+		
 		
 		/*		
 		 * 1. 디테일 초기상품 구성 화면 처리할 부분	
 		 */
 		model.addAttribute("itemId", prId);
 		
-		DetailInitVo detailInit = detailService.init(prId);
-		model.addAttribute("detailInit", detailInit);
+		ItemOfDetail itemOfDetail = detailService.init(prId);
+		model.addAttribute("itemOfDetail", itemOfDetail);
 		
 		/*
 		 * 2. 리뷰 테이블 구현
@@ -56,6 +68,24 @@ public class DetailController {
 		 */
 		List<ItemNoticeVo> QnANotice = itemQnADao.selectByProductId(prId);
 		model.addAttribute("QnANotice", QnANotice);
+		
+		
+		/*
+		 * 최근본 상품 
+		 */
+		Item recentItem = itemService.selectById(prId);
+		List<Item> recentItems =  new ArrayList<Item>();
+		
+		
+		List<Item> sessionItems = (List<Item>) session.getAttribute		("recentItems");
+		if(sessionItems == null) {
+			recentItems.add(recentItem);
+			session.setAttribute("recentItems", recentItems);
+		}else {	
+			sessionItems.add(recentItem);
+			session.setAttribute("recentItems", sessionItems);
+		}
+
 		
 		return "product/details";
 		
