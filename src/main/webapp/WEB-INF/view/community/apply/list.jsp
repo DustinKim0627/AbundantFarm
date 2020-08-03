@@ -183,7 +183,7 @@
                 </thead>
 
                 <tbody>
-                <c:forEach var="l" items="${list}" varStatus="st" >
+                <c:forEach var="l" items="${list}" varStatus="st" end="10" >
                 <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${l.regDate}"/>
                 	<tr>
                         <td>${st.count}</td>
@@ -191,7 +191,7 @@
                             <a href="${l.id }">${l.title }</a>
                         </td>
                         <td>${l.staffName }</td>
-                        <td>${dateTempParse}</td>
+                        <td>${dateTempParse }</td>
                         <td>${l.appDate!=null ? "승인 대기 중" : "승인"}</td>
                     </tr>
                  </c:forEach>   

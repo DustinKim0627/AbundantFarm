@@ -47,7 +47,7 @@ public class ApplyController {
 	}
 	
 	@GetMapping("reg")
-	public String regList(SellerApply sellerApply) { 
+	public String regList(SellerApply sellerApply) {
 	
 		return "community/apply/reg";
 	}

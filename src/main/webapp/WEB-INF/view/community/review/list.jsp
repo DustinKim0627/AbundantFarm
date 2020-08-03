@@ -196,7 +196,7 @@
                 <c:forEach var="r" items="${review}" varStatus="st">
                 <fmt:formatDate var="dateTempParse" pattern="yyyy-MM-dd" value = "${r.regDate}"/>
                     <tr>
-                        <td>${r.id }</td>
+                        <td>${st.count }</td>
                         <td>
                             <img src="/images/items/${r.image}" alt="리뷰 제품 사진">
                         </td>
