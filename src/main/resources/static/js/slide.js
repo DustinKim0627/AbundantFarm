@@ -47,6 +47,6 @@ window.addEventListener("load",()=>{
     }
     
     
-    setInterval(slide, 3000);
+    setInterval(slide, 4000);
 
 })

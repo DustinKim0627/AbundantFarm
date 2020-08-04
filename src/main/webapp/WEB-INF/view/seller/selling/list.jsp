@@ -54,83 +54,85 @@
          </aside>
 
         <main class="admin-main">
-            <section>
-                <h1 class="page-title">주문현황</h1>
-                <form method="POST" action="list">
-                    <fieldset>
-	        	        <div>
-							<select name="st">
-				    			<option value=""		${st eq '전체' ? 'selected' : '' }	>전체</option>
-				    			<option value="입금대기"	${st eq '입금대기' ? 'selected' : '' }	>입금대기</option>
-				    			<option value="입금확인"	${st eq '입금확인' ? 'selected' : '' }	>입금확인</option>
-				    			<option value="배송중"	${st eq '배송중' ? 'selected' : '' }	>배송중</option>
-				    			<option value="배송완료"	${st eq '배송완료' ? 'selected' : '' }	>배송완료</option>
-				    			<option value="주문취소"	${st eq '주문취소' ? 'selected' : '' }	>주문취소</option>
-				    		</select>	        	        
-	        	        </div>
-                        <div class="board-search">
-                            <select name="f">
-                                <option value="iName">상품명</option>
-                                <option value="iRegName">등록상품명</option>
-                            </select>
-                            <input type="search" name="q" placeholder="검색어를 입력하세요.">
-                            <input type="hidden" name="p" value="${p}">
-                            <input type="submit" value="검색" />
-                        </div>
-                    </fieldset>
-                </form>
-
-                <c:choose>
-                <c:when test="${empty oiList}">
-                    <h1>들어온 주문이 없습니다!!</h1>
-                </c:when>
-                <c:otherwise>
-                    <table class="board-table">
-                        <tbody>
-                            <thead>
-                                <tr>
-                                    <th class="num-col">번호</th>
-                                    <th class="reg-col">상태</th>
-                                    <th class="reg-col">주문자(이름)</th>
-                                    <th class="reg-col">상품명</th>
-                                    <th class="reg-col">등록상품명</th>
-                                    <th class="reg-col">가격</th>
-                                    <th class="reg-col">개수</th>
-                                    <th class="reg-col">총가격</th>
-                                    <th class="reg-col">주문일</th>
-                                    <th class="reg-col">주문관리</th>
-                                </tr>
-                            </thead>
-                            <c:forEach var="ol" items="${oiList }" varStatus="status">
-                                <tr>
-                                    <td>${status.count}</td>
-                                    <td>${ol.status}</td>
-                                    <td>${ol.mUid}(${ol.mName})</td>
-                                    <td>${ol.iName}</td>
-                                    <td>${ol.iRegName}</td>
-                                    <td>${ol.iPrice}</td>
-                                    <td>${ol.qty}</td>
-                                    <td>${ol.qty*ol.iPrice}</td>
-                                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${ol.oRegDate}" /></td>
-                                    <td class="admin-button"><a href="/seller/selling/${ol.id}">주문관리</a></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </c:otherwise>
-                </c:choose>
-                <div class="pager">	
-                    <span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
-                    <ul class="page-list">
-                        <li><a href="?p=1&st=${st}&f=${f}&q=${q}">1</a></li>
-                        <li><a href="?p=2&st=${st}&f=${f}&q=${q}">2</a></li>
-                        <li><a href="?p=3&st=${st}&f=${f}&q=${q}">3</a></li>
-                        <li><a href="?p=4&st=${st}&f=${f}&q=${q}">4</a></li>
-                        <li><a href="?p=5&st=${st}&f=${f}&q=${q}">5</a></li>
-                    </ul>
-                    <span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
-                </div>
-            </section>
+	        <section class="admin-sub-main">
+	            <section>
+	                <h1 class="page-title">주문현황</h1>
+	                <form method="POST" action="list">
+	                    <fieldset>
+		        	        <div>
+								<select name="st">
+					    			<option value=""		${st eq '전체' ? 'selected' : '' }	>전체</option>
+					    			<option value="입금대기"	${st eq '입금대기' ? 'selected' : '' }	>입금대기</option>
+					    			<option value="입금확인"	${st eq '입금확인' ? 'selected' : '' }	>입금확인</option>
+					    			<option value="배송중"	${st eq '배송중' ? 'selected' : '' }	>배송중</option>
+					    			<option value="배송완료"	${st eq '배송완료' ? 'selected' : '' }	>배송완료</option>
+					    			<option value="주문취소"	${st eq '주문취소' ? 'selected' : '' }	>주문취소</option>
+					    		</select>	        	        
+		        	        </div>
+	                        <div class="board-search">
+	                            <select name="f">
+	                                <option value="iName">상품명</option>
+	                                <option value="iRegName">등록상품명</option>
+	                            </select>
+	                            <input type="search" name="q" placeholder="검색어를 입력하세요.">
+	                            <input type="hidden" name="p" value="${p}">
+	                            <input type="submit" value="검색" />
+	                        </div>
+	                    </fieldset>
+	                </form>
+	
+	                <c:choose>
+	                <c:when test="${empty oiList}">
+	                    <h1>들어온 주문이 없습니다!!</h1>
+	                </c:when>
+	                <c:otherwise>
+	                    <table class="board-table">
+	                        <tbody>
+	                            <thead>
+	                                <tr>
+	                                    <th class="num-col">번호</th>
+	                                    <th class="reg-col">상태</th>
+	                                    <th class="reg-col">주문자(이름)</th>
+	                                    <th class="reg-col">상품명</th>
+	                                    <th class="reg-col">등록상품명</th>
+	                                    <th class="reg-col">가격</th>
+	                                    <th class="reg-col">개수</th>
+	                                    <th class="reg-col">총가격</th>
+	                                    <th class="reg-col">주문일</th>
+	                                    <th class="reg-col">주문관리</th>
+	                                </tr>
+	                            </thead>
+	                            <c:forEach var="ol" items="${oiList }" varStatus="status">
+	                                <tr>
+	                                    <td>${status.count}</td>
+	                                    <td>${ol.status}</td>
+	                                    <td>${ol.mUid}(${ol.mName})</td>
+	                                    <td>${ol.iName}</td>
+	                                    <td>${ol.iRegName}</td>
+	                                    <td>${ol.iPrice}</td>
+	                                    <td>${ol.qty}</td>
+	                                    <td>${ol.qty*ol.iPrice}</td>
+	                                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${ol.oRegDate}" /></td>
+	                                    <td class="admin-button"><a href="/seller/selling/${ol.id}">주문관리</a></td>
+	                                </tr>
+	                            </c:forEach>
+	                        </tbody>
+	                    </table>
+	                </c:otherwise>
+	                </c:choose>
+	                <div class="pager">	
+	                    <span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
+	                    <ul class="page-list">
+	                        <li><a href="?p=1&st=${st}&f=${f}&q=${q}">1</a></li>
+	                        <li><a href="?p=2&st=${st}&f=${f}&q=${q}">2</a></li>
+	                        <li><a href="?p=3&st=${st}&f=${f}&q=${q}">3</a></li>
+	                        <li><a href="?p=4&st=${st}&f=${f}&q=${q}">4</a></li>
+	                        <li><a href="?p=5&st=${st}&f=${f}&q=${q}">5</a></li>
+	                    </ul>
+	                    <span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
+	                </div>
+	            </section>
+	        </section>
         </main>
     </div>
     <footer class="footer">

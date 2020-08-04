@@ -378,11 +378,20 @@
         min-height: 300px;
         font-size: 17px;
     }
-    .detail-container .content img {
-    	padding-right:30px;
+    .detail-container .content .content-img {
+        min-width: 350px;
     }
-    .detail-container .content li {
-    	padding-bottom: 20px;
+    .detail-container .content .content-img img {
+        border-radius: 10px;
+    }
+    .detail-container .content .content-text {
+        flex-grow: 1;
+        padding-left: 50px;
+        box-sizing: border-box;
+    }
+    .detail-container .content .content-text div {
+        margin-top: 20px;
+        font-size: 18px;
     }
 	    
 	/*디테일-입점승인*/

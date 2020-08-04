@@ -11,13 +11,6 @@
             </ul>
         </li>
         <li>
-            <h2 class="admin-menu-title">매매관리</h2>
-            <ul class="admin-draw-menu">
-                <li><a href="">판매량</a></li>
-                <li><a href="">주문현황</a></li>
-            </ul>
-        </li>
-        <li>
             <h2 class="admin-menu-title">회원관리</h2>
             <ul class="admin-draw-menu">
                 <li><a href="/admin/member/seller">판매자</a></li>

@@ -39,9 +39,9 @@
 	                </thead>
 	
 	                <tbody>
-	                    <c:forEach var="list" items="${list}">
+	                    <c:forEach var="list" items="${list}" varStatus="st">
 		                    <tr>
-		                        <td>${list.id}</td>
+		                        <td>${st.count}</td>
 		                        <td>
 		                        	<img src="/images/items/${list.image}" alt="리뷰 제품 사진">
 		                            

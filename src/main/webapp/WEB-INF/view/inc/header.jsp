@@ -33,6 +33,16 @@
 	                        		<a href="/member/index">마이페이지</a>
 	                        	</li>                        	
                         	</s:authorize>
+                        	<s:authorize access="hasRole('SELLER')">
+	                        	<li>
+	                        		<a href="/seller/index">판매자 페이지</a>
+	                        	</li>                        	
+                        	</s:authorize>
+                        	<s:authorize access="hasRole('ADMIN')">
+	                        	<li>
+	                        		<a href="/admin/index">관리자 페이지</a>
+	                        	</li>                        	
+                        	</s:authorize>
                         </ul>
                     </nav>
                     <nav class="order-menu">

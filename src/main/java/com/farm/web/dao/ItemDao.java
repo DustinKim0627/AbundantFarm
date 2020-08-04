@@ -40,7 +40,10 @@ public interface ItemDao {
 	int select() throws ClassNotFoundException, SQLException;
 
 	@Select("SELECT * FROM ItemOfDetailView where id = ${itemId}")
-	ItemOfDetail itemOfDetail(int itemId);
+	ItemOfDetail itemOfDetail(int itemId);	
+
+	@Select("SELECT * FROM farm.ItemOfDetailView where subCategory = #{subCategory} limit 3")
+	List<ItemOfDetail> itemOfIndex(String categoryName);
 
 	// 전체 메뉴
 	@Select("SELECT * FROM ItemView WHERE ${field} LIKE '%${query}%' ORDER BY startDate asc limit #{offset}, #{size}")

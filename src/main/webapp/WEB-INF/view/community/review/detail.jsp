@@ -13,10 +13,10 @@
 				</ol>
 			</div>
 			<section class="comm-sub-main">
-				<h1 class="page-title">상 품 후 기</h1>
+				<h1 class="page-title">상품후기</h1>
 
 				<section class="detail-container">
-					<h1 class="d-none">상 품 후 기 디테일</h1>
+					<h1 class="d-none">상품후기 디테일</h1>
 
 					<div class="title">${r.title}</div>
 					<div class="reg-info">
@@ -29,25 +29,24 @@
 						</ul>
 					</div>
 					<div class="content">
-						<div>
+						<div class="content-img">
 							<img src="/images/items/${r.image}" alt="리뷰 제품 사진">
 						</div>
-						<div>
-							<div style="margin-top: 20px; min-width: 700px;">
-								<span class="rate" style="letter-spacing: -100px;"> <c:forEach
-										begin="0" end="4" var="i">
-										<c:choose>
-											<c:when test="${i < r.rate}">
-												<img src="/images/color-star-icon.png">
-											</c:when>
-											<c:otherwise>
-												<img src="/images/star-icon.png">
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-								</span>
-							</div>
-							<div style="margin-top: 20px;">${r.content}</div>
+						<div class="content-text">
+							<span class="rate"> <c:forEach
+									begin="0" end="4" var="i">
+									<c:choose>
+										<c:when test="${i < r.rate}">
+											<img src="/images/color-star-icon.png">
+										</c:when>
+										<c:otherwise>
+											<img src="/images/star-icon.png">
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</span>
+							
+							<div>${r.content}</div>
 						</div>
 					</div>
 				</section>

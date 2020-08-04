@@ -104,7 +104,7 @@
 }
     .detail-info-container .product-image {
         margin-right: 100px;
-        width: 400px;
+        min-width: 400px;
         height: 400px;
         border: 1px solid #ddd;
         overflow: hidden;

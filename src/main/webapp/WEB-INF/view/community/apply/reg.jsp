@@ -16,7 +16,7 @@
 			<header>
 				<div class="apply-signup-title">
 					<div class="signup-title-wrap">
-						<h1 class="page-title">입 점 신 청</h1>
+						<h1 class="page-title">입점신청</h1>
 						<div>
 							<span class="font-color-red">*</span>필수입력사항
 						</div>

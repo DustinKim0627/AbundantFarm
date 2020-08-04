@@ -23,36 +23,18 @@
                 </ul>
 
                 <ul class="product-list">
-	                <li>
-	                    <p>
-	                        <img src="images/product1.jpg">
-	                    </p>
-	                    <p class="product-detail">
-	                        <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-	                        <span class="product-price">19,800원</span>
-	                        <span>자연산 / 전남 해남 / 300g, 1200g</span>
-	                    </p>
-	                </li>
-	                <li>
-	                    <p>
-	                        <img src="images/product1.jpg">
-	                    </p>
-	                    <p class="product-detail">
-	                        <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-	                        <span class="product-price">19,800원</span>
-	                        <span>자연산 / 전남 해남 / 300g, 1200g</span>
-	                    </p>
-	                </li>
-	                <li>
-	                    <p>
-	                        <img src="images/product1.jpg">
-	                    </p>
-	                    <p class="product-detail">
-	                        <span class="product-title">더채소 모심청 짜먹는 맥문동 배도라지청 스틱 15포</span>
-	                        <span class="product-price">19,800원</span>
-	                        <span>자연산 / 전남 해남 / 300g, 1200g</span>
-	                    </p>
-	                </li>
+                	<c:forEach var="item" items="${items}">
+	                    <li>
+		                    <p class="product-image">
+	                    		<img src="/images/items/${item.image}">
+		                    </p>
+		                    <p class="product-detail">
+		                        <span class="product-title">${item.name}</span>
+		                        <span class="product-price">${item.price }</span>
+		                        <span">${item.detail}</span>
+		                    </p>
+	                    </li>
+                    </c:forEach>
                 </ul>
             </section>
 
@@ -77,29 +59,31 @@
                 <h1 class="section-title">상품후기</h1>
                 <ul>
                 	<c:forEach var="reviews" items="${reviews}">
-                	
-                	<a href = /product/details/${reviews.itemId}/>
-
-                		
-	                        <p><div style="min-width: 250px; min-heigth:300px;">
-	                        	<img style="width: 250px; heigth:250px;" src="images/items/${reviews.image}"></div>
-	                        </p>
+                	<li>
+                		<a href = /product/details/${reviews.itemId}>                		
+	                       
+                        	<div class="review-img">
+                        		<img src="images/items/${reviews.image}">
+                        	</div>
 	                        
 	                        <p class="review-text">
 	                            <span class="review-product-title">상품명: ${reviews.productName}</span>
 	                            <span class="review-title">${reviews.content } (${reviews.name })</span>
-	                            <c:choose>
-									<c:when test="${reviews.rate eq 5 }"><td>★★★★★</td></c:when>
-									<c:when test="${reviews.rate eq 4 }"><td>★★★★☆</td></c:when>
-									<c:when test="${reviews.rate eq 3 }"><td>★★★☆☆</td></c:when>
-									<c:when test="${reviews.rate eq 2 }"><td>★★☆☆☆</td></c:when>
-									<c:when test="${reviews.rate eq 1 }"><td>★☆☆☆☆</td></c:when>
-								</c:choose>
+	                            <span class="rate-star">
+		                            <c:choose>
+										<c:when test="${reviews.rate eq 5 }">★★★★★</c:when>
+										<c:when test="${reviews.rate eq 4 }">★★★★☆</c:when>
+										<c:when test="${reviews.rate eq 3 }">★★★☆☆</c:when>
+										<c:when test="${reviews.rate eq 2 }">★★☆☆☆</c:when>
+										<c:when test="${reviews.rate eq 1 }">★☆☆☆☆</c:when>
+									</c:choose>
+								</span>
 	                        </p>
-	                    </li><!--</a>-->
-	               </c:forEach>
-                </ul>
-            </section>
-        </section>
-    </main>
+                        </a>
+                    </li>
+               </c:forEach>
+               </ul>
+           </section>
+       </section>
+   </main>
  <script src="/js/slide.js"></script>

@@ -21,7 +21,25 @@
 				</ul>
 			</div>
 			<div class="content">
-				${r.content}
+				<div class="content-img">
+					<img src="/images/items/${r.image}" alt="리뷰 제품 사진">
+				</div>
+				<div class="content-text">
+					<span class="rate"> <c:forEach
+							begin="0" end="4" var="i">
+							<c:choose>
+								<c:when test="${i < r.rate}">
+									<img src="/images/color-star-icon.png">
+								</c:when>
+								<c:otherwise>
+									<img src="/images/star-icon.png">
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</span>
+					
+					<div>${r.content}</div>
+				</div>
 			</div>
 		</section>
 

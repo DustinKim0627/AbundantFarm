@@ -15,10 +15,10 @@
 
 
 			<section class="comm-sub-main">
-				<h1 class="page-title">공 지 사 항</h1>
+				<h1 class="page-title">공지사항</h1>
 
 				<section class="detail-container">
-					<h1 class="d-none">공 지 사 항 디테일</h1>
+					<h1 class="d-none">공지사항 디테일</h1>
 
 					<div class="title">${n.title }</div>
 					<div class="reg-info">

@@ -15,7 +15,7 @@
 
 
 			<section class="comm-sub-main">
-				<h1 class="page-title">Q & A</h1>
+				<h1 class="page-title">Q &amp; A</h1>
 
 				<section class="detail-container">
 					<h1 class="d-none">Q & A 디테일</h1>

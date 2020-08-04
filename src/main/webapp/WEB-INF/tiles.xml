@@ -81,4 +81,16 @@
 		<put-attribute name="main" value="/WEB-INF/view/seller/{1}.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/view/seller/inc/footer.jsp" />
 	</definition>
+	<definition name="product.*.*" template="/WEB-INF/view/inc/layout.jsp">
+		<put-attribute name="css" value="" />
+		<put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/product/{1}/{2}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+	</definition>
+	<definition name="product.*" template="/WEB-INF/view/inc/layout.jsp">
+		<put-attribute name="css" value="" />
+		<put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/product/{1}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+	</definition>
 </tiles-definitions>

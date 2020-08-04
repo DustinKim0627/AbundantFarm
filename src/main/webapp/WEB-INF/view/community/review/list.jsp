@@ -13,7 +13,7 @@
 				</ol>
 			</div>
 
-			<h1 class="page-title">상 품 후 기</h1>
+			<h1 class="page-title">상품후기</h1>
 
 			<span class="board-search">
 				<form name="search" method="POST" action="">

@@ -8,9 +8,9 @@ public class AdminSellerView {
 	private String comName;
 	private String email;
 	private int id;
-	private int mobile;
+	private String mobile;
 	private String name;
-	private int phone;
+	private String phone;
 	private Date regDate;
 	private String uid;
 
@@ -18,7 +18,7 @@ public class AdminSellerView {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AdminSellerView(String address, String comName, String email, int id, int mobile, String name, int phone,
+	public AdminSellerView(String address, String comName, String email, int id, String mobile, String name, String phone,
 			Date regDate, String uid) {
 		super();
 		this.address = address;
@@ -64,11 +64,11 @@ public class AdminSellerView {
 		this.id = id;
 	}
 
-	public int getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
@@ -80,11 +80,11 @@ public class AdminSellerView {
 		this.name = name;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

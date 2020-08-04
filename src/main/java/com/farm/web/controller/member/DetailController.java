@@ -86,7 +86,7 @@ public class DetailController {
 			session.setAttribute("recentItems", sessionItems);
 		}
 
-		return "product/details";
+		return "product.details";
 		
 	}
 

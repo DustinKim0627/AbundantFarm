@@ -24,9 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .antMatchers("/admin/**").hasRole("ADMIN")  //해당 url에 해당 역할자만 들어와야함.
             //admin/ 모든 하위 경로에 ADMIN이라는 역할을 갖고있는애한테 인증을 허가한다.
             .antMatchers("/seller/**").hasAnyRole("SELLER", "ADMIN") 
+            .antMatchers("/member/basket/**").authenticated()
+            .antMatchers("/member/orderitem/**").authenticated()
             .antMatchers("/member/index").authenticated()
-            .antMatchers("/meber/basket/**").authenticated()
-            .antMatchers("member/orderitem/**").authenticated()
             .and() 
             .formLogin() //우리가 만든 로그인 페이지로 넘기기
                .loginPage("/member/login") //GET URL (URL에 보이는 로그인 경로)

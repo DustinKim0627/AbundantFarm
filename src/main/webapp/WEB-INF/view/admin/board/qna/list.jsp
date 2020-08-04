@@ -37,9 +37,9 @@
 	                </thead>
 	
 	                <tbody>
-	                    <c:forEach var="list" items="${list}">
+	                    <c:forEach var="list" items="${list}" varStatus="st">
 		                    <tr>
-		                        <td>${list.id}</td>
+		                        <td>${st.count}</td>
 		                        <td class="qna-table-title">
 		                            <a href="${list.id}">
 		                            	<c:choose>

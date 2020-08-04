@@ -12,7 +12,7 @@ public class OrderController {
 	
 	@GetMapping("list")
 	public String list() {
-		return "member/order/list";
+		return "member.order.list";
 	}
 	
 	@GetMapping("check")

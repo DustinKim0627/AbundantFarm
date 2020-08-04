@@ -14,7 +14,7 @@
 			</div>
 
 			<section class="comm-sub-main">
-				<h1 class="page-title">입 점 신 청</h1>
+				<h1 class="page-title">입점신청</h1>
 
 				<section class="detail-container">
 					<h1 class="d-none">공 지 사 항 디테일</h1>

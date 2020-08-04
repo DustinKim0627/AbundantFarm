@@ -2,6 +2,7 @@
 .content-container {
     margin: 50px auto 80px;
     width: 1200px;
+    min-height: 400px;
 }
 
 /*硫붿씤*/

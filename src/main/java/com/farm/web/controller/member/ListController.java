@@ -40,7 +40,7 @@ public class ListController {
 		int getTotalCount = itemService.getTotalCount();
 		model.addAttribute("count", getTotalCount);
 		
-		return "product/list";
+		return "product.list";
 	}
 	
 	@GetMapping("/hitlist")
@@ -52,7 +52,7 @@ public class ListController {
 		model.addAttribute("list", publicLists);
 		model.addAttribute("count", count);
 		
-		return "product/list";
+		return "product.list";
 	}
 
 	// 상품 카테고리
@@ -68,7 +68,7 @@ public class ListController {
 
 		System.out.println();
 
-		return "product/category";
+		return "product.category";
 	}
 	
 }
