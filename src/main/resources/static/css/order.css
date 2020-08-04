@@ -23,7 +23,7 @@
         background-image: none;
     }
     .order-item-table td img {
-        min-width: 100px;
+        max-width: 100px;
         height: 100px;
         overflow: hidden;
         margin-right: 20px;
