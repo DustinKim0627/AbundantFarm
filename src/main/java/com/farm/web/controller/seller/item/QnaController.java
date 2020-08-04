@@ -1,11 +1,9 @@
 package com.farm.web.controller.seller.item;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,14 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.farm.web.dao.MemberDao;
 import com.farm.web.entity.Item;
 import com.farm.web.entity.ItemQnA;
 import com.farm.web.entity.ItemQnAListView;
+import com.farm.web.entity.Member;
 import com.farm.web.service.QnaService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
 @Controller("sellerQnaController")
@@ -33,13 +30,20 @@ public class QnaController {
 
 	@Autowired
 	private QnaService qnaService;
+	@Autowired
+	private MemberDao memberDao;
 	
 	@GetMapping("list")
 	public String list(
 		@RequestParam(name = "p", defaultValue = "1") Integer page, 
 		@RequestParam(name = "q", defaultValue = "") String query,
 		@RequestParam(name = "f", defaultValue = "iName") String field,
+		Principal principal,
 		Model model) {
+		
+		String uid = principal.getName();
+		Member member = memberDao.getByUid(uid);
+		int id =member.getId();
 
 		List<ItemQnAListView> qList = qnaService.getQnAList(page, query, field);
 		List<Item> iList = qnaService.getItemList();
@@ -94,8 +98,7 @@ public class QnaController {
 	    String data = request.getParameter("ans-content");
 	    
 //	    itemQnA의 id
-//	    int id = Integer.parseInt(request.getParameter("qnaId"));
-	    int id = 2044;
+	    int id = Integer.parseInt(request.getParameter("qnaId"));
 	    result = qnaService.insertAnswer(id,data);
 		
 	    

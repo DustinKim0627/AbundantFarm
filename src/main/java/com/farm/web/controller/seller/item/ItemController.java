@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import com.farm.web.dao.CategoryDao;
+import com.farm.web.dao.MemberDao;
 import com.farm.web.entity.Category;
 import com.farm.web.entity.CategoryView;
 import com.farm.web.entity.Item;
@@ -40,17 +43,19 @@ public class ItemController {
 	private ItemService spservice;
 	@Autowired
 	private CategoryDao categoryDao;
-		
+	@Autowired
+	private MemberDao memberDao;
+	
 	@GetMapping("list")
 	public String list(@RequestParam(name = "q", defaultValue = "") String query,
 			@RequestParam(name = "f", defaultValue = "name") String field,
 			@RequestParam(name = "catg", defaultValue = "") String category,
 			@RequestParam(name = "p", defaultValue = "1") Integer page,
-			Model model//,Principal principal
+			Model model,
+			Principal principal
 			) {
 		
-//		String uId= principal.getName(); 누가 로그인햇는지 담는다. // 시큐리티의기능 로그인 이후에 해도된다.
-		String uid = "seller";
+		String uid= principal.getName();
 		List<SellerItemView> list = null;
 		List<SellerCategoryCountView> count = null;
 		list = spservice.getList(query,field,category,page,uid);
@@ -59,7 +64,7 @@ public class ItemController {
 		model.addAttribute("list",list);
 		model.addAttribute("cl",count);
 
-		return "seller.item.list";
+		return "seller/item/list";
 	}
 	
 	@GetMapping("del")
@@ -85,7 +90,9 @@ public class ItemController {
 	}
 	
 	@GetMapping("reg")
-	public String reg(Model model) {
+	public String reg(
+			Model model,
+			Principal principal) {
 		List<CategoryView> catList = null;
 		catList = categoryDao.getList();
 		
@@ -95,7 +102,7 @@ public class ItemController {
 		model.addAttribute("catList", catList);
 		model.addAttribute("subList", subList);
 		
-		String uid = "seller";
+		String uid = principal.getName();
 		Member member=null;
 
 		member = spservice.getMember(uid);
@@ -104,20 +111,20 @@ public class ItemController {
 		List<Origin> olist = spservice.getList();
 		model.addAttribute("originlist",olist);
 		
-		return "seller.item.reg";
+		return "seller/item/reg";
 	}
 	
 	@PostMapping("reg")
 	public String reg(MultipartFile file,HttpServletRequest request,
-			@RequestParam(name = "store-qty", defaultValue = "") Integer qty
+			@RequestParam(name = "store-qty", defaultValue = "") Integer qty,
+			Principal principal
 			) throws IOException, ParseException{
 		
-		Item item = new Item();
+			Item item = new Item();
 		
-			// sellerId넣기
-			// 나중에 로그인된 정보로 바꿔주기
-			// 의문점 security는 getName 즉, uid를 받아올건데 그럼 다시 쿼리로 판매자의 id를 얻어야 하는가? 매번?
-			int sellerId = 1;
+			String uid = principal.getName();
+			Member member = memberDao.getByUid(uid);
+			int sellerId =member.getId();
 			item.setSellerId(sellerId);
 			
 			item.setName(request.getParameter("name"));
@@ -160,7 +167,6 @@ public class ItemController {
        while((len = is.read(buf)) != -1) // buf사이즈 만큼 read함 // is.read(buf) -> 다 못채웠으면 LEN만큼 반환함    
           os.write(buf, 0, len);
        
-       System.out.println(item);
        
 //      등록
 		int result = spservice.insertSellerProduct(item,qty);
@@ -177,7 +183,7 @@ public class ItemController {
 			System.out.println("아이템 등록 실패");
 		}
 		
-		return "redirect:/seller.index";
+		return "redirect:/seller/index";
 		
 	}
 

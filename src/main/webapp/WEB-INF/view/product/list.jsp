@@ -206,7 +206,7 @@
                     <li>
                         <a href="/product/details/${item.id}">
                             <p class="product-image">
-                                <img src="/images/product1.jpg">
+                                <img src="/images/items/${item.image}">
                             </p>
                             <p class="product-detail">
                                 <span class="product-title">${item.name}</span>

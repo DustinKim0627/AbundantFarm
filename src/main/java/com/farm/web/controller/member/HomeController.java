@@ -29,8 +29,8 @@ public class HomeController { // 언젠간 잡아야하는데 컨트롤러에 �
 	@GetMapping("index")
 	public String index(Principal principal,Model model,HttpSession session) {
 		
-//		String uid = principal.getName();
-		String uid = "yuno";
+		String uid = principal.getName();
+
 		
 		Member member = memberService.getMember(uid);
 		model.addAttribute("m",member);

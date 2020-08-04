@@ -50,11 +50,11 @@ $(function () {
 				let temp ='';
 				
 				for(let item of items){
-					
+					console.log(item);
 					temp += `<li>
 								<a href=/product/details/${item.id}>
 									<p class="product-image">
-						              <img src="/images/product1.jpg">
+						              <img src=/images/items/${item.image}"/>
 						            </p>
 						            <p class="product-detail">
 						                <span class="product-title">${item.name}</span>
@@ -99,7 +99,7 @@ $(function () {
 					temp += `<li>
 								<a href=/product/details/${item.id}>
 									<p class="product-image">
-						              <img src="/images/product1.jpg">
+						              <img src="/images/items/${item.image}">
 						            </p>
 						            <p class="product-detail">
 						                <span class="product-title">${item.name}</span>
@@ -144,7 +144,7 @@ $(function () {
 						temp += `<li>
 									<a href=/product/details/${item.id}>
 										<p class="product-image">
-							              <img src="/images/product1.jpg">
+							             <img src="/images/items/${item.image}">
 							            </p>
 							            <p class="product-detail">
 							                <span class="product-title">${item.name}</span>
@@ -187,7 +187,7 @@ $(function () {
 						temp += `<li>
 									<a href=/product/details/${item.id}>
 										<p class="product-image">
-							              <img src="/images/product1.jpg">
+							             <img src="/images/items/${item.image}">
 							            </p>
 							            <p class="product-detail">
 							                <span class="product-title">${item.name}</span>
