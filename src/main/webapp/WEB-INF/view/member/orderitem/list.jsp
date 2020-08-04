@@ -92,7 +92,7 @@
                                 <label class="d-none">상품 선택</label>
                             </td>
                             <td class="cart-table-bold">
-                                <img src="/images/${n.iImage }" alt="상품 이미지">
+                                <img src="/images/items/${n.iImage }" alt="상품 이미지">
                                 <span>
                                    ${n.iName }
                                 </span>

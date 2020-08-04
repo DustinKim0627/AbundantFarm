@@ -57,7 +57,6 @@ public class ReviewController {
 		
 		
 		Review review = reviewDao.selectByReviewIdAndPrId(noticeId,itemId);
-		
 			
 		return review;
 		

@@ -180,7 +180,7 @@
 				<section class="product-image">
 
 					<h1 class="d-none">상품이미지</h1>
-					<img src="/images/product1.jpg">
+					<img style="height: 100%;"src="/images/items/${itemOfDetail.image}">
 
 				</section>
 
@@ -230,7 +230,7 @@
 
 						<span class="total-price">
 						 <b>총 상품금액(수량)</b> 
-						 <b class="font-color-green">(개)</b> 
+						 <b class="font-color-green">1(개)</b> 
 						</span>
 
 						<div class="submits">

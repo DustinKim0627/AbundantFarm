@@ -162,12 +162,12 @@ $(function() {
 		  .then(response => response.json())
 		  .then( review => {
 			  		
-			  
+			  console.log(review.image);
 			   newTr = 
 				   	$(
 						`<tr class="newTr">
 						<td colspan="6">
-						  ${review.image || ''}  ${review.content || ''} ${review.rate || ''}
+						  <img style='width:100px; height:100px;' src="images/items/${review.image || ''}/>  ${review.content || ''} ${review.rate || ''}
 						 </td>
 						
 						</tr>`
