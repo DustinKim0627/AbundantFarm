@@ -59,7 +59,7 @@
             <section class="content-container current">
                 <h1 class="d-none">시세 정보</h1>
                 <div>
-                    <span>
+                    <span> 
                         <h2 class="section-title">도매 가격(중도매인 판매가격)</h2>
                         <span>상품,원</span>
                     </span>
@@ -77,8 +77,14 @@
                 <h1 class="section-title">상품후기</h1>
                 <ul>
                 	<c:forEach var="reviews" items="${reviews}">
+                	
                 	<a href = /product/details/${reviews.itemId}/>
-	                        <p><img style="width: 250px; heigth:250px;" src="images/items/${reviews.image}"></p>
+
+                		
+	                        <p><div style="min-width: 250px; min-heigth:300px;">
+	                        	<img style="width: 250px; heigth:250px;" src="images/items/${reviews.image}"></div>
+	                        </p>
+	                        
 	                        <p class="review-text">
 	                            <span class="review-product-title">상품명: ${reviews.productName}</span>
 	                            <span class="review-title">${reviews.content } (${reviews.name })</span>

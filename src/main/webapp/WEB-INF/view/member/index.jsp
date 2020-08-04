@@ -65,9 +65,9 @@
                             <div class="list-none-msg">관심 상품이 없습니다.</div>
                            </c:if>
                             <c:forEach var="n" items="${filist}" begin="0" end="3">	
-                            	<a class="fav-item" href="/item/${n.itemId}">
+                            	<a class="fav-item" href="/product/details/${n.itemId}">
                             		<div class="att-item">
-                            			<img src="../images/${n.itemImgName }">
+                            			<img src="/upload/${n.itemImgName }">
                             			<div class="att-item-des">[은팜독점] ${ n.itemName}</div>
                             		</div>
                             	</a>
@@ -77,11 +77,19 @@
                     <section>
                         <header>
                             <h1 id="lately" class="menu-h">최근 본 상품</h1>
-                            <span class="all-view-font">전체보기</span>
                         </header>
-                        <div class="att-list">
-                            <div class="list-none-msg">최근 본 상품이 없습니다.</div>
-
+                        <div class="att-list asdffd">
+                        	<c:if test="${recentItems eq null}">
+                            <div class="list-none-msg">관심 상품이 없습니다.</div>
+                           </c:if>
+                            <c:forEach var="n" items="${recentItems}" begin="0" end="3">	
+                            	<a class="recent-item" href="/product/details/${n.id}">
+                            		<div class="att-item">
+                            			<img src="/upload/${n.image }">
+                            			<div class="att-item-des">[은팜독점] ${ n.name}</div>
+                            		</div>
+                            	</a>
+                            </c:forEach>
                         </div>
                     </section>
                     <section>
@@ -97,7 +105,7 @@
                             <c:forEach var="n" items="${fslist}" begin="0" end="3">	
                             	<a class="fav-seller" href="">
                             		<div class="att-item">
-                            			<img src="../images/sellertitle/${n.titleImage }">
+                            			<img src="/upload/${n.titleImage }">
                             			<div class="att-item-des">${ n.comName}</div>
                             		</div>
                             	</a>

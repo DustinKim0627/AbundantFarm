@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.farm.web.config.MyUserDetails;
+import com.farm.web.dao.MemberDao;
+import com.farm.web.entity.Member;
 import com.farm.web.entity.ReviewView2;
 import com.farm.web.service.ReviewService;
 
@@ -23,6 +24,8 @@ public class ReviewController {
 
 	@Autowired
 	ReviewService ReivewService;
+	@Autowired
+	private MemberDao memberDao;
 	
 	@GetMapping("list")
 	public String list(@RequestParam(name = "q", defaultValue = "") String query,
@@ -32,8 +35,9 @@ public class ReviewController {
 			Principal principal,
 			Model model) {
 		
-		MyUserDetails user = (MyUserDetails)principal;
-		int id =user.getId();
+		String uid = principal.getName();
+		Member member = memberDao.getByUid(uid);
+		int id =member.getId();
 		
 		
 		List<ReviewView2> review = null;

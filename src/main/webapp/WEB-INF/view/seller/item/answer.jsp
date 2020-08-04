@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="/css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
-    <script src="/js/admin.js"></script>
+    <script src="/js/seller/list.js"></script>
   </head>
   <body>
         <header class="admin-header">

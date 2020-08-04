@@ -60,11 +60,18 @@
 		<put-attribute name="main" value="/WEB-INF/view/farmIntro/{1}.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
 	</definition>
-		<definition name="seller.*.*" template="/WEB-INF/view/seller/inc/layout.jsp">
+	<definition name="seller.seller.item.*" template="/WEB-INF/view/seller/inc/layout.jsp">
 		<put-attribute name="css" value="" />
 		<put-attribute name="header" value="/WEB-INF/view/seller/inc/header.jsp" />
 		<put-attribute name="aside" value="/WEB-INF/view/seller/inc/aside.jsp" />
-		<put-attribute name="main" value="/WEB-INF/view/seller/{1}/{2}.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/seller/seller/{1}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/seller/inc/footer.jsp" />
+	</definition>
+	<definition name="seller.seller.selling.*" template="/WEB-INF/view/seller/inc/layout.jsp">
+		<put-attribute name="css" value="" />
+		<put-attribute name="header" value="/WEB-INF/view/seller/inc/header.jsp" />
+		<put-attribute name="aside" value="/WEB-INF/view/seller/inc/aside.jsp" />
+		<put-attribute name="main" value="/WEB-INF/view/seller/selling/{1}.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/view/seller/inc/footer.jsp" />
 	</definition>
 	<definition name="seller.*" template="/WEB-INF/view/seller/inc/layout.jsp">

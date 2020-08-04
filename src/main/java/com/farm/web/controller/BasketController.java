@@ -23,8 +23,8 @@ public class BasketController {
 	public int contain(@RequestParam(name = "id")int itemId,
 			int qty,
 			Principal principal) {
-//		String uName = principal.getName();
-		String uName = "yuno";
+		String uName = principal.getName();
+//		String uName = "yuno";
 		
 		int res = basketService.contain(itemId,qty,uName);
 		
@@ -36,8 +36,8 @@ public class BasketController {
 	public int append(@RequestParam(name = "id")int itemId,
 			int qty,
 			Principal principal) {
-//		String uName = principal.getName();
-		String uName = "yuno";
+		String uName = principal.getName();
+//		String uName = "yuno";
 		
 		int res = basketService.append(itemId,qty,uName);
 		
@@ -49,8 +49,8 @@ public class BasketController {
 	public int containforce(@RequestParam(name = "id")int itemId,
 			int qty,
 			Principal principal) {
-//		String uName = principal.getName();
-		String uName = "yuno";
+		String uName = principal.getName();
+//		String uName = "yuno";
 		
 		int res = basketService.containforce(itemId,qty,uName);
 		
