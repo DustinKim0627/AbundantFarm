@@ -35,7 +35,7 @@
                    		<c:forEach var="p" items="${pl }">
 	                        <tr>
 	                            <td>
-	                                <img src="/images/product1.jpg"/>
+	                                <img src="/upload/${p.image }"/>
 	                                <span data-value="${p.id }">${p.itemName }</span>
 	                            </td>
 	                            <td>${p.sellerComName }(${p.sellerName })</td>
