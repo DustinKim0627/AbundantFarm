@@ -41,7 +41,10 @@ public interface ItemDao {
 
 	@Select("SELECT * FROM ItemOfDetailView where id = ${itemId}")
 	ItemOfDetail itemOfDetail(int itemId);
-
+	
+	@Select("SELECT * FROM farm.ItemOfDetailView where subCategory = #{subCategory} limit 3")
+	List<ItemOfDetail> itemOfIndex(String categoryName);
+	
 	// 전체 메뉴
 	@Select("SELECT * FROM ItemView WHERE ${field} LIKE '%${query}%' ORDER BY startDate asc limit #{offset}, #{size}")
 	List<ItemView> getList4(int page, String query, String field, int offset, int size);
