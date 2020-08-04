@@ -158,8 +158,10 @@ public class BasketService {
 		oi.setPayMethod(orderSheet.getMethod());
 		oi.setStatus("입금대기");
 		
-		if(orderSheet.getMethod().equals("card"))
+		if(orderSheet.getMethod().equals("card")) {
 			oi.setPayCDate(new Date());
+			oi.setStatus("입금완료");
+		}
 			
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(order.getRegDate());
