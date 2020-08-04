@@ -79,6 +79,9 @@ body {
 .date-col {
     width: 100px;
 }
+.price-col{
+	width:130px;
+}
 .reg-col {
     width: 150px;
 }
