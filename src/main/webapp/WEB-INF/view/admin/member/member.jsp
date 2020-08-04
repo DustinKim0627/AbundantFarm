@@ -42,9 +42,9 @@
 				</thead>
 
 				<tbody>
-					<c:forEach var="b" items="${list2 }">
+					<c:forEach var="b" items="${list2 }" varStatus="st">
 						<tr>
-							<td>${b.id }</td>
+							<td>${st.count }</td>
 							<td>${b.uid }</td>
 							<td>${b.name }</td>
 							<td>${b.email }</td>

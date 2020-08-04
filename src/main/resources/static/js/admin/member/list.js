@@ -93,7 +93,7 @@ $(function(){
 //       
 //   })
    
-    var notices = `${list}`;
+    //var notices = `${list}`;
     
     ul.onclick = function(e){
        // 엘리먼트 노드가 가지는 기본 행위를 막는 함수

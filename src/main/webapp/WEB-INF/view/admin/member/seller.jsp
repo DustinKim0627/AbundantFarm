@@ -52,9 +52,9 @@
 				</script> -->
 
 				<tbody>
-					<c:forEach var="m" items="${list }">
+					<c:forEach var="m" items="${list }" varStatus="st">
 						<tr>
-							<td>${m.id }</td>
+							<td>${st.count }</td>
 							<td><a href="sellerDetail?id=${m.id }">${m.uid }</a></td>
 							<td>${m.name }</td>
 							<td>${m.comName }</td>
@@ -94,4 +94,4 @@
 		</section>
 	</main>
 	
-	<script src="/js/admin/member/list.js"></script>
+	
