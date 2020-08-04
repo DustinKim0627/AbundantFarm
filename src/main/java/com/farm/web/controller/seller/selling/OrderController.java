@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.farm.web.entity.Delivery;
 import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.service.OrderService;
@@ -69,8 +70,10 @@ public class OrderController {
 	@GetMapping("{dtlNum}")
 	public String detail(@PathVariable("dtlNum") int dtlNum, Model model) {
 		
-		OrderItemView orderItem = orderService.getOrderItemView(dtlNum);
+		OrderItemView orderItem = orderService.getOrderItemView1(dtlNum);
+		List<Delivery> deliveryList = orderService.getDelivery();
 		model.addAttribute("oi", orderItem);
+		model.addAttribute("dl", deliveryList);
 		return "seller/selling/detail";
 	}
 	
@@ -81,17 +84,15 @@ public class OrderController {
 		
 		
 		
-		// 송장회사, 송장번호 첨부
-//		orderService
+		// 택배회사, 송장번호 첨부
+		int deliveryId = Integer.parseInt(request.getParameter("delivery")); 
+		int waybillNum = Integer.parseInt(request.getParameter("waybillNum"));
+		
+		orderService.sendItem(dtlNum, deliveryId, waybillNum);
 		
 		return "redirect:list";
 	}
 	
-	@GetMapping("qty")
-	public String quantity() {
-		
-		
-		return "seller/selling/quantity";
-	}
+
 	
 }

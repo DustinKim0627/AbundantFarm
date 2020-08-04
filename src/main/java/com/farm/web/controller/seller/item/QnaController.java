@@ -65,7 +65,7 @@ public class QnaController {
 		model.addAttribute("qList",qList);
 		model.addAttribute("iList", iList);
 		
-		return "seller.item.qna";
+		return "seller/item/qna";
 	}
 	
 	
@@ -75,29 +75,26 @@ public class QnaController {
 		
 		model.addAttribute("i", itemQna);
 		
-		return "seller.item.detail";
+		return "seller/item/detail";
 	}
 	
 	@GetMapping("answer")
-	public String answer() {
-		return "seller.item.answer";
+	public String answer(@PathVariable("dtlNum") int dtlNum, Model model) {
+		model.addAttribute("qnaId", dtlNum);
+		return "seller/item/answer";
 	}
 	
 	@PostMapping("answer2")
 	public String answer2(
-			HttpServletRequest request, MultipartFile file, 
+			HttpServletRequest request, 
 			Principal principal) throws IOException {
-	    InputStream is = request.getInputStream();
-	    Scanner scan = new Scanner(is, "UTF-8");
-	    String json = scan.nextLine();
-	    Gson gson = new GsonBuilder()
-				   .setDateFormat("yyyy-MM-dd-HH:mm:ss")
-				   .create();
-	    
-	    String data = gson.fromJson(json, String.class);
+
 	    int result = 0;
 	    
+	    String data = request.getParameter("ans-content");
+	    
 //	    itemQnA의 id
+//	    int id = Integer.parseInt(request.getParameter("qnaId"));
 	    int id = 2044;
 	    result = qnaService.insertAnswer(id,data);
 		
