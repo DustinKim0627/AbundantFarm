@@ -15,14 +15,14 @@
     
 </head>
 <body>
-    <header class="admin-header">
+        <header class="admin-header">
         <h1>
-            관리자페이지
+            판매자페이지
             <span>판매자님 반갑습니다.</span>
         </h1>
         <ul>
             <li>
-                <a href="/index.html">메인 홈</a>
+                <a href="/index">메인 홈</a>
             </li>
             <li>
                 <a href="/seller/index">관리자홈</a>
@@ -35,7 +35,9 @@
             <h1 class="d-none">관리자페이지 메뉴</h1>
             <ul class="admin-menu">
                 <li>
-                    <h2 class="admin-menu-title">상품관리</h2>
+                    <h2 class="admin-menu-title">
+                        상품관리
+                    </h2>
                     <ul class="admin-draw-menu">
                         <li><a href="/seller/item/reg">상품등록</a></li>
                         <li><a href="/seller/item/list">상품목록</a></li>
@@ -46,12 +48,11 @@
                 <li>
                     <h2 class="admin-menu-title">매매관리</h2>
                     <ul class="admin-draw-menu">
-                        <li><a href="">판매량</a></li>
-                        <li><a href="">주문현황</a></li>
+                        <li><a href="/seller/selling/list">주문현황</a></li>
                     </ul>
                 </li>
             </ul>
-        </aside>
+         </aside>
         <!--미흡한 부분중하나가 정해진 형식(인트형이면 인트형으로 인풋 테스트에 입력)으로 집어넣게하는거  -->
         <main class="admin-main">
             <section>

@@ -22,8 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.farm.web.config.MyUserDetails;
+
 import com.farm.web.dao.CategoryDao;
+import com.farm.web.dao.MemberDao;
 import com.farm.web.entity.Category;
 import com.farm.web.entity.CategoryView;
 import com.farm.web.entity.Item;
@@ -42,6 +43,8 @@ public class ItemController {
 	private ItemService spservice;
 	@Autowired
 	private CategoryDao categoryDao;
+	@Autowired
+	private MemberDao memberDao;
 	
 	@GetMapping("list")
 	public String list(@RequestParam(name = "q", defaultValue = "") String query,
@@ -119,9 +122,9 @@ public class ItemController {
 		
 			Item item = new Item();
 		
-
-			MyUserDetails user = (MyUserDetails)principal;
-			int sellerId =user.getId();
+			String uid = principal.getName();
+			Member member = memberDao.getByUid(uid);
+			int sellerId =member.getId();
 			item.setSellerId(sellerId);
 			
 			item.setName(request.getParameter("name"));

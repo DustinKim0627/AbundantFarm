@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.farm.web.config.MyUserDetails;
+import com.farm.web.dao.MemberDao;
 import com.farm.web.entity.Delivery;
+import com.farm.web.entity.Member;
 import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.service.OrderService;
@@ -27,6 +28,8 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private MemberDao memberDao;
 	
 	@GetMapping("list")
 	public String list(
@@ -38,8 +41,10 @@ public class OrderController {
 			Principal principal,
 			Model model) {
 		
-		MyUserDetails user = (MyUserDetails)principal;
-		int id =user.getId();
+		String uid = principal.getName();
+		Member member = memberDao.getByUid(uid);
+		int id =member.getId();
+		
 		List<OrderItemView> oiList = orderService.getOrderItemList(id, page, status, field, query);
 		model.addAttribute("oiList", oiList);
 		model.addAttribute("p", page);
@@ -62,8 +67,9 @@ public class OrderController {
 		String field = request.getParameter("f");
 		String query = request.getParameter("q");
 		
-		MyUserDetails user = (MyUserDetails)principal;
-		int id =user.getId();
+		String uid = principal.getName();
+		Member member = memberDao.getByUid(uid);
+		int id =member.getId();
 		List<OrderItemView> oiList = orderService.getOrderItemList(id, page, status, field, query);
 		model.addAttribute("oiList", oiList);
 		model.addAttribute("p", page);
