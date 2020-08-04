@@ -2,16 +2,18 @@ package com.farm.web.entity;
 
 public class Delivery {
 	private int id;
+	private String comId;
 	private String name;
-	private int phone;
+	private String phone;
 	
 	public Delivery() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Delivery(int id, String name, int phone) {
+	public Delivery(int id, String comId, String name, String phone) {
 		super();
 		this.id = id;
+		this.comId = comId;
 		this.name = name;
 		this.phone = phone;
 	}
@@ -24,6 +26,14 @@ public class Delivery {
 		this.id = id;
 	}
 
+	public String getComId() {
+		return comId;
+	}
+
+	public void setComId(String comId) {
+		this.comId = comId;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -32,19 +42,18 @@ public class Delivery {
 		this.name = name;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
 	@Override
 	public String toString() {
-		return "Delivery [id=" + id + ", name=" + name + ", phone=" + phone + "]";
+		return "Delivery [id=" + id + ", comId=" + comId + ", name=" + name + ", phone=" + phone + "]";
 	}
-	
-	
+
 	
 }

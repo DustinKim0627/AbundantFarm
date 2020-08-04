@@ -1,5 +1,6 @@
 package com.farm.web.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -46,5 +47,12 @@ public interface OrderItemDao {
 		@Select("SELECT status element,COUNT(status) count FROM OrderItemView where mUid = #{uid} group by status")
 		List<SimpleCountView> getCount(String uid);
 		
-
+//		---------------수환------------
+		//배송보내고 확인
+		@Update("update OrderItem set deliveryId=${deliveryId}, status='배송중', waybillNum=${waybillNum} where id=${dtlNum}")
+		int updateWaybillNum(int dtlNum, int deliveryId, int waybillNum);
+		
+		//입금확인
+		@Update("update OrderItem set status='입금확인', payCDate=#{payCDate} where id=${id}")
+		int updatePayCDate(int id, Date payCDate);
 }

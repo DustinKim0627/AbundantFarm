@@ -44,5 +44,19 @@ public class BasketController {
 		return res;
 	}
 	
+	@ResponseBody
+	@GetMapping("containforce")
+	public int containforce(@RequestParam(name = "id")int itemId,
+			int qty,
+			Principal principal) {
+//		String uName = principal.getName();
+		String uName = "yuno";
+		
+		int res = basketService.containforce(itemId,qty,uName);
+		
+		return res;
+	}
+	
+	
 
 }

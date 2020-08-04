@@ -27,6 +27,7 @@ public class ReviewController {
 			@RequestParam(name = "q", defaultValue = "") String query,
 			Model model) {
 		
+		
 		List<ReviewView> review = reviewService.getList(page, field, query);
 		model.addAttribute("review", review);
 		

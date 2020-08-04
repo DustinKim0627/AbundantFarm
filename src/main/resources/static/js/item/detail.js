@@ -2,9 +2,11 @@ $(()=>{
     let itemExplain = $(".product-explain");
     let itemTitle = itemExplain.find(".product-dt");
     let orderForm = $(".detail-form");
+    let orderButton = orderForm.find(".order-button");
     let basketButton = orderForm.find(".basket-button");
     let attButton = orderForm.find(".att-button");
     let itemCountInput = orderForm.find(".product-count");
+    
     let msgBox = $(".msg-box");
     let msgContent = msgBox.find(".msg");
     let msgClose = msgBox.find(".close");
@@ -61,6 +63,18 @@ $(()=>{
             alertMsgBox(msg);
         })
     })
+    
+    orderButton.click(e=>{
+        e.preventDefault();
+
+        fetch(`/basket/containforce?id=${itemId}&qty=${itemCount}`)
+        .then(res=>res.json())
+        .then(json=>{
+            console.log(json); //basket id
+            window.location.href=`/member/basket/pay/${json}`;
+        });
+    })
+    
     rejectButton.click(e=>{
         msgBox.addClass("d-none");
         buttonWrapper.addClass("d-none");

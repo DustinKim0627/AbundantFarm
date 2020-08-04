@@ -234,7 +234,7 @@
 						</span>
 
 						<div class="submits">
-							<input type="submit" value="바로구매"> 
+							<input type="submit" value="바로구매" class="order-button"> 
 							<input type="submit" value="장바구니" class="basket-button"> 
 							<input type="submit" value="관심상품" class="att-button">
 						</div>

@@ -184,14 +184,21 @@ public class BasketService {
 		if(insertRow==nums.size())
 			res = 1;
 		
-//		장바구니에서 선택했던 상품 빼기 
-		if(res == 1) {
-			String srs = orderSheet.getSelectRows();
-			basketDao.delList(srs);
-		}
-		
+		String srs = orderSheet.getSelectRows();
+		basketDao.delList(srs);
+	
 		return res;
 	}
 
+	public int containforce(int itemId, int qty, String uName) {
+		Member member = memberDao.getFromUid(uName);
+		int memberId = member.getId();
+		
+		basketDao.insert(itemId,memberId,qty);
+		Basket basket = basketDao.getToMember(memberId);
+		int res = basket.getId();
+		
+		return res;
+	}
 
 }
