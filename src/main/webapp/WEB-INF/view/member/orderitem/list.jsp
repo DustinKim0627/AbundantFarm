@@ -92,7 +92,7 @@
                                 <label class="d-none">상품 선택</label>
                             </td>
                             <td class="cart-table-bold">
-                                <img src="/images/items/${n.iImage }" alt="상품 이미지">
+                                <img src="/upload/${n.iImage }" alt="상품 이미지">
                                 <span>
                                    ${n.iName }
                                 </span>
@@ -143,8 +143,8 @@
             </section>
 
             <div class="order-button-wrap">
-                <button type="button">쇼핑 홈 가기</button>
-                <button type="button">장바구니</button>
+                <button type="button"  onClick="location.href='/index'">쇼핑 홈 가기</button>
+                <button type="button"  onClick="location.href='/member/basket/list'">장바구니</button>
             </div>
         </section>
     </main>

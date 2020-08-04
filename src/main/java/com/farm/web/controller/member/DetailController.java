@@ -77,7 +77,7 @@ public class DetailController {
 		List<Item> recentItems =  new ArrayList<Item>();
 		
 		
-		List<Item> sessionItems = (List<Item>) session.getAttribute		("recentItems");
+		List<Item> sessionItems = (List<Item>) session.getAttribute("recentItems");
 		if(sessionItems == null) {
 			recentItems.add(recentItem);
 			session.setAttribute("recentItems", recentItems);

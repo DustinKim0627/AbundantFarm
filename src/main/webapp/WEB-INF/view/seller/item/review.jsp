@@ -107,7 +107,7 @@
                     <tbody>
                     <c:forEach var="r" items="${review}" varStatus="st">
                         <tr>
-                            <td>${r.id}</td>
+                            <td>${st.count}</td>
                             <td>
                             	<img src="/images/items/${r.image }">
                             </td>

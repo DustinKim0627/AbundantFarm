@@ -16,9 +16,9 @@ $(function(){
 	    	a.remove();    	
 	    	for(let n of json ){
 	    		favItemList.append(
-	    		`<a class="fav" href="/item/${n.itemId}">
-                            		<div class="att-item fav-item">
-                            			<img src="../images/${n.itemImgName }">
+	    		`<a class="fav-item" href="/product/details/${n.itemId}">
+                            		<div class="att-item">
+                            			<img src="/upload/${n.itemImgName }">
                             			<div class="att-item-des">[은팜독점] ${ n.itemName}</div>
                             		</div>
                             	</a>`);
