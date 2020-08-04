@@ -133,7 +133,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 
           <div class="admin-button">
             <input type="submit" value="배송" />
+            <a href="list">목록</a>
           </div>
+          
         </section>
         </form>
       </main>

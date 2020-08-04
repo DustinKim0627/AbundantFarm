@@ -131,7 +131,7 @@
                                     <input type="checkbox" name=item-id value="${n.id}">
                                 </td>
                                 <td>
-                                    <img src="/images/${n.image }">
+                                    <img src="/upload/${n.image }">
                                 </td>
                                 <td>
                                 	<dl>

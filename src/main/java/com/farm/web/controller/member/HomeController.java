@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.farm.web.entity.FavItemView;
 import com.farm.web.entity.FavSellerView;
+import com.farm.web.entity.Item;
 import com.farm.web.entity.Member;
 import com.farm.web.service.MemberService;
 
@@ -41,8 +42,8 @@ public class HomeController { // 언젠간 잡아야하는데 컨트롤러에 �
 		List<FavSellerView> fslist = memberService.getFarmViewList(uid);
 		model.addAttribute("fslist",fslist);
 //		
-//		List<Item> recentItems = (List<Item>)session.getAttribute("recentItems");
-//		model.addAttribute("recentItems",recentItems);
+		List<Item> recentItems = (List<Item>)session.getAttribute("recentItems");
+		model.addAttribute("recentItems",recentItems);
 		
 		model.addAttribute("bcount",memberService.getBasketCount(uid));
 		model.addAttribute("ocount",memberService.getOrderItemCount(uid));
@@ -55,8 +56,7 @@ public class HomeController { // 언젠간 잡아야하는데 컨트롤러에 �
 	@ResponseBody
 	public List<FavItemView> fiViewList(
 			Principal principal) {
-//		String uName = principal.getName();
-		String uid = "yuno"; 
+		String uid = principal.getName();
 		
 		List<FavItemView> filist = memberService.getFiViewList(uid);
 		
@@ -67,9 +67,7 @@ public class HomeController { // 언젠간 잡아야하는데 컨트롤러에 �
 	@ResponseBody
 	public List<FavSellerView> fsViewList(
 			Principal principal) {
-//		String uName = principal.getName();
-		String uid = "yuno"; 
-		
+		String uid = principal.getName();
 		List<FavSellerView> fslist = memberService.getFarmViewList(uid);
 		
 		return fslist;
@@ -80,8 +78,7 @@ public class HomeController { // 언젠간 잡아야하는데 컨트롤러에 �
 	@GetMapping("edit")
 	public String edit(Principal principal,Model model) {
 		
-//		String uid = principal.getName();
-		String uid = "yuno";
+		String uid = principal.getName();
 		
 		Member member = memberService.getMember(uid);
 		System.out.println(member);
@@ -96,8 +93,7 @@ public class HomeController { // 언젠간 잡아야하는데 컨트롤러에 �
 			@RequestParam(name = "m", defaultValue = "") String[] eMobile,
 			@RequestParam(name = "p", defaultValue = "") String[] ePhone) {
 		
-//		String uid = principal.getName();
-		String uid = "yuno";
+		String uid = principal.getName();
 		
 		String address = "";
 		String mobile = "";
