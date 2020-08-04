@@ -1,6 +1,7 @@
 package com.farm.web.controller.seller.selling;
 
 import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.farm.web.config.MyUserDetails;
 import com.farm.web.entity.Delivery;
 import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
@@ -33,10 +35,12 @@ public class OrderController {
 			@RequestParam(name = "f", defaultValue = "iName") String field,
 			@RequestParam(name = "q", defaultValue = "") String query,
 			HttpServletRequest request,
+			Principal principal,
 			Model model) {
 		
-		
-		List<OrderItemView> oiList = orderService.getOrderItemList(page, status, field, query);
+		MyUserDetails user = (MyUserDetails)principal;
+		int id =user.getId();
+		List<OrderItemView> oiList = orderService.getOrderItemList(id, page, status, field, query);
 		model.addAttribute("oiList", oiList);
 		model.addAttribute("p", page);
 		model.addAttribute("st", status);
@@ -49,6 +53,7 @@ public class OrderController {
 	@PostMapping("list")
 	public String list2(
 			HttpServletRequest request,
+			Principal principal,
 			Model model) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -57,7 +62,9 @@ public class OrderController {
 		String field = request.getParameter("f");
 		String query = request.getParameter("q");
 		
-		List<OrderItemView> oiList = orderService.getOrderItemList(page, status, field, query);
+		MyUserDetails user = (MyUserDetails)principal;
+		int id =user.getId();
+		List<OrderItemView> oiList = orderService.getOrderItemList(id, page, status, field, query);
 		model.addAttribute("oiList", oiList);
 		model.addAttribute("p", page);
 		model.addAttribute("st", status);

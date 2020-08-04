@@ -23,11 +23,10 @@ public class OrderService {
 	
 //	------------수환--------------
 	// 판매자의 주문현황 list의 뷰를 위한 페이지
-	public List<OrderItemView> getOrderItemList(Integer page, String status, String field, String query){
+	public List<OrderItemView> getOrderItemList(int id, Integer page, String status, String field, String query){
 
 		int offset = (page-1)*10; // 1-> 0, 2-> 10, 3-> 20 이 되게 만들어야한다.
 		int size = 10;
-		int id = 1;
 		
 	  return orderItemDao.getList(offset, size, id, page, status, field, query);
 	}
