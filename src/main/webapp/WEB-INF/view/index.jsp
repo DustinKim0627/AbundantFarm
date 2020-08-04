@@ -78,7 +78,7 @@
                 <ul>
                 	<c:forEach var="reviews" items="${reviews}">
                 	<a href = /product/details/${reviews.itemId}/>
-	                        <p><img style="width: 100px; heigth:100px;" src="images/items/${reviews.image}"></p>
+	                        <p><img style="width: 250px; heigth:250px;" src="images/items/${reviews.image}"></p>
 	                        <p class="review-text">
 	                            <span class="review-product-title">상품명: ${reviews.productName}</span>
 	                            <span class="review-title">${reviews.content } (${reviews.name })</span>

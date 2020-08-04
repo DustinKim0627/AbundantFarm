@@ -167,7 +167,8 @@ $(function() {
 				   	$(
 						`<tr class="newTr">
 						<td colspan="6">
-						  <img style='width:100px; height:100px;' src="images/items/${review.image || ''}/>  ${review.content || ''} ${review.rate || ''}
+						 <img src="/images/items/${review.image || ''}"/>
+				   			${review.content || ''} 
 						 </td>
 						
 						</tr>`
