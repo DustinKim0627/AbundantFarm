@@ -71,7 +71,7 @@
 	                                    <input type="checkbox" value=${i.id }>
 	                                </td>
 	                                <td>
-	                                    <img src="/images/product1.jpg">
+	                                    <img src="/upload/${i.image }">
 	                                </td>
 	                                <td>
 	                                    <dl>

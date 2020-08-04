@@ -26,8 +26,8 @@ public class OrderItemController {
 	
 	@GetMapping("list")
 	public String list(Principal principal,Model model) {
-//		String uid = principal.getName();
-		String uid = "member";
+		
+		String uid = principal.getName();
 		List<OrderItemView> oilist= orderservice.getMemberOIList(uid);
 		model.addAttribute("oilist", oilist);
 		
@@ -41,8 +41,8 @@ public class OrderItemController {
 	@GetMapping("cancle")
 	public String cancle(Principal principal,
 							@RequestParam(name = "id",defaultValue="0") int id) {
-//		String uid = principal.getName();
-		String uid = "yuno";
+		
+		String uid = principal.getName();
 
 		orderservice.cancleOrder(id);
 		

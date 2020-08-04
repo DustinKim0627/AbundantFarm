@@ -54,7 +54,7 @@
 		                                <label class="d-none">상품 선택</label>
 		                            </td>
 		                            <td class="cart-table-bold">
-		                                <img src="/images/product1.jpg" alt="상품 이미지">
+		                                <img src="/upload/${b.image }" alt="상품 이미지">
 		                                <span>
 		                                	${b.itemName }
 		                                </span>

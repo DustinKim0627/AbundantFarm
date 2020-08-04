@@ -24,8 +24,8 @@ public class FavItemController {
 	@GetMapping("contain")
 	public int contain(@RequestParam(name = "id")int itemId,
 			Principal principal) {
-//		String uName = principal.getName();
-		String uName = "yuno"; 
+		String uName = principal.getName();
+//		String uName = "yuno"; 
 		
 		int res = favItemService.contain(itemId,uName);
 		

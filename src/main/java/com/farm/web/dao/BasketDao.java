@@ -36,6 +36,9 @@ public interface BasketDao {
 	@Select("select * from Basket where id = #{id}")
 	Basket get(int id);
 	
+	@Select("select * from Basket where memberId = #{memberId} order by regDate desc limit 1")
+	Basket getToMember(int memberId);
+	
 	//지욱
 	@Select("SELECT count(*) count FROM Basket where memberId = ${memberId}")
 	Integer getCountToMemer(int memberId);

@@ -31,8 +31,8 @@ public class BasketController {
 	public String pay(@PathVariable int[] selectRows,
 			Principal principal,
 			Model model) {
-//		String uName = principal.getName();
-		String uName = "yuno";
+		String uName = principal.getName();
+//		String uName = "yuno";
 		
 		// ids 유효성 검사 // 내 카트에 있는 상품을 주문하는지
 		if(!basketService.isAllContain(uName,selectRows))
@@ -69,8 +69,8 @@ public class BasketController {
 	@GetMapping("list")
 	public String list(Principal principal,
 			Model model) {
-//		String uName = principal.getName();
-		String uName = "yuno";
+		String uName = principal.getName();
+//		String uName = "yuno";
 		int totalPrice = 0;
 		int totalDf = 0;
 		
@@ -114,8 +114,8 @@ public class BasketController {
 	@PostMapping("order")
 	public int order(@RequestBody OrderSheet orderSheet,
 			Principal principal){
-//		String uName = principal.getName();
-		String uName = "yuno";
+		String uName = principal.getName();
+//		String uName = "yuno";
 		
 		int res = basketService.order(orderSheet,uName);
 		

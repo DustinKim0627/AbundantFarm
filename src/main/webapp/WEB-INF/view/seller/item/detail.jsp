@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="/ckeditor5/sample/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
-    <script src="/js/admin.js"></script>
+    <script src="/js/seller/list.js"></script>
 </head>
 <body>
-    <header class="admin-header">
+        <header class="admin-header">
         <h1>
             판매자페이지
             <span>판매자님 반갑습니다.</span>
@@ -32,7 +32,7 @@
             <li>로그아웃</li>
         </ul>
     </header>
-   <div class="admin-body">
+    <div class="admin-body">
         <aside class="aside">
             <h1 class="d-none">관리자페이지 메뉴</h1>
             <ul class="admin-menu">
@@ -82,7 +82,7 @@
 	            </section>
 	            
 	            <div class="admin-button">
-		            <a href="answer?id=${i.id }">답변하기</a>
+		            <a href="answer?dtlNum=${i.id }">답변하기</a>
 	            	<a href="list">목록</a>
 	            </div>
         	</section>

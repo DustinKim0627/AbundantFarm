@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.farm.web.entity.Review;
 import com.farm.web.entity.ReviewNoticeVo;
 import com.farm.web.entity.ReviewView;
+import com.farm.web.entity.ReviewView2;
 import com.farm.web.entity.DTO.ReviewViewofIndex;
 
 @Mapper
@@ -18,6 +19,9 @@ public interface ReviewDao {
 
 	@Select("SELECT R.* ,I.name as productName FROM ReviewView R join Item I on R.itemId = I.id where pub =1 and isdel =0 order by regDate desc limit 4")
 	List<ReviewViewofIndex> indexOfReviews();
+	
+	@Select("select * from ReviewView2 where sellerId = ${id} and  ${field} like '%${query}%' order by regDate desc limit #{offset}, #{size}")
+	List<ReviewView2> getList3(int id, int offset, int size, String field, String query);
 
 	@Select("SELECT * FROM ReviewView order by regDate desc limit 10")
 	List<ReviewView> getList2();
@@ -25,6 +29,7 @@ public interface ReviewDao {
 	@Select("select r.*, m.name from Review r join Member m on r.writerId = m.id where ${field} like '%${query}%' order by regDate desc limit #{offset}, #{size}")
 	List<ReviewView> getList(int offset, int size, String field, String query);
 
+	
 	@Delete("delete from Review where id in (${id})")
 	int delete(String id);
 
