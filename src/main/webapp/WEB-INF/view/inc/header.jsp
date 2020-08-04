@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
-
     <header class="header">
         <h1 class="d-none">은풍한 Farm</h1>
         <section>
