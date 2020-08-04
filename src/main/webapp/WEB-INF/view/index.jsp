@@ -31,7 +31,7 @@
 		                    <p class="product-detail">
 		                        <span class="product-title">${item.name}</span>
 		                        <span class="product-price">${item.price }</span>
-		                        <span">${item.detail}</span>
+		                        <span>${item.detail}</span>
 		                    </p>
 	                    </li>
                     </c:forEach>
@@ -57,7 +57,7 @@
             </section>
             <section class="content-container review">
                 <h1 class="section-title">상품후기</h1>
-                <ul>
+                <ul class="ul-class">
                 	<c:forEach var="reviews" items="${reviews}">
                 	<li>
                 		<a href = /product/details/${reviews.itemId}>                		
