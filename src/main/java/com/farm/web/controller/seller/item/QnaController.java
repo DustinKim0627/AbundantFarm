@@ -45,8 +45,8 @@ public class QnaController {
 		Member member = memberDao.getByUid(uid);
 		int id =member.getId();
 
-		List<ItemQnAListView> qList = qnaService.getQnAList(page, query, field);
-		List<Item> iList = qnaService.getItemList();
+		List<ItemQnAListView> qList = qnaService.getQnAList(id, page, query, field);
+		List<Item> iList = qnaService.getItemList(id);
 		model.addAttribute("iList", iList);
 		model.addAttribute("qList", qList);
 		
@@ -57,14 +57,18 @@ public class QnaController {
 	@PostMapping("list")
 	public String list2(
 			HttpServletRequest request,
+			Principal principal,
 			Model model) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		String query = request.getParameter("fs");
 		int page = 1;
 		String field = "iName";
+		String uid = principal.getName();
+		Member member = memberDao.getByUid(uid);
+		int id =member.getId();
 		
-		List<ItemQnAListView> qList = qnaService.getQnAList(page, query, field);
-		List<Item> iList = qnaService.getItemList();
+		List<ItemQnAListView> qList = qnaService.getQnAList(id, page, query, field);
+		List<Item> iList = qnaService.getItemList(id);
 		model.addAttribute("q",query);
 		model.addAttribute("qList",qList);
 		model.addAttribute("iList", iList);
